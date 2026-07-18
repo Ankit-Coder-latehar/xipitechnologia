@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
 export default function Navbar({ onContactClick, currentView, onNavigate }) {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -19,6 +20,15 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
   };
 
   const handleItemClick = (e, item) => {
+    if (item.name === 'Solutions') {
+      const targetView = viewMap[item.name];
+      if (targetView && onNavigate) {
+        e.preventDefault();
+        onNavigate(targetView);
+        setIsSolutionsOpen(false);
+      }
+      return;
+    }
     if (item.hasDropdown) {
       e.preventDefault();
       return;
@@ -30,6 +40,33 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     }
   };
 
+  const handleSolutionItemClick = (e, solutionName) => {
+    e.preventDefault();
+    setIsSolutionsOpen(false);
+    setIsMobileMenuOpen(false);
+    if (onNavigate) {
+      if (solutionName === 'AI Marketing Automation') {
+        onNavigate('ai-marketing-automation');
+      } else if (solutionName === 'AI Content Systems') {
+        onNavigate('ai-content-systems');
+      } else if (solutionName === 'Website Design') {
+        onNavigate('web-design');
+      } else if (solutionName === 'Branding Systems') {
+        onNavigate('branding');
+      } else if (solutionName === 'Ecommerce Marketing') {
+        onNavigate('ecommerce-marketing');
+      } else {
+        onNavigate('solutions');
+        if (currentView === 'solutions') {
+          const servicesSection = document.getElementById('services');
+          if (servicesSection) {
+            servicesSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
+    }
+  };
+
   const getActiveState = (itemName) => {
     return currentView === viewMap[itemName];
   };
@@ -37,11 +74,43 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
   const navItems = [
     { name: 'Home', href: '#' },
     { name: 'About', href: '#agency' },
-    { name: 'Solutions', href: '#services' },
+    { name: 'Solutions', href: '#services', hasDropdown: true },
     { name: 'AI Consulting', href: '#services' },
     { name: 'Pricing', href: '#contact' },
     { name: 'Resources', href: '#', hasDropdown: true },
     { name: 'Contact', href: '#contact' }
+  ];
+
+  const solutionsCategories = [
+    {
+      title: 'AI Solutions',
+      items: [
+        { name: 'AI Marketing Automation', link: '#' },
+        { name: 'AI Content Systems', link: '#' },
+        { name: 'AI Workflow Setup', link: '#' },
+        { name: 'Claude AI Implementation', link: '#' },
+        { name: 'Team AI Training', link: '#' }
+      ]
+    },
+    {
+      title: 'Marketing Solutions',
+      items: [
+        { name: 'Search Engine Optimization (SEO)', link: '#' },
+        { name: 'Social Media Marketing', link: '#' },
+        { name: 'Meta Ads', link: '#' },
+        { name: 'PPC Advertising', link: '#' },
+        { name: 'Performance Marketing', link: '#' }
+      ]
+    },
+    {
+      title: 'Web & Ecommerce',
+      items: [
+        { name: 'Website Design', link: '#' },
+        { name: 'Branding Systems', link: '#' },
+        { name: 'Ecommerce Marketing', link: '#' },
+        { name: 'Marketplace Listing (Amazon, Flipkart, Meesho)', link: '#' }
+      ]
+    }
   ];
 
   const resourceCategories = [
@@ -115,14 +184,22 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
               <div
                 key={item.name}
                 className="relative"
-                onMouseEnter={() => item.hasDropdown && setIsServicesOpen(true)}
-                onMouseLeave={() => item.hasDropdown && setIsServicesOpen(false)}
+                onMouseEnter={() => {
+                  if (item.name === 'Solutions') setIsSolutionsOpen(true);
+                  if (item.name === 'Resources') setIsResourcesOpen(true);
+                }}
+                onMouseLeave={() => {
+                  if (item.name === 'Solutions') setIsSolutionsOpen(false);
+                  if (item.name === 'Resources') setIsResourcesOpen(false);
+                }}
               >
                 <a
                   href={item.href}
                   onClick={(e) => handleItemClick(e, item)}
                   className={`flex items-center gap-1 py-2 text-sm font-semibold tracking-wide transition-colors duration-300 ${
-                    getActiveState(item.name) || (item.hasDropdown && isServicesOpen)
+                    getActiveState(item.name) || 
+                    (item.name === 'Solutions' && isSolutionsOpen) ||
+                    (item.name === 'Resources' && isResourcesOpen)
                       ? 'text-brand-red'
                       : 'text-black/70 hover:text-brand-red'
                   }`}
@@ -131,16 +208,57 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                   {item.hasDropdown && (
                     <ChevronDown
                       className={`h-4 w-4 transition-transform duration-300 ${
-                        isServicesOpen ? 'rotate-180 text-brand-red' : ''
+                        (item.name === 'Solutions' && isSolutionsOpen) ||
+                        (item.name === 'Resources' && isResourcesOpen)
+                          ? 'rotate-180 text-brand-red'
+                          : ''
                       }`}
                     />
                   )}
                 </a>
 
-                {/* Dropdown menu sensor for services */}
-                {item.hasDropdown && (
+                {/* Solutions Dropdown Menu */}
+                {item.name === 'Solutions' && (
                   <AnimatePresence>
-                    {isServicesOpen && (
+                    {isSolutionsOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 15 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute left-1/2 top-full z-50 mt-2 w-[720px] -translate-x-1/2 rounded-2xl border border-brand-border bg-white p-6 shadow-xl"
+                      >
+                        <div className="grid grid-cols-3 gap-6">
+                          {solutionsCategories.map((category, idx) => (
+                            <div key={idx} className="space-y-4">
+                              <h4 className="text-xs font-bold uppercase tracking-widest text-brand-red border-b border-brand-border pb-2 select-none">
+                                {category.title}
+                              </h4>
+                              <ul className="space-y-1">
+                                {category.items.map((subItem, sIdx) => (
+                                  <li key={sIdx}>
+                                    <a
+                                      href={subItem.link}
+                                      onClick={(e) => handleSolutionItemClick(e, subItem.name)}
+                                      className="block rounded-xl px-3 py-2 text-xs font-bold text-black/70 hover:bg-brand-gray hover:text-brand-red transition-all duration-200"
+                                    >
+                                      {subItem.name}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
+
+                {/* Resources Dropdown Menu */}
+                {item.name === 'Resources' && (
+                  <AnimatePresence>
+                    {isResourcesOpen && (
                       <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -249,29 +367,63 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                     <div key={item.name}>
                       <button
                         onClick={(e) => {
-                          if (item.hasDropdown) {
-                            setIsServicesOpen(!isServicesOpen);
+                          if (item.name === 'Solutions') {
+                            setIsSolutionsOpen(!isSolutionsOpen);
+                          } else if (item.name === 'Resources') {
+                            setIsResourcesOpen(!isResourcesOpen);
                           } else {
                             handleItemClick(e, item);
                             setIsMobileMenuOpen(false);
                           }
                         }}
                         className={`flex w-full items-center justify-between text-base font-bold py-1.5 transition-colors ${
-                          getActiveState(item.name) ? 'text-brand-red' : 'text-black/80 hover:text-brand-red'
+                          getActiveState(item.name) ||
+                          (item.name === 'Solutions' && isSolutionsOpen) ||
+                          (item.name === 'Resources' && isResourcesOpen)
+                            ? 'text-brand-red'
+                            : 'text-black/80 hover:text-brand-red'
                         }`}
                       >
                         {item.name}
                         {item.hasDropdown && (
                           <ChevronDown
                             className={`h-5 w-5 transition-transform duration-300 ${
-                              isServicesOpen ? 'rotate-180 text-brand-red' : ''
+                              (item.name === 'Solutions' && isSolutionsOpen) ||
+                              (item.name === 'Resources' && isResourcesOpen)
+                                ? 'rotate-180 text-brand-red'
+                                : ''
                             }`}
                           />
                         )}
                       </button>
 
-                      {/* Dropdown items for mobile */}
-                      {item.hasDropdown && isServicesOpen && (
+                      {/* Solutions dropdown items for mobile */}
+                      {item.name === 'Solutions' && isSolutionsOpen && (
+                        <div className="mt-2 pl-4 space-y-4 border-l-2 border-brand-border">
+                          {solutionsCategories.map((category, cIdx) => (
+                            <div key={cIdx} className="space-y-1.5">
+                              <div className="text-[10px] font-bold uppercase tracking-wider text-black/40 pt-1 select-none">
+                                {category.title}
+                              </div>
+                              <div className="pl-1 space-y-2">
+                                {category.items.map((subItem, sIdx) => (
+                                  <a
+                                    key={sIdx}
+                                    href={subItem.link}
+                                    onClick={(e) => handleSolutionItemClick(e, subItem.name)}
+                                    className="block py-0.5 text-sm font-semibold text-black/70 hover:text-brand-red transition-colors"
+                                  >
+                                    {subItem.name}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Resources dropdown items for mobile */}
+                      {item.name === 'Resources' && isResourcesOpen && (
                         <div className="mt-2 pl-4 space-y-3 border-l-2 border-brand-border">
                           {resourceCategories.map((service, sIdx) => (
                             <a

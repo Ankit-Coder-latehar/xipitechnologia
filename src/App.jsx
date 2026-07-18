@@ -14,7 +14,14 @@ import ClientGrid from './components/ClientGrid';
 import AwardsAccordion from './components/AwardsAccordion';
 import ContactForm from './components/ContactForm';
 import ContactPage from './components/ContactPage';
+import AIMarketingAutomation from './components/AIMarketingAutomation';
+import AIContentSystems from './components/AIContentSystems';
+import WhyChooseUs from './components/WhyChooseUs';
+import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
+import WebDesign from './components/WebDesign';
+import Branding from './components/Branding';
+import EcommerceMarketing from './components/EcommerceMarketing';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -116,6 +123,8 @@ function App() {
               >
                 <HeroSection onContactClick={() => handleNavigate('contact')} />
                 <PortfolioSlider />
+                <WhyChooseUs />
+                <Testimonials />
                 <Showreel />
                 <ClientGrid />
                 <AwardsAccordion />
@@ -161,6 +170,71 @@ function App() {
                 </section>
                 <WhatWeDo />
                 <Roadmap />
+              </motion.div>
+            )}
+
+            {/* AI Marketing Automation View */}
+            {view === 'ai-marketing-automation' && (
+              <motion.div
+                key="ai-marketing-automation"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <AIMarketingAutomation onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* AI Content Systems View */}
+            {view === 'ai-content-systems' && (
+              <motion.div
+                key="ai-content-systems"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <AIContentSystems onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* Web Design View */}
+            {view === 'web-design' && (
+              <motion.div
+                key="web-design"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <WebDesign onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* Branding View */}
+            {view === 'branding' && (
+              <motion.div
+                key="branding"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <Branding onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* Ecommerce Marketing View */}
+            {view === 'ecommerce-marketing' && (
+              <motion.div
+                key="ecommerce-marketing"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <EcommerceMarketing onContactClick={() => handleNavigate('contact')} />
               </motion.div>
             )}
 

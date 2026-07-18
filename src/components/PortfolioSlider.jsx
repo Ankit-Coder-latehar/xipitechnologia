@@ -5,39 +5,39 @@ import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
 const projects = [
   {
     id: '01',
-    title: 'WillowWood',
-    category: 'Branding & Web Design',
-    desc: 'Engineering category-leading visual systems and high-converting portals for a historical medical prosthetics leader.',
-    tags: ['Medical Tech', '3D Graphics', 'UX Strategy', 'Next.js'],
+    title: 'AutoScale AI',
+    category: 'AI Marketing Automation',
+    desc: 'Deployed multi-agent prospecting engines scaling conversions by 4.2x and automating outbounds for a global B2B SaaS.',
+    tags: ['Lead Gen', 'AI Agents', 'Outbound Loop', 'Omnichannel'],
     color: '#FFECEC',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: '02',
-    title: 'Antidote Candle',
-    category: 'Packaging & Identity',
-    desc: 'Minimalist editorial packaging design and naming conventions establishing a premium luxury sensory brand.',
-    tags: ['Luxury Goods', 'Asset Direction', 'Print Layout', 'Logotype'],
+    title: 'AuraMedia SEO',
+    category: 'AI Content Systems',
+    desc: 'Constructed dynamic content semantic engines publishing 300+ optimized articles monthly, driving 80k+ organic visitors.',
+    tags: ['Semantic SEO', 'Content Scale', 'NLP Optimization', 'Rank Growth'],
     color: '#F3F4F6',
-    image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: '03',
-    title: 'FIFA World Cup 2026',
-    category: 'Event Brand System',
-    desc: 'Creating custom visual patterns, stadium signages, and promotional campaigns for the landmark global tournament.',
-    tags: ['Sporting Event', 'Signage Systems', 'Vector Art', 'Global Reach'],
+    title: 'ScaleLoop Performance',
+    category: 'Meta Ads & Paid Search',
+    desc: 'Engineered intent-driven PPC search structures and Meta ad loops yielding 5.4x ROAS on a $120k/mo ad budget.',
+    tags: ['Meta Ads', 'Google PPC', 'Paid Acquisition', 'ROAS Optimization'],
     color: '#ECF5FC',
-    image: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1533750349088-cd871a92f311?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: '04',
-    title: 'NYCFC Etihad Park',
-    category: 'Stadium Web Portal',
-    desc: 'Designing and building the interactive digital matchday experience for New York City Football Club\'s premium park.',
-    tags: ['Web Application', 'Tailwind', 'Realtime Data', 'Interactive Map'],
+    title: 'ApexCart Storefront',
+    category: 'Website Design & Ecommerce',
+    desc: 'Built high-speed headless ecommerce layouts reducing cart abandonment by 35% with page speed scores of 100.',
+    tags: ['Headless Commerce', 'Web Development', 'Cart Conversion', 'Vitals Tuning'],
     color: '#EDECF9',
-    image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=1200'
   }
 ];
 
