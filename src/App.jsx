@@ -22,6 +22,12 @@ import Footer from './components/Footer';
 import WebDesign from './components/WebDesign';
 import Branding from './components/Branding';
 import EcommerceMarketing from './components/EcommerceMarketing';
+import MajorServicesAccordion from './components/MajorServicesAccordion';
+import IndustryGrowthMarquee from './components/IndustryGrowthMarquee';
+import SocialMediaMarketing from './components/SocialMediaMarketing';
+import MetaAds from './components/MetaAds';
+import SearchEngineOptimization from './components/SearchEngineOptimization';
+import BlogPage from './components/BlogPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -123,8 +129,10 @@ function App() {
               >
                 <HeroSection onContactClick={() => handleNavigate('contact')} />
                 <PortfolioSlider />
-                <WhyChooseUs />
+                <WhyChooseUs onContactClick={() => handleNavigate('contact')} />
+                <MajorServicesAccordion onContactClick={() => handleNavigate('contact')} />
                 <Testimonials />
+                <IndustryGrowthMarquee onContactClick={() => handleNavigate('contact')} />
                 <Showreel />
                 <ClientGrid />
                 <AwardsAccordion />
@@ -141,9 +149,9 @@ function App() {
                 transition={{ duration: 0.35 }}
               >
                 {/* About Page Hero */}
-                <AboutHero />
+                <AboutHero onContactClick={() => handleNavigate('contact')} />
                 
-                <AboutUs />
+                <AboutUs onContactClick={() => handleNavigate('contact')} />
               </motion.div>
             )}
 
@@ -235,6 +243,58 @@ function App() {
                 transition={{ duration: 0.35 }}
               >
                 <EcommerceMarketing onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* Social Media Marketing View */}
+            {view === 'social-media' && (
+              <motion.div
+                key="social-media"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <SocialMediaMarketing onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* Meta Ads & Paid Advertising View */}
+            {view === 'meta-ads' && (
+              <motion.div
+                key="meta-ads"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <MetaAds onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* Search Engine Optimization View */}
+            {view === 'seo' && (
+              <motion.div
+                key="seo"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <SearchEngineOptimization onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* Blog & Insights View */}
+            {view === 'blog' && (
+              <motion.div
+                key="blog"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <BlogPage onContactClick={() => handleNavigate('contact')} />
               </motion.div>
             )}
 

@@ -16,6 +16,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     'Solutions': 'solutions',
     'AI Consulting': 'solutions',
     'Pricing': 'contact',
+    'Blog': 'blog',
     'Contact': 'contact'
   };
 
@@ -53,8 +54,14 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
         onNavigate('web-design');
       } else if (solutionName === 'Branding Systems') {
         onNavigate('branding');
-      } else if (solutionName === 'Ecommerce Marketing') {
+      } else if (solutionName === 'Ecommerce Marketing' || solutionName === 'Ecommerce') {
         onNavigate('ecommerce-marketing');
+      } else if (solutionName === 'Social Media Marketing') {
+        onNavigate('social-media');
+      } else if (solutionName === 'Meta Ads' || solutionName === 'PPC Advertising' || solutionName === 'Performance Marketing') {
+        onNavigate('meta-ads');
+      } else if (solutionName === 'Search Engine Optimization (SEO)' || solutionName === 'SEO') {
+        onNavigate('seo');
       } else {
         onNavigate('solutions');
         if (currentView === 'solutions') {
@@ -64,6 +71,14 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
           }
         }
       }
+    }
+  };
+
+  const handleResourceItemClick = (e, resourceTitle) => {
+    e.preventDefault();
+    setIsResourcesOpen(false);
+    if (resourceTitle === 'Blog') {
+      if (onNavigate) onNavigate('blog');
     }
   };
 
@@ -271,7 +286,8 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                             <a
                               key={idx}
                               href={service.link}
-                              className="block rounded-xl p-3 border border-transparent hover:border-brand-border hover:bg-brand-gray transition-all duration-200 group"
+                              onClick={(e) => handleResourceItemClick(e, service.title)}
+                              className="block rounded-xl p-3 border border-transparent hover:border-brand-border hover:bg-brand-gray transition-all duration-200 group cursor-pointer"
                             >
                               <h4 className="text-sm font-bold text-black group-hover:text-brand-red transition-colors">
                                 {service.title}
