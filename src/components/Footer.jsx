@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ onNavigate }) {
   return (
     <footer className="bg-black text-white pt-24 pb-12 border-t border-white/10 select-none">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
@@ -31,8 +31,34 @@ export default function Footer() {
               Agency
             </span>
             <ul className="space-y-2.5 text-sm font-semibold text-white/70">
-              <li><a href="#work" className="hover:text-brand-red transition-colors duration-200">Our Work</a></li>
-              <li><a href="#agency" className="hover:text-brand-red transition-colors duration-200">About Us</a></li>
+              <li>
+                <a 
+                  href="#work" 
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('case-studies');
+                    }
+                  }}
+                  className="hover:text-brand-red transition-colors duration-200"
+                >
+                  Our Work & Case Studies
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#agency" 
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('about');
+                    }
+                  }}
+                  className="hover:text-brand-red transition-colors duration-200"
+                >
+                  About Us
+                </a>
+              </li>
               <li><a href="#services" className="hover:text-brand-red transition-colors duration-200">Capabilities</a></li>
               <li><a href="#careers" className="hover:text-brand-red transition-colors duration-200 flex items-center gap-1.5">Careers <span className="text-[10px] rounded-full bg-brand-red px-1.5 py-0.5 text-white">Hiring</span></a></li>
             </ul>

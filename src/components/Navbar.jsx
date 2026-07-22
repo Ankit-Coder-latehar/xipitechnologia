@@ -14,7 +14,9 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     'Home': 'home',
     'About': 'about',
     'Solutions': 'solutions',
-    'AI Consulting': 'solutions',
+    'Academy': 'academy',
+    'Case Studies': 'case-studies',
+    'AI Consulting': 'academy',
     'Pricing': 'contact',
     'Blog': 'blog',
     'Contact': 'contact'
@@ -46,7 +48,9 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     setIsSolutionsOpen(false);
     setIsMobileMenuOpen(false);
     if (onNavigate) {
-      if (solutionName === 'AI Marketing Automation') {
+      if (solutionName === 'Academy' || solutionName === 'Academy Courses' || solutionName === 'AI Consulting' || solutionName === 'AI Workflow Setup' || solutionName === 'Claude AI Implementation' || solutionName === 'Team AI Training') {
+        onNavigate('academy');
+      } else if (solutionName === 'AI Marketing Automation') {
         onNavigate('ai-marketing-automation');
       } else if (solutionName === 'AI Content Systems') {
         onNavigate('ai-content-systems');
@@ -77,8 +81,11 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
   const handleResourceItemClick = (e, resourceTitle) => {
     e.preventDefault();
     setIsResourcesOpen(false);
+    setIsMobileMenuOpen(false);
     if (resourceTitle === 'Blog') {
       if (onNavigate) onNavigate('blog');
+    } else if (resourceTitle === 'Case Studies' || resourceTitle === 'Case Studies (future)') {
+      if (onNavigate) onNavigate('case-studies');
     }
   };
 
@@ -90,7 +97,8 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     { name: 'Home', href: '#' },
     { name: 'About', href: '#agency' },
     { name: 'Solutions', href: '#services', hasDropdown: true },
-    { name: 'AI Consulting', href: '#services' },
+    { name: 'Case Studies', href: '#case-studies' },
+    { name: 'Academy', href: '#academy' },
     { name: 'Pricing', href: '#contact' },
     { name: 'Resources', href: '#', hasDropdown: true },
     { name: 'Contact', href: '#contact' }
@@ -130,7 +138,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
 
   const resourceCategories = [
     { title: 'Blog', desc: 'Read our latest articles on AI & growth.', link: '#' },
-    { title: 'Case Studies (future)', desc: 'Detailed stories of partner success.', link: '#' },
+    { title: 'Case Studies', desc: 'Detailed stories of partner success.', link: '#' },
     { title: 'Free AI Tools (future)', desc: 'Explore our library of free AI engines.', link: '#' }
   ];
 

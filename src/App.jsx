@@ -16,6 +16,7 @@ import ContactForm from './components/ContactForm';
 import ContactPage from './components/ContactPage';
 import AIMarketingAutomation from './components/AIMarketingAutomation';
 import AIContentSystems from './components/AIContentSystems';
+import Academy from './components/Academy';
 import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
@@ -28,6 +29,10 @@ import SocialMediaMarketing from './components/SocialMediaMarketing';
 import MetaAds from './components/MetaAds';
 import SearchEngineOptimization from './components/SearchEngineOptimization';
 import BlogPage from './components/BlogPage';
+import CaseStudies from './components/CaseStudies';
+import AlumniCompanies from './components/AlumniCompanies';
+import CertificationCourses from './components/CertificationCourses';
+import BeginJourneyCTA from './components/BeginJourneyCTA';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -129,6 +134,8 @@ function App() {
               >
                 <HeroSection onContactClick={() => handleNavigate('contact')} />
                 <PortfolioSlider />
+                <AlumniCompanies />
+                <CertificationCourses onNavigate={handleNavigate} />
                 <WhyChooseUs onContactClick={() => handleNavigate('contact')} />
                 <MajorServicesAccordion onContactClick={() => handleNavigate('contact')} />
                 <Testimonials />
@@ -136,6 +143,7 @@ function App() {
                 <Showreel />
                 <ClientGrid />
                 <AwardsAccordion />
+                <BeginJourneyCTA onContactClick={() => handleNavigate('contact')} />
               </motion.div>
             )}
 
@@ -178,6 +186,19 @@ function App() {
                 </section>
                 <WhatWeDo />
                 <Roadmap />
+              </motion.div>
+            )}
+
+            {/* Academy View */}
+            {(view === 'academy' || view === 'ai-consulting') && (
+              <motion.div
+                key="academy"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <Academy onContactClick={() => handleNavigate('contact')} />
               </motion.div>
             )}
 
@@ -298,6 +319,19 @@ function App() {
               </motion.div>
             )}
 
+            {/* Case Studies View */}
+            {(view === 'case-studies' || view === 'work') && (
+              <motion.div
+                key="case-studies"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <CaseStudies onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
             {/* Contact View */}
             {view === 'contact' && (
               <motion.div
@@ -315,7 +349,7 @@ function App() {
         </main>
 
         {/* Site directory footer map */}
-        <Footer />
+        <Footer onNavigate={handleNavigate} />
       </div>
     </>
   );
