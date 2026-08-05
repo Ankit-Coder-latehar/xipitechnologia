@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, MapPin, Mail, Phone, Clock, CheckCircle2 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const projectBudgets = [
   '$10k – $25k',
@@ -180,6 +181,24 @@ export default function ContactPage() {
                     )}
                   </button>
 
+                  {/* Or Chat on WhatsApp */}
+                  <div className="pt-2 text-center">
+                    <div className="relative flex py-2 items-center">
+                      <div className="flex-grow border-t border-brand-border"></div>
+                      <span className="flex-shrink mx-4 text-[10px] font-bold uppercase tracking-widest text-black/40">Or Chat Instantly</span>
+                      <div className="flex-grow border-t border-brand-border"></div>
+                    </div>
+                    <a
+                      href="https://wa.me/12123801761?text=Hello%20Xipitechnologia!%20I'm%20on%20the%20contact%20page%20and%20want%20to%20discuss%20a%20project."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 w-full flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] py-3.5 text-xs font-extrabold uppercase tracking-wider text-white transition-all duration-300 shadow-md hover:shadow-lg active:scale-95"
+                    >
+                      <WhatsAppIcon className="h-4 w-4 fill-white" />
+                      Chat Directly on WhatsApp
+                    </a>
+                  </div>
+
                 </form>
               ) : (
                 <motion.div
@@ -291,8 +310,8 @@ export default function ContactPage() {
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-black/40">General Inquiries</span>
                 </div>
                 <p className="text-sm font-semibold text-black leading-relaxed">
-                  hello@xipitechnolia.com<br />
-                  partners@xipitechnolia.com
+                  hello@xipitechnologia.com<br />
+                  partners@xipitechnologia.com
                 </p>
               </div>
 
@@ -305,6 +324,31 @@ export default function ContactPage() {
                   +1 212.380.1761<br />
                   Press: ext 402
                 </p>
+              </div>
+
+              {/* WhatsApp Card */}
+              <div className="space-y-3 bg-[#25D366]/5 p-4 rounded-2xl border border-[#25D366]/20 col-span-1 sm:col-span-2">
+                <div className="flex items-center gap-2 text-[#25D366]">
+                  <WhatsAppIcon className="h-4 w-4 fill-current" />
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#128C7E]">Instant WhatsApp Consultation</span>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-bold text-black">
+                      +1 (212) 380-1761
+                    </p>
+                    <p className="text-xs text-black/50">Available 24/7 for project & agency inquiries</p>
+                  </div>
+                  <a 
+                    href="https://wa.me/12123801761?text=Hello%20Xipitechnologia!%20I'm%20on%20the%20contact%20page%20and%20would%20like%20to%20chat."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] px-4 py-2 text-xs font-bold text-white transition-colors shadow-xs"
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5 fill-white" />
+                    Open WhatsApp Chat
+                  </a>
+                </div>
               </div>
 
             </div>

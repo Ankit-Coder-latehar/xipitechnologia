@@ -42,7 +42,7 @@ const featuredSpotlight = {
   solution: 'Engineered a custom Next.js 15 headless web architecture integrated with real-time API endpoints, custom micro-interactions, and a streamlined 3-step KYC onboarding flow.',
   stack: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GraphQL', 'AWS CloudFront'],
   testimonial: {
-    quote: 'Xipitechnolia delivered an award-winning web platform that completely unlocked our Series B fundraising. The speed and UX craftsmanship are unparalleled.',
+    quote: 'Xipitechnologia delivered an award-winning web platform that completely unlocked our Series B fundraising. The speed and UX craftsmanship are unparalleled.',
     author: 'Marcus Vance',
     role: 'Chief Technology Officer, FinEdge'
   }
@@ -67,7 +67,7 @@ const caseStudiesData = [
     solution: 'Implemented Meta Pixel CAPI, constructed multi-tier bundle offers, and redesigned the mobile shopping cart with instant upsell flows.',
     stack: ['Shopify Plus', 'Meta Ads Manager', 'Triple Whale', 'Klaviyo', 'Hotjar'],
     testimonial: {
-      quote: 'Our ROAS jumped from 1.8x to 5.4x in under 90 days. Xipitechnolia is the growth engine every modern D2C brand needs.',
+      quote: 'Our ROAS jumped from 1.8x to 5.4x in under 90 days. Xipitechnologia is the growth engine every modern D2C brand needs.',
       author: 'Sophia Chen',
       role: 'Founder & CMO, Aura Fragrances'
     }
@@ -113,7 +113,7 @@ const caseStudiesData = [
     solution: 'Designed a sleek black/gold design system with WebGL interactive 3D product modeling and instant page transitions.',
     stack: ['React', 'Three.js', 'Sanity CMS', 'Tailwind CSS', 'Vercel'],
     testimonial: {
-      quote: 'Xipitechnolia understood our high-fashion aesthetic effortlessly and backed it up with blazing-fast web tech.',
+      quote: 'Xipitechnologia understood our high-fashion aesthetic effortlessly and backed it up with blazing-fast web tech.',
       author: 'Camille Laurent',
       role: 'Creative Director, Vogue Vision'
     }
@@ -182,7 +182,7 @@ const caseStudiesData = [
     solution: 'Created a modular dashboard with customizable widget layouts, interactive charting tools, and instant 1-click trading tools.',
     stack: ['React', 'TradingView API', 'Tailwind CSS', 'Node.js', 'Redis'],
     testimonial: {
-      quote: 'The UX makeover resulted in a record $120M monthly volume. Xipitechnolia is unmatched in digital execution.',
+      quote: 'The UX makeover resulted in a record $120M monthly volume. Xipitechnologia is unmatched in digital execution.',
       author: 'Elena Rostova',
       role: 'Head of Product, Apex Digital'
     }
@@ -259,7 +259,7 @@ export default function CaseStudies({ onContactClick }) {
             className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 text-brand-red text-xs font-bold tracking-widest uppercase mb-6"
           >
             <Sparkles className="h-4 w-4 text-brand-red animate-pulse" />
-            <span>XIPITECHNOLIA FEATURED CASE STUDIES</span>
+            <span>XIPITECHNOLOGIA FEATURED CASE STUDIES</span>
           </motion.div>
 
           <motion.h1

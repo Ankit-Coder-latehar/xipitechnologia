@@ -92,7 +92,7 @@ export default function WhatWeDo() {
                 <span className="h-2 w-2 rounded-full bg-black/10" />
                 <span className="h-2 w-2 rounded-full bg-black/10" />
                 <div className="h-3 w-32 bg-white rounded-md border border-brand-border ml-2 flex items-center justify-center text-[7px] text-black/40 font-bold select-none">
-                  xipitechnolia.com/rankings
+                  xipitechnologia.com/rankings
                 </div>
               </div>
 
@@ -229,7 +229,7 @@ export default function WhatWeDo() {
                     XI
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[8px] font-bold text-black">xipitechnolia.com</span>
+                    <span className="text-[8px] font-bold text-black">xipitechnologia.com</span>
                     <span className="text-[6px] text-black/40 font-bold">New York, NY</span>
                   </div>
                 </div>

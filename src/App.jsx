@@ -28,11 +28,15 @@ import IndustryGrowthMarquee from './components/IndustryGrowthMarquee';
 import SocialMediaMarketing from './components/SocialMediaMarketing';
 import MetaAds from './components/MetaAds';
 import SearchEngineOptimization from './components/SearchEngineOptimization';
+import PerformanceMarketing from './components/PerformanceMarketing';
+import PpcAdvertising from './components/PpcAdvertising';
 import BlogPage from './components/BlogPage';
 import CaseStudies from './components/CaseStudies';
+import PortfolioPage from './components/PortfolioPage';
 import AlumniCompanies from './components/AlumniCompanies';
 import CertificationCourses from './components/CertificationCourses';
 import BeginJourneyCTA from './components/BeginJourneyCTA';
+import WhatsAppWidget from './components/WhatsAppWidget';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,10 +46,10 @@ function App() {
   // Lost Focus Tab Title swap
   useEffect(() => {
     const handleBlur = () => {
-      document.title = 'Xipitechnolia® misses you!';
+      document.title = 'Xipitechnologia® misses you!';
     };
     const handleFocus = () => {
-      document.title = 'Award-Winning Digital Design Agency | Xipitechnolia®';
+      document.title = 'Award-Winning Digital Design Agency | Xipitechnologia®';
     };
 
     window.addEventListener('blur', handleBlur);
@@ -99,7 +103,7 @@ function App() {
               className="fixed inset-0 z-50 bg-black flex items-center justify-center pointer-events-none"
             >
               <span className="font-display font-extrabold text-4xl text-white tracking-tighter">
-                Xipitechnolia
+                Xipitechnologia
               </span>
             </motion.div>
           </>
@@ -132,12 +136,15 @@ function App() {
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.35 }}
               >
-                <HeroSection onContactClick={() => handleNavigate('contact')} />
-                <PortfolioSlider />
+                <HeroSection 
+                  onContactClick={() => handleNavigate('contact')} 
+                  onViewWorkClick={() => handleNavigate('portfolio')}
+                />
+                <PortfolioSlider onNavigate={handleNavigate} />
                 <AlumniCompanies />
                 <CertificationCourses onNavigate={handleNavigate} />
                 <WhyChooseUs onContactClick={() => handleNavigate('contact')} />
-                <MajorServicesAccordion onContactClick={() => handleNavigate('contact')} />
+                <MajorServicesAccordion onContactClick={() => handleNavigate('contact')} onNavigate={handleNavigate} />
                 <Testimonials />
                 <IndustryGrowthMarquee onContactClick={() => handleNavigate('contact')} />
                 <Showreel />
@@ -293,6 +300,32 @@ function App() {
               </motion.div>
             )}
 
+            {/* Performance Marketing View */}
+            {(view === 'performance-marketing' || view === 'performance') && (
+              <motion.div
+                key="performance-marketing"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <PerformanceMarketing onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* PPC Advertising View */}
+            {(view === 'ppc-advertising' || view === 'ppc') && (
+              <motion.div
+                key="ppc-advertising"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <PpcAdvertising onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
             {/* Search Engine Optimization View */}
             {view === 'seo' && (
               <motion.div
@@ -319,16 +352,19 @@ function App() {
               </motion.div>
             )}
 
-            {/* Case Studies View */}
-            {(view === 'case-studies' || view === 'work') && (
+            {/* Portfolio & Case Studies View */}
+            {(view === 'portfolio' || view === 'case-studies' || view === 'work') && (
               <motion.div
-                key="case-studies"
+                key="portfolio"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.35 }}
               >
-                <CaseStudies onContactClick={() => handleNavigate('contact')} />
+                <PortfolioPage 
+                  onContactClick={() => handleNavigate('contact')} 
+                  onNavigate={handleNavigate}
+                />
               </motion.div>
             )}
 
@@ -350,6 +386,9 @@ function App() {
 
         {/* Site directory footer map */}
         <Footer onNavigate={handleNavigate} />
+
+        {/* Global Floating WhatsApp Widget */}
+        <WhatsAppWidget />
       </div>
     </>
   );

@@ -45,8 +45,19 @@ const services = [
   }
 ];
 
-export default function MajorServicesAccordion({ onContactClick }) {
+export default function MajorServicesAccordion({ onContactClick, onNavigate }) {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleServiceClick = (serviceId) => {
+    if (onNavigate) {
+      if (serviceId === 'performance-marketing') onNavigate('performance-marketing');
+      else if (serviceId === 'seo') onNavigate('seo');
+      else if (serviceId === 'branding') onNavigate('branding');
+      else onContactClick();
+    } else {
+      onContactClick();
+    }
+  };
 
   return (
     <section className="relative w-full bg-[#FAF9F6] py-24 lg:py-32 border-t border-brand-border select-none overflow-hidden">
@@ -137,7 +148,7 @@ export default function MajorServicesAccordion({ onContactClick }) {
                       </p>
                       <div className="pt-2">
                         <button
-                          onClick={onContactClick}
+                          onClick={() => handleServiceClick(service.id)}
                           className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white text-xs font-extrabold px-6 py-3 rounded-xl shadow-lg shadow-brand-red/20 transition-all hover:scale-105"
                         >
                           <span>Explore {service.title}</span>
@@ -212,7 +223,7 @@ export default function MajorServicesAccordion({ onContactClick }) {
                 </p>
 
                 <button
-                  onClick={onContactClick}
+                  onClick={() => handleServiceClick(service.id)}
                   className="w-full inline-flex items-center justify-center gap-2 bg-black text-white text-xs font-extrabold py-3.5 rounded-xl"
                 >
                   <span>Explore Service</span>

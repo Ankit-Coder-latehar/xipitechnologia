@@ -81,7 +81,7 @@ export default function AboutUs({ onContactClick }) {
                 <span className="text-black/40">and our story.</span>
               </h2>
               <p className="text-zinc-600 text-base sm:text-lg leading-relaxed font-normal max-w-xl">
-                Xipitechnolia® was founded out of a passion for high-end digital design, algorithmic performance marketing, and creative agency innovation. We seamlessly merge artistic vision with engineering precision to help ambitious brands build category dominance.
+                Xipitechnologia® was founded out of a passion for high-end digital design, algorithmic performance marketing, and creative agency innovation. We seamlessly merge artistic vision with engineering precision to help ambitious brands build category dominance.
               </p>
             </motion.div>
 
@@ -293,7 +293,7 @@ export default function AboutUs({ onContactClick }) {
           
           <div className="space-y-3 max-w-xl mx-auto">
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-blue-600">
-              CULTURE & LIFE AT XIPITECHNOLIA®
+              CULTURE & LIFE AT XIPITECHNOLOGIA®
             </span>
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight uppercase leading-tight text-black">
               THERE'S WORK AND THERE'S PLAY

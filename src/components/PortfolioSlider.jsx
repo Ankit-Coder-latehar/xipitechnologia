@@ -41,7 +41,7 @@ const projects = [
   }
 ];
 
-export default function PortfolioSlider() {
+export default function PortfolioSlider({ onNavigate }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1 for left, 1 for right
   const [progress, setProgress] = useState(0);
@@ -181,13 +181,15 @@ export default function PortfolioSlider() {
                     ))}
                   </div>
 
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black hover:text-brand-red transition-colors group"
+                  <button
+                    onClick={() => {
+                      if (onNavigate) onNavigate('portfolio');
+                    }}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black hover:text-brand-red transition-colors group cursor-pointer"
                   >
                     View Project Case Study
                     <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -205,6 +207,19 @@ export default function PortfolioSlider() {
 
             </motion.div>
           </AnimatePresence>
+        </div>
+
+        {/* Explore All Projects CTA */}
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={() => {
+              if (onNavigate) onNavigate('portfolio');
+            }}
+            className="group flex items-center justify-center gap-2.5 rounded-full bg-black px-8 py-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-brand-red transition-all duration-300 active:scale-95 shadow-md cursor-pointer"
+          >
+            <span>Explore All Showcase Projects</span>
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+          </button>
         </div>
 
       </div>

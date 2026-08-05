@@ -148,7 +148,7 @@ const perks = [
   {
     icon: Laptop,
     title: '100% Live Agency Projects',
-    desc: 'Work on actual client projects managed by Xipitechnolia agency, giving you real portfolio proof before graduation.'
+    desc: 'Work on actual client projects managed by Xipitechnologia agency, giving you real portfolio proof before graduation.'
   },
   {
     icon: Users,
@@ -173,7 +173,7 @@ const successStories = [
     role: 'Full-Stack Developer at Tech Corp',
     course: 'Full-Stack Web Development Mastery',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=250',
-    quote: 'Xipitechnolia Academy transformed my career! The hands-on project work gave me the exact confidence needed to clear technical interviews effortlessly.',
+    quote: 'Xipitechnologia Academy transformed my career! The hands-on project work gave me the exact confidence needed to clear technical interviews effortlessly.',
     package: 'Package: $78,000/yr'
   },
   {
@@ -209,7 +209,7 @@ const faqs = [
   },
   {
     q: 'Will I get to work on real client projects?',
-    a: 'Yes! Unlike theoretical courses, Xipitechnolia Academy integrates real client briefs from our active digital agency operations into your curriculum capstone.'
+    a: 'Yes! Unlike theoretical courses, Xipitechnologia Academy integrates real client briefs from our active digital agency operations into your curriculum capstone.'
   },
   {
     q: 'Are EMI or flexible payment options available?',
@@ -293,7 +293,7 @@ export default function Academy({ onContactClick }) {
             className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 text-brand-red text-xs font-bold tracking-widest uppercase mb-6 shadow-inner"
           >
             <Sparkles className="h-4 w-4 text-brand-red animate-pulse" />
-            <span>XIPITECHNOLIA CAREER ACADEMY</span>
+            <span>XIPITECHNOLOGIA CAREER ACADEMY</span>
           </motion.div>
 
           {/* Main Title */}
@@ -542,7 +542,7 @@ export default function Academy({ onContactClick }) {
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-red">
-              THE XIPITECHNOLIA EDGE
+              THE XIPITECHNOLOGIA EDGE
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white mt-2">
               Why Learn With Our Agency?

@@ -442,7 +442,7 @@ export default function SearchEngineOptimization({ onContactClick }) {
 
             <div className="bg-[#050507] p-8 rounded-3xl border border-sky-500/30 space-y-4 shadow-xl">
               <span className="text-xs font-black uppercase tracking-[0.3em] text-sky-400">
-                XIPITECHNOLIA 2026 AI SEO (DOMINANT)
+                XIPITECHNOLOGIA 2026 AI SEO (DOMINANT)
               </span>
               <h4 className="text-xl font-bold text-white">Google Rank #1 + AI Citation Engine</h4>
               <ul className="space-y-3 text-xs text-zinc-300">

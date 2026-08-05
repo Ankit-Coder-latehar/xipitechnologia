@@ -59,7 +59,7 @@ export default function Preloader({ onComplete }) {
               Xipi
             </span>
             <span className="text-brand-red font-display font-extrabold text-3xl sm:text-5xl md:text-7xl tracking-tighter">
-              technolia
+              technologia
             </span>
             <span className="text-xs sm:text-sm font-semibold tracking-normal text-white/40 self-start mt-2 sm:mt-4">
               ®
@@ -120,7 +120,7 @@ export default function Preloader({ onComplete }) {
                   exit={{ y: -20, opacity: 0 }}
                   className="text-xs sm:text-sm tracking-[0.3em] font-medium text-white uppercase"
                 >
-                  Welcome to Xipitechnolia
+                  Welcome to Xipitechnologia
                 </motion.p>
               )}
             </AnimatePresence>

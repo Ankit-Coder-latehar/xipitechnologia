@@ -14,8 +14,9 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     'Home': 'home',
     'About': 'about',
     'Solutions': 'solutions',
+    'Portfolio': 'portfolio',
+    'Case Studies': 'portfolio',
     'Academy': 'academy',
-    'Case Studies': 'case-studies',
     'AI Consulting': 'academy',
     'Pricing': 'contact',
     'Blog': 'blog',
@@ -62,7 +63,11 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
         onNavigate('ecommerce-marketing');
       } else if (solutionName === 'Social Media Marketing') {
         onNavigate('social-media');
-      } else if (solutionName === 'Meta Ads' || solutionName === 'PPC Advertising' || solutionName === 'Performance Marketing') {
+      } else if (solutionName === 'Performance Marketing') {
+        onNavigate('performance-marketing');
+      } else if (solutionName === 'PPC Advertising') {
+        onNavigate('ppc-advertising');
+      } else if (solutionName === 'Meta Ads') {
         onNavigate('meta-ads');
       } else if (solutionName === 'Search Engine Optimization (SEO)' || solutionName === 'SEO') {
         onNavigate('seo');
@@ -84,8 +89,8 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     setIsMobileMenuOpen(false);
     if (resourceTitle === 'Blog') {
       if (onNavigate) onNavigate('blog');
-    } else if (resourceTitle === 'Case Studies' || resourceTitle === 'Case Studies (future)') {
-      if (onNavigate) onNavigate('case-studies');
+    } else if (resourceTitle === 'Case Studies' || resourceTitle === 'Portfolio') {
+      if (onNavigate) onNavigate('portfolio');
     }
   };
 
@@ -97,11 +102,10 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     { name: 'Home', href: '#' },
     { name: 'About', href: '#agency' },
     { name: 'Solutions', href: '#services', hasDropdown: true },
-    { name: 'Case Studies', href: '#case-studies' },
+    { name: 'Portfolio', href: '#portfolio' },
     { name: 'Academy', href: '#academy' },
     { name: 'Pricing', href: '#contact' },
     { name: 'Resources', href: '#', hasDropdown: true },
-    { name: 'Contact', href: '#contact' }
   ];
 
   const solutionsCategories = [
@@ -145,7 +149,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Scrolled styling trigger
       if (currentScrollY > 20) {
         setIsScrolled(true);
@@ -170,11 +174,10 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${
-        isScrolled 
-          ? 'bg-white/90 backdrop-blur-md border-b border-brand-border shadow-sm' 
-          : 'bg-white/50 border-b border-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${isScrolled
+        ? 'bg-white/90 backdrop-blur-md border-b border-brand-border shadow-sm'
+        : 'bg-white/50 border-b border-transparent'
+        }`}
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -182,27 +185,27 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <div className="flex h-20 items-center justify-between">
-          
+
           {/* Logo */}
-          <a 
-            href="#" 
+          <a
+            href="#"
             onClick={(e) => {
               e.preventDefault();
               if (onNavigate) onNavigate('home');
             }}
-            className="flex items-center gap-1.5 group select-none"
+            className="flex items-center gap-1.5 group select-none shrink-0"
           >
             <span className="font-display font-extrabold text-2xl tracking-tighter text-black group-hover:text-brand-red transition-colors duration-300">
               Xipi
             </span>
             <span className="text-brand-red font-display font-extrabold text-2xl tracking-tighter">
-              technolia
+              technologia
             </span>
             <span className="text-[8px] font-bold text-black/40 self-start mt-1">®</span>
           </a>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-3 lg:gap-6 xl:gap-8">
             {navItems.map((item) => (
               <div
                 key={item.name}
@@ -219,23 +222,21 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                 <a
                   href={item.href}
                   onClick={(e) => handleItemClick(e, item)}
-                  className={`flex items-center gap-1 py-2 text-sm font-semibold tracking-wide transition-colors duration-300 ${
-                    getActiveState(item.name) || 
+                  className={`flex items-center gap-1 py-2 text-xs lg:text-sm font-semibold tracking-wide transition-colors duration-300 whitespace-nowrap ${getActiveState(item.name) ||
                     (item.name === 'Solutions' && isSolutionsOpen) ||
                     (item.name === 'Resources' && isResourcesOpen)
-                      ? 'text-brand-red'
-                      : 'text-black/70 hover:text-brand-red'
-                  }`}
+                    ? 'text-brand-red'
+                    : 'text-black/70 hover:text-brand-red'
+                    }`}
                 >
                   {item.name}
                   {item.hasDropdown && (
                     <ChevronDown
-                      className={`h-4 w-4 transition-transform duration-300 ${
-                        (item.name === 'Solutions' && isSolutionsOpen) ||
+                      className={`h-4 w-4 transition-transform duration-300 ${(item.name === 'Solutions' && isSolutionsOpen) ||
                         (item.name === 'Resources' && isResourcesOpen)
-                          ? 'rotate-180 text-brand-red'
-                          : ''
-                      }`}
+                        ? 'rotate-180 text-brand-red'
+                        : ''
+                        }`}
                     />
                   )}
                 </a>
@@ -315,13 +316,13 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
           </nav>
 
           {/* Contact Button */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center shrink-0">
             <button
               onClick={onContactClick}
-              className="flex items-center gap-2 rounded-full bg-black px-6 py-3 text-xs font-bold uppercase tracking-wider text-white hover:bg-brand-red transition-colors duration-300 active:scale-95"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-black px-5.5 py-3 text-xs font-bold uppercase tracking-wider text-white hover:bg-brand-red transition-all duration-300 active:scale-95 shadow-sm leading-none whitespace-nowrap cursor-pointer"
             >
-              Book a Free Strategy Call
-              <ArrowRight className="h-3.5 w-3.5" />
+              <span>Book a Free Strategy Call</span>
+              <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
 
@@ -361,8 +362,8 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
             >
               <div>
                 <div className="flex items-center justify-between pb-6 border-b border-brand-border mb-6">
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsMobileMenuOpen(false);
@@ -374,7 +375,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                       Xipi
                     </span>
                     <span className="text-brand-red font-display font-extrabold text-xl">
-                      technolia
+                      technologia
                     </span>
                     <span className="text-[8px] font-bold text-black/40 self-start mt-1">®</span>
                   </a>
@@ -400,23 +401,21 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                             setIsMobileMenuOpen(false);
                           }
                         }}
-                        className={`flex w-full items-center justify-between text-base font-bold py-1.5 transition-colors ${
-                          getActiveState(item.name) ||
+                        className={`flex w-full items-center justify-between text-base font-bold py-1.5 transition-colors ${getActiveState(item.name) ||
                           (item.name === 'Solutions' && isSolutionsOpen) ||
                           (item.name === 'Resources' && isResourcesOpen)
-                            ? 'text-brand-red'
-                            : 'text-black/80 hover:text-brand-red'
-                        }`}
+                          ? 'text-brand-red'
+                          : 'text-black/80 hover:text-brand-red'
+                          }`}
                       >
                         {item.name}
                         {item.hasDropdown && (
                           <ChevronDown
-                            className={`h-5 w-5 transition-transform duration-300 ${
-                              (item.name === 'Solutions' && isSolutionsOpen) ||
+                            className={`h-5 w-5 transition-transform duration-300 ${(item.name === 'Solutions' && isSolutionsOpen) ||
                               (item.name === 'Resources' && isResourcesOpen)
-                                ? 'rotate-180 text-brand-red'
-                                : ''
-                            }`}
+                              ? 'rotate-180 text-brand-red'
+                              : ''
+                              }`}
                           />
                         )}
                       </button>
@@ -474,9 +473,10 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                     setIsMobileMenuOpen(false);
                     onContactClick();
                   }}
-                  className="w-full flex items-center justify-center gap-2 rounded-full bg-black py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-brand-red transition-colors"
+                  className="group w-full inline-flex items-center justify-center gap-2.5 rounded-full bg-black py-3.5 px-5 text-xs font-bold uppercase tracking-wider text-white hover:bg-brand-red transition-all duration-300 active:scale-95 shadow-sm leading-none whitespace-nowrap cursor-pointer"
                 >
-                  Book a Free Strategy Call
+                  <span>Book a Free Strategy Call</span>
+                  <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
             </motion.div>

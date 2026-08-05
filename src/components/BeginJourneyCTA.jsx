@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PhoneCall, ArrowRight, CheckCircle2, Sparkles, X, Check } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function BeginJourneyCTA({ onContactClick }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -104,15 +105,25 @@ export default function BeginJourneyCTA({ onContactClick }) {
               </p>
             </div>
 
-            {/* Pill Outline Button: FIND OUT MORE */}
-            <div className="pt-6">
+            {/* Action Buttons */}
+            <div className="pt-6 flex flex-wrap gap-4 items-center">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center justify-center gap-3 border-2 border-neutral-900 hover:bg-neutral-900 hover:text-white text-neutral-900 font-extrabold px-10 py-4 rounded-full text-base tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-xl hover:scale-105 group"
+                className="inline-flex items-center justify-center gap-3 border-2 border-neutral-900 hover:bg-neutral-900 hover:text-white text-neutral-900 font-extrabold px-8 py-4 rounded-full text-base tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-xl hover:scale-105 group"
               >
                 <span>FIND OUT MORE</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
+
+              <a
+                href="https://wa.me/12123801761?text=Hello%20Xipitechnologia!%20I'm%20ready%20to%20begin%20my%20digital%20marketing%20journey."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold px-8 py-4 rounded-full text-base tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-xl hover:scale-105"
+              >
+                <WhatsAppIcon className="h-5 w-5 fill-white" />
+                <span>CHAT ON WHATSAPP</span>
+              </a>
             </div>
 
           </motion.div>

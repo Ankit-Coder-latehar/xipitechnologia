@@ -23,7 +23,7 @@ const slides = [
   }
 ];
 
-export default function HeroSection({ onContactClick }) {
+export default function HeroSection({ onContactClick, onViewWorkClick }) {
   const [slideIndex, setSlideIndex] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -186,12 +186,23 @@ export default function HeroSection({ onContactClick }) {
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
 
-              <a
-                href="#work"
-                className="group flex items-center justify-center gap-2 rounded-full border border-brand-border bg-white px-7 py-4 text-xs font-bold uppercase tracking-wider text-black hover:border-black transition-colors duration-300 active:scale-95"
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onViewWorkClick) {
+                    onViewWorkClick();
+                  } else {
+                    const workSection = document.getElementById('work');
+                    if (workSection) {
+                      workSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }
+                }}
+                className="group flex items-center justify-center gap-2 rounded-full border border-brand-border bg-white px-7 py-4 text-xs font-bold uppercase tracking-wider text-black hover:border-black hover:bg-black hover:text-white transition-all duration-300 active:scale-95 cursor-pointer"
               >
-                View our work
-              </a>
+                <span>View our work</span>
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+              </button>
             </motion.div>
           </motion.div>
 

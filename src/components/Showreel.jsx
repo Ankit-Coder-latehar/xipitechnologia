@@ -18,7 +18,7 @@ export default function Showreel() {
               Campaign Showreel
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-              Xipitechnolia® 2025 Creative Campaign Showreel
+              Xipitechnologia® 2025 Creative Campaign Showreel
             </h2>
           </div>
           <p className="text-sm text-white/50 max-w-xs font-normal">
@@ -58,7 +58,7 @@ export default function Showreel() {
               <iframe
                 className="w-full h-full border-none"
                 src="https://www.youtube.com/embed/a3ICNMQW7Ok?autoplay=1&mute=0"
-                title="Xipitechnolia Campaign Showreel Video"
+                title="Xipitechnologia Campaign Showreel Video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />

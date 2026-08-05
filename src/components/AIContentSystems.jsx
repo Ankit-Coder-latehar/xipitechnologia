@@ -191,7 +191,7 @@ export default function AIContentSystems({ onContactClick }) {
                       XI
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[9px] font-bold text-black">Xipitechnolia Platform</span>
+                      <span className="text-[9px] font-bold text-black">Xipitechnologia Platform</span>
                       <span className="text-[7px] text-black/40">12 mins ago • Edited</span>
                     </div>
                   </div>

@@ -137,7 +137,7 @@ export default function WhyChooseUs({ onContactClick }) {
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.08] text-black">
               Why leading brands choose <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-black via-zinc-800 to-brand-red">
-                Xipitechnolia® to scale.
+                Xipitechnologia® to scale.
               </span>
             </h2>
             
@@ -382,7 +382,7 @@ export default function WhyChooseUs({ onContactClick }) {
                           </span>
                         </h4>
                         <p className="text-xs text-zinc-400 leading-relaxed">
-                          Dominate market share with Xipitechnolia's semantic SEO content architecture. Experience a +420% increase in organic buyer traffic within 90 days.
+                          Dominate market share with Xipitechnologia's semantic SEO content architecture. Experience a +420% increase in organic buyer traffic within 90 days.
                         </p>
                       </div>
 
@@ -611,11 +611,11 @@ export default function WhyChooseUs({ onContactClick }) {
 
         </div>
 
-        {/* Traditional Agencies vs Xipitechnolia Matrix Section */}
+        {/* Traditional Agencies vs Xipitechnologia Matrix Section */}
         <div className="mt-20 bg-white rounded-3xl border border-brand-border p-8 sm:p-12 shadow-sm relative overflow-hidden">
           <div className="max-w-2xl mb-10 space-y-3">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red">
-              THE XIPITECHNOLIA® ADVANTAGE
+              THE XIPITECHNOLOGIA® ADVANTAGE
             </span>
             <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-black">
               How we compare to traditional agencies.
@@ -631,7 +631,7 @@ export default function WhyChooseUs({ onContactClick }) {
                 <tr className="border-b border-brand-border text-xs font-extrabold uppercase tracking-wider text-black/50">
                   <th className="pb-4 w-1/3">Growth Dimension</th>
                   <th className="pb-4 w-1/3 text-zinc-400">Traditional Agencies</th>
-                  <th className="pb-4 w-1/3 text-brand-red font-black">Xipitechnolia® Systems</th>
+                  <th className="pb-4 w-1/3 text-brand-red font-black">Xipitechnologia® Systems</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-brand-border text-xs sm:text-sm font-medium">

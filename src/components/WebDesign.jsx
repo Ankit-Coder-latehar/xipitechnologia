@@ -164,11 +164,11 @@ export default function WebDesign({ onContactClick }) {
   const [expandedFaqIdx, setExpandedFaqIdx] = useState(0);
   const faqs = [
     {
-      question: 'How does Xipitechnolia approach a new web design project?',
+      question: 'How does Xipitechnologia approach a new web design project?',
       answer: 'We approach every new project with a defined, collaborative, and results-driven process designed to deliver high-impact creative work. Here’s a concise breakdown of our approach:\n\n1. Discovery & Strategy: Deep dive into your brand, goals, audience, and competitive landscape.\n2. Art Direction: Create moodboards, visual directions, and creative brand exploration.\n3. Design & Iteration: Craft refined visual solutions through interactive wireframes and screen designs.\n4. Development: Code high-performance custom modules with precision speed.\n5. Launch & Optimization: Guide you through a bulletproof launch workflow and post-launch setup.'
     },
     {
-      question: 'What differentiates Xipitechnolia from other design agencies?',
+      question: 'What differentiates Xipitechnologia from other design agencies?',
       answer: 'Our approach is rooted in clarity, creativity, and collaboration. We offer:\n\n• Design Excellence: Every project is crafted with custom precision, merging premium aesthetics with smart user psychology.\n• Structured AGILE Method: Step-by-step phases ensure project transparency and velocity.\n• Partnership Mindset: We treat clients as long-term allies, focusing on actual conversion ROI and long-term tech stack stability.'
     },
     {
@@ -689,14 +689,14 @@ export default function WebDesign({ onContactClick }) {
               <motion.span 
                 className="inline-block relative text-white/10"
               >
-                Xipitechnolia delivers top-tier web design practices, where aesthetic and usability both play a key role.
+                Xipitechnologia delivers top-tier web design practices, where aesthetic and usability both play a key role.
                 
                 {/* Overlaid sliding reveal copy */}
                 <motion.span 
                   className="absolute left-0 top-0 text-brand-red overflow-hidden whitespace-normal text-left pointer-events-none"
                   style={{ width: textRevealProgress }}
                 >
-                  Xipitechnolia delivers top-tier web design practices, where aesthetic and usability both play a key role.
+                  Xipitechnologia delivers top-tier web design practices, where aesthetic and usability both play a key role.
                 </motion.span>
               </motion.span>
             </h2>
@@ -719,7 +719,7 @@ export default function WebDesign({ onContactClick }) {
                 Frequently Asked <br className="hidden lg:inline" /> Questions.
               </h2>
               <p className="text-black/50 text-sm leading-relaxed max-w-sm font-normal">
-                Everything you need to know about working with our custom engineering agency. For other requests, feel free to write to hello@xipitechnolia.com.
+                Everything you need to know about working with our custom engineering agency. For other requests, feel free to write to hello@xipitechnologia.com.
               </p>
             </div>
 

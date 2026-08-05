@@ -151,12 +151,12 @@ export default function Branding({ onContactClick }) {
     {
       title: 'Packaging Design',
       tags: ['Consumer Good Packaging', 'Merchandise Packaging', 'Beverage Packaging', 'Startup Product Packaging'],
-      desc: 'Experienced with top-grade packaging design for a wide range of products from consumer goods to startup ideas. Your packaging design will exceed all expectations with fresh yet pragmatic design ideas realistic to produce by the creatives at Xipitechnolia.'
+      desc: 'Experienced with top-grade packaging design for a wide range of products from consumer goods to startup ideas. Your packaging design will exceed all expectations with fresh yet pragmatic design ideas realistic to produce by the creatives at Xipitechnologia.'
     },
     {
       title: 'Video Production',
       tags: ['Corporate Video Production', 'Event Video Production', 'Promotional Videos', 'Post-Production & Editing'],
-      desc: 'Xipitechnolia specializes in video production in Manhattan, our talented team leverages over 30 years of combined experience working with advertising agencies and brands to create exceptional visual narratives and visual storytelling.'
+      desc: 'Xipitechnologia specializes in video production in Manhattan, our talented team leverages over 30 years of combined experience working with advertising agencies and brands to create exceptional visual narratives and visual storytelling.'
     }
   ];
 

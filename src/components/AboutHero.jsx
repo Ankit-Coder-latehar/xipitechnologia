@@ -72,7 +72,7 @@ export default function AboutHero({ onContactClick }) {
           >
             <Sparkles className="h-3.5 w-3.5 text-brand-red animate-pulse" />
             <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-white/90">
-              ABOUT XIPITECHNOLIA®
+              ABOUT XIPITECHNOLOGIA®
             </span>
           </motion.div>
 

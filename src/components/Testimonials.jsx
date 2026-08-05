@@ -10,7 +10,7 @@ const testimonialsList = [
     company: 'FinSphere',
     metric: '+310% Search Volume',
     rating: 5,
-    quote: 'Xipitechnolia completely reconstructed our acquisition model. Their AI Content System publishes semantic rank-optimized articles that scaled our organic traffic from zero to 80k within 4 months.',
+    quote: 'Xipitechnologia completely reconstructed our acquisition model. Their AI Content System publishes semantic rank-optimized articles that scaled our organic traffic from zero to 80k within 4 months.',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
   },
   {
@@ -30,7 +30,7 @@ const testimonialsList = [
     company: 'LuxCart Ecom',
     metric: '5.4x Meta ROAS',
     rating: 5,
-    quote: 'We spent years trying different agencies to optimize our Meta ads. Xipitechnolia engineered custom landing interfaces and PPC intent funnels that instantly scaled our ROAS to 5.4x.',
+    quote: 'We spent years trying different agencies to optimize our Meta ads. Xipitechnologia engineered custom landing interfaces and PPC intent funnels that instantly scaled our ROAS to 5.4x.',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
   },
   {
@@ -50,7 +50,7 @@ const testimonialsList = [
     company: 'ApexCart Group',
     metric: 'Page Speed 100 / 100',
     rating: 5,
-    quote: 'Xipitechnolia built our headless ecommerce storefront with flawless Core Web Vitals optimizations. Cart abandonment decreased by 35% because the portal loads in under 400ms.',
+    quote: 'Xipitechnologia built our headless ecommerce storefront with flawless Core Web Vitals optimizations. Cart abandonment decreased by 35% because the portal loads in under 400ms.',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
   },
   {

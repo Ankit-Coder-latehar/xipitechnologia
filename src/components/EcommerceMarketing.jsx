@@ -194,7 +194,7 @@ export default function EcommerceMarketing({ onContactClick }) {
               </h1>
 
               <p className="text-zinc-400 text-base sm:text-lg leading-relaxed max-w-xl font-normal pt-2">
-                Xipitechnolia® builds custom e-commerce stores designed for high conversion and scale across WooCommerce, Shopify Plus, Webflow Enterprise, and Stripe payment systems for B2B, B2C, D2C, and subscription models.
+                Xipitechnologia® builds custom e-commerce stores designed for high conversion and scale across WooCommerce, Shopify Plus, Webflow Enterprise, and Stripe payment systems for B2B, B2C, D2C, and subscription models.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
