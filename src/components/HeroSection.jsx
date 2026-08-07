@@ -144,33 +144,26 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red opacity-75"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-red"></span>
                 </span>
-                Creative Design Agency
-              </span>
-              <span className="rounded-full border border-brand-border bg-brand-gray px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-black select-none">
-                EST. 2015
-              </span>
-              <span className="rounded-full border border-brand-border bg-brand-gray px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-black select-none">
-                NYC
+                🚀 Performance Marketing Agency | SEO | Web Development
               </span>
             </motion.div>
 
             {/* Typography */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-6xl lg:text-[76px] font-extrabold tracking-tight leading-[1.05] text-black"
+              className="text-4xl sm:text-6xl lg:text-[72px] font-extrabold tracking-tight leading-[1.05] text-black"
             >
-              Innovating in <br />
-              your industry. <br />
-              <span className="font-serif font-normal italic text-brand-red">Creative design agency,</span> <br />
-              located in the heart of NYC.
+              Transform Clicks Into <br />
+              <span className="text-brand-red">Business Growth.</span>
             </motion.h1>
 
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="max-w-xl text-base sm:text-lg text-black/60 leading-relaxed font-normal"
+              className="max-w-xl text-base sm:text-lg text-black/70 leading-relaxed font-normal"
             >
-              We craft high-end websites, brand systems, packaging layouts, and digital experiences that turn growing companies into market leaders.
+              <strong className="font-semibold text-black block mb-1">Performance Marketing That Delivers Results.</strong>
+              We help startups, SMEs, and enterprises attract the right audience, generate quality leads, and scale faster with data-driven digital marketing.
             </motion.p>
 
             {/* CTA Actions */}
@@ -180,9 +173,9 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
             >
               <button
                 onClick={onContactClick}
-                className="group relative flex items-center justify-center gap-2 rounded-full bg-black px-7 py-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-brand-red transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg hover:shadow-brand-red/10"
+                className="group relative flex items-center justify-center gap-2 rounded-full bg-black px-7 py-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-brand-red transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg hover:shadow-brand-red/10 cursor-pointer"
               >
-                Let's discuss a project
+                Get Free Consultation
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
 
@@ -200,7 +193,7 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
                 }}
                 className="group flex items-center justify-center gap-2 rounded-full border border-brand-border bg-white px-7 py-4 text-xs font-bold uppercase tracking-wider text-black hover:border-black hover:bg-black hover:text-white transition-all duration-300 active:scale-95 cursor-pointer"
               >
-                <span>View our work</span>
+                <span>View Our Services</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
             </motion.div>
@@ -216,7 +209,7 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
               <div className="relative w-full h-[360px] sm:h-[440px] md:h-[480px] lg:h-[540px] xl:h-[560px] rounded-3xl border border-brand-border bg-brand-gray p-5 flex flex-col justify-between shadow-lg overflow-hidden group">
                 
                 {/* Slideshow image container */}
-                <div className="relative w-full h-[70%] rounded-2xl overflow-hidden bg-zinc-150">
+                <div className="relative w-full h-[65%] rounded-2xl overflow-hidden bg-zinc-150">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={slideIndex}
@@ -243,40 +236,33 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
                 </div>
 
                 {/* Text / Index Footer zone */}
-                <div className="flex justify-between items-end pt-4">
+                <div className="flex flex-col justify-between pt-3">
                   <div className="space-y-1">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-brand-red">
-                      Featured Campaign
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-brand-red block">
+                      RESULTS THAT MATTER
                     </span>
-                    
-                    <div className="overflow-hidden h-9">
-                      <AnimatePresence mode="wait">
-                        <motion.h4
-                          key={slideIndex}
-                          initial={{ y: 20, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          exit={{ y: -20, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="text-lg sm:text-xl md:text-2xl font-bold text-black tracking-tight"
-                        >
-                          {slides[slideIndex].title}
-                        </motion.h4>
-                      </AnimatePresence>
-                    </div>
+                    <p className="text-xs sm:text-sm font-semibold text-black/80 leading-snug">
+                      Helping businesses grow with strategic SEO, Performance Marketing, Meta Ads, PPC, and Web Development.
+                    </p>
                   </div>
 
                   {/* Slides selector dots */}
-                  <div className="flex items-center gap-1.5 pb-1">
-                    {slides.map((_, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setSlideIndex(idx)}
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                          slideIndex === idx ? 'w-5 bg-brand-red' : 'w-2 bg-black/20 hover:bg-black/40'
-                        }`}
-                        aria-label={`Go to slide ${idx + 1}`}
-                      />
-                    ))}
+                  <div className="flex items-center justify-between pt-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-black/40">
+                      0{slideIndex + 1} / 0{slides.length}
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      {slides.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setSlideIndex(idx)}
+                          className={`h-2 rounded-full transition-all duration-300 ${
+                            slideIndex === idx ? 'w-5 bg-brand-red' : 'w-2 bg-black/20 hover:bg-black/40'
+                          }`}
+                          aria-label={`Go to slide ${idx + 1}`}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
 

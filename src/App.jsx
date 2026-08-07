@@ -142,7 +142,6 @@ function App() {
                 />
                 <PortfolioSlider onNavigate={handleNavigate} />
                 <AlumniCompanies />
-                <CertificationCourses onNavigate={handleNavigate} />
                 <WhyChooseUs onContactClick={() => handleNavigate('contact')} />
                 <MajorServicesAccordion onContactClick={() => handleNavigate('contact')} onNavigate={handleNavigate} />
                 <Testimonials />

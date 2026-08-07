@@ -9,62 +9,62 @@ import {
 
 const pillars = [
   {
-    id: 'ppc',
-    title: 'Data-Driven Performance Ads',
-    tag: 'Paid Acquisition',
-    subtitle: 'Meta & Google Ads Engine',
-    desc: 'We engineer multi-channel PPC & Meta ad campaigns powered by predictive bidding algorithms and micro-targeted buyer intent, guaranteeing maximum ROAS efficiency.',
+    id: 'performance',
+    title: 'Performance Marketing',
+    tag: '📈 ROI-Focused',
+    subtitle: 'Paid Acquisition',
+    desc: 'Run ROI-focused campaigns that generate quality leads, increase conversions, and maximize your advertising budget.',
     icon: Target,
-    stats: '14.8x Avg ROAS',
-    highlight: '+310% Ad Conversion'
+    stats: 'Max ROI',
+    highlight: 'Quality Leads'
   },
   {
     id: 'seo',
-    title: 'Rank #1 Technical & Semantic SEO',
-    tag: 'Organic Dominance',
-    subtitle: 'Search Authority System',
-    desc: 'Capture high-intent organic traffic through semantic content clustering, zero-lag site performance optimization, and top-tier topical authority building.',
+    title: 'Search Engine Optimization (SEO)',
+    tag: '🔍 Organic Growth',
+    subtitle: 'Rankings & Traffic',
+    desc: 'Improve search rankings, boost organic traffic, and build long-term online visibility with proven SEO strategies.',
     icon: Search,
-    stats: '#1 Google Rankings',
-    highlight: '+420% Organic Traffic'
+    stats: 'Top Rankings',
+    highlight: 'Organic Traffic'
   },
   {
     id: 'ai',
-    title: 'AI Marketing & Funnel Automation',
-    tag: 'Autonomous Scaling',
-    subtitle: '24/7 Lead Capture Engine',
-    desc: 'Deploy self-optimizing AI lead nurture pipelines, dynamic landing pages, and automated SMS/Email retention loops that convert cold visitors while you sleep.',
+    title: 'AI-Powered Marketing',
+    tag: '🤖 Automation',
+    subtitle: 'Process Streamlining',
+    desc: 'Leverage AI tools and automation to streamline marketing processes, improve targeting, and enhance campaign performance.',
     icon: Bot,
-    stats: '85% Cost Reduction',
-    highlight: '24/7 Automated Nurture'
+    stats: 'High Efficiency',
+    highlight: 'Smart Targeting'
   },
   {
-    id: 'creative',
-    title: 'High-Converting Visual Storytelling',
-    tag: 'Creative Excellence',
-    subtitle: 'Thumb-Stopping Visual Assets',
-    desc: 'Cinema-grade video ads, interactive UI/UX micro-animations, and high-impact visual copy crafted by award-winning designers to double your click-through rates.',
+    id: 'branding',
+    title: 'Creative Branding & Design',
+    tag: '🎨 Identity & Visuals',
+    subtitle: 'Brand Excellence',
+    desc: 'From eye-catching creatives to impactful brand identities, we design visuals that engage your audience and strengthen your brand.',
     icon: Video,
-    stats: '3.4x CTR Lift',
-    highlight: 'Award-Winning Aesthetics'
+    stats: 'Memorable Identity',
+    highlight: 'Visual Impact'
   },
   {
     id: 'analytics',
-    title: 'Zero-Fluff Revenue Analytics',
-    tag: 'Full Transparency',
-    subtitle: 'Live Attribution Dashboard',
-    desc: 'Say goodbye to vanity metrics like clicks and impressions. Get 24/7 real-time access to actual revenue, Customer Acquisition Cost (CAC), and LTV data.',
+    title: 'Analytics & Reporting',
+    tag: '📊 Actionable Insights',
+    subtitle: 'Data Transparency',
+    desc: 'Make informed decisions with detailed performance reports, campaign insights, and continuous optimization.',
     icon: BarChart3,
-    stats: '100% Real-Time Data',
-    highlight: 'Bottom-Line Revenue focus'
+    stats: 'Clear Metrics',
+    highlight: 'Continuous Growth'
   }
 ];
 
 const metrics = [
-  { value: '$250M+', label: 'Client Revenue Generated', detail: 'Cross-channel trackable revenue', icon: DollarSign },
-  { value: '14.8x', label: 'Average Campaign ROAS', detail: 'Meta, Google & TikTok Ads', icon: TrendingUp },
-  { value: '99.4%', label: 'Client Retention Rate', detail: 'Long-term partnership trust', icon: ShieldCheck },
-  { value: '450+', label: 'Global Marketing Awards', detail: 'Awwwards, Webby & Clutch Top 1%', icon: Award }
+  { value: 'Customized', label: 'Customized Strategies', detail: 'Marketing solutions tailored to your business goals and target audience.', icon: Rocket },
+  { value: 'Data-Driven', label: 'Performance-Driven', detail: 'Every campaign is optimized to generate more leads, higher conversions, and better ROI.', icon: TrendingUp },
+  { value: '100% Clear', label: 'Transparent Reporting', detail: 'Track campaign performance with regular updates, analytics, and actionable insights.', icon: ShieldCheck },
+  { value: 'All-In-One', label: 'Complete Digital Solutions', detail: 'SEO, Performance Marketing, Meta Ads, PPC, Website Development, Branding, and more—all under one roof.', icon: Layers }
 ];
 
 const comparisons = [
@@ -130,31 +130,31 @@ export default function WhyChooseUs({ onContactClick }) {
             <div className="inline-flex items-center gap-2 bg-black text-white px-3.5 py-1.5 rounded-full border border-black/10 shadow-sm">
               <Sparkles className="h-3.5 w-3.5 text-brand-red animate-pulse" />
               <span className="text-[10px] font-extrabold uppercase tracking-[0.25em]">
-                AWARD-WINNING DIGITAL MARKETING AGENCY
+                WHY CHOOSE XI PI TECHNOLOGIA
               </span>
             </div>
             
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.08] text-black">
-              Why leading brands choose <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-black via-zinc-800 to-brand-red">
-                Xipitechnologia® to scale.
+              Why Businesses Choose <br />
+              <span className="text-brand-red">
+                Xi Pi Technologia to Grow.
               </span>
             </h2>
             
-            <p className="text-black/60 text-base sm:text-lg leading-relaxed max-w-2xl font-normal pt-2">
-              We eliminate traditional agency guesswork. By combining high-impact creative storytelling with proprietary AI marketing systems, we turn digital presence into predictable revenue.
+            <p className="text-black/70 text-base sm:text-lg leading-relaxed max-w-2xl font-normal pt-2">
+              We don't just run digital marketing campaigns—we create data-driven strategies that help businesses generate qualified leads, increase conversions, and achieve sustainable growth. Our team combines creativity, technology, and performance marketing to deliver measurable results that matter.
             </p>
           </div>
 
-          {/* Award Badge Floating Pill */}
-          <div className="hidden lg:flex items-center gap-4 p-4 rounded-2xl bg-white border border-brand-border shadow-sm">
-            <div className="h-12 w-12 rounded-xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red">
-              <Award className="h-6 w-6" />
+          {/* Highlight Card */}
+          <div className="max-w-md p-6 rounded-2xl bg-white border border-brand-red/30 shadow-md space-y-2">
+            <div className="flex items-center gap-2 text-brand-red font-bold text-xs uppercase tracking-wider">
+              <Sparkles className="h-4 w-4" />
+              <span>Your Growth, Our Priority</span>
             </div>
-            <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-black/40">Global Recognition</span>
-              <p className="text-xs font-extrabold text-black">Awwwards & Clutch Top 1% Agency</p>
-            </div>
+            <p className="text-xs text-black/70 leading-relaxed">
+              Every business is unique. That's why we create customized marketing strategies aligned with your goals, industry, and audience—ensuring every campaign delivers maximum impact.
+            </p>
           </div>
         </div>
 
@@ -660,23 +660,27 @@ export default function WhyChooseUs({ onContactClick }) {
           </div>
         </div>
 
-        {/* Partner & Certification Badges */}
+        {/* Bottom Note & Partner Badges */}
         <div className="mt-16 text-center space-y-6">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-black/40">
-            CERTIFIED HIGH-PERFORMANCE PARTNERSHIPS
-          </span>
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 px-6 py-3 rounded-full bg-brand-gray border border-brand-border text-xs sm:text-sm font-bold text-black select-none">
+            <span>Customized Strategies</span>
+            <span className="text-brand-red">•</span>
+            <span>Transparent Communication</span>
+            <span className="text-brand-red">•</span>
+            <span>Continuous Optimization</span>
+            <span className="text-brand-red">•</span>
+            <span>Measurable Results</span>
+          </div>
+
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-8 sm:gap-14 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
             <div className="flex items-center gap-2 font-display font-extrabold text-sm tracking-tight text-black">
-              <span className="h-3 w-3 rounded-full bg-blue-500" /> Google Premier Partner 2026
+              <span className="h-3 w-3 rounded-full bg-blue-500" /> Google Premier Partner
             </div>
             <div className="flex items-center gap-2 font-display font-extrabold text-sm tracking-tight text-black">
-              <span className="h-3 w-3 rounded-full bg-blue-700" /> Meta Platinum Business Partner
+              <span className="h-3 w-3 rounded-full bg-blue-700" /> Meta Business Partner
             </div>
             <div className="flex items-center gap-2 font-display font-extrabold text-sm tracking-tight text-black">
-              <span className="h-3 w-3 rounded-full bg-emerald-500" /> Shopify Plus Agency Partner
-            </div>
-            <div className="flex items-center gap-2 font-display font-extrabold text-sm tracking-tight text-black">
-              <span className="h-3 w-3 rounded-full bg-brand-red" /> Clutch Top 1% Marketing Agency
+              <span className="h-3 w-3 rounded-full bg-emerald-500" /> SEO & Growth Certified
             </div>
           </div>
         </div>
