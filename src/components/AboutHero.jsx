@@ -1,55 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Sparkles, Award } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Sparkles } from 'lucide-react';
 
-const heroImages = [
+const pillars = [
   {
-    id: 1,
+    num: '01 / PILLAR',
+    title: 'Digital Strategy',
+    desc: 'Building customized marketing strategies around your business goals, audience, and market.',
     url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop',
-    title: 'Brand Strategy',
-    floatDir: [0, -18, 0],
-    duration: 5
+    duration: 5,
+    floatDir: [0, -18, 0]
   },
   {
-    id: 2,
-    url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop',
-    title: 'Creative Direction',
-    floatDir: [0, 18, 0],
-    duration: 6
-  },
-  {
-    id: 3,
-    url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop',
+    num: '02 / PILLAR',
     title: 'Performance Marketing',
-    floatDir: [0, -14, 0],
-    duration: 5.5
+    desc: 'Creating data-driven campaigns focused on qualified leads, conversions, and measurable ROI.',
+    url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop',
+    duration: 6,
+    floatDir: [0, 18, 0]
   },
   {
-    id: 4,
+    num: '03 / PILLAR',
+    title: 'Digital Visibility',
+    desc: 'Strengthening your presence through SEO, social media, content, and targeted digital campaigns.',
+    url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop',
+    duration: 5.5,
+    floatDir: [0, -14, 0]
+  },
+  {
+    num: '04 / PILLAR',
+    title: 'Digital Experiences',
+    desc: 'Creating user-friendly websites and creative digital assets that turn visitors into customers.',
     url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop',
-    title: 'Digital Experience',
-    floatDir: [0, 14, 0],
-    duration: 4.8
+    duration: 4.8,
+    floatDir: [0, 14, 0]
   }
 ];
 
 export default function AboutHero({ onContactClick }) {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePos({
-        x: (e.clientX - window.innerWidth / 2) / 30,
-        y: (e.clientY - window.innerHeight / 2) / 30
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   return (
     <section className="relative min-h-screen w-full bg-[#101010] text-white pt-32 pb-20 overflow-hidden select-none">
-      
       {/* Background ambient lighting */}
       <motion.div 
         animate={{
@@ -72,7 +62,7 @@ export default function AboutHero({ onContactClick }) {
           >
             <Sparkles className="h-3.5 w-3.5 text-brand-red animate-pulse" />
             <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-white/90">
-              ABOUT XIPITECHNOLOGIA®
+              ABOUT XI PI TECHNOLOGIA®
             </span>
           </motion.div>
 
@@ -83,9 +73,9 @@ export default function AboutHero({ onContactClick }) {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white uppercase leading-[0.95]"
           >
-            We help brands to connect with <br className="hidden sm:block" />
+            We Help Businesses <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-brand-red">
-              new generations.
+              Grow in the Digital World.
             </span>
           </motion.h1>
 
@@ -93,9 +83,9 @@ export default function AboutHero({ onContactClick }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-xl text-base sm:text-xl text-zinc-400 font-medium leading-relaxed pt-2"
+            className="max-w-3xl text-base sm:text-xl text-zinc-300 font-medium leading-relaxed pt-2"
           >
-            Ambitious brands lead with clarity, earn trust through authenticity, and connect with the people who matter most.
+            We combine digital marketing, creativity, technology, and data-driven strategies to help businesses build stronger online presence, generate quality leads, and achieve sustainable growth.
           </motion.p>
 
           <motion.div 
@@ -108,43 +98,48 @@ export default function AboutHero({ onContactClick }) {
               onClick={onContactClick}
               className="group relative inline-flex items-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white font-extrabold px-8 py-4 rounded-2xl text-xs uppercase tracking-wider shadow-xl shadow-brand-red/25 transition-all hover:scale-105"
             >
-              <span>Start a Project</span>
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <span>LET'S GROW TOGETHER →</span>
             </button>
           </motion.div>
         </div>
 
-        {/* 4 Floating Parallax Image Cards Grid (Prixa style) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-16 relative z-10">
-          {heroImages.map((img, i) => (
+        {/* 4 Pillars Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-16 relative z-10">
+          {pillars.map((pillar, i) => (
             <motion.div
-              key={img.id}
+              key={i}
               initial={{ opacity: 0, y: 40 }}
               animate={{ 
                 opacity: 1, 
-                y: img.floatDir 
+                y: pillar.floatDir 
               }}
               transition={{ 
                 opacity: { duration: 0.6, delay: 0.3 + i * 0.1 },
-                y: { duration: img.duration, repeat: Infinity, ease: "easeInOut" }
+                y: { duration: pillar.duration, repeat: Infinity, ease: "easeInOut" }
               }}
-              whileHover={{ scale: 1.05, zIndex: 30 }}
-              className="relative h-[240px] sm:h-[320px] lg:h-[400px] rounded-3xl overflow-hidden border-2 border-white/10 shadow-2xl group cursor-pointer bg-zinc-900"
+              whileHover={{ scale: 1.04, zIndex: 30 }}
+              className="relative min-h-[320px] p-6 sm:p-8 rounded-3xl overflow-hidden border border-white/15 shadow-2xl group cursor-pointer bg-zinc-900/90 backdrop-blur-md flex flex-col justify-between"
             >
-              <img
-                src={img.url}
-                alt={img.title}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90 pointer-events-none" />
+              <img 
+                src={pillar.url} 
+                alt={pillar.title} 
+                className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-40 transition-opacity duration-500 -z-10" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="text-[10px] font-black uppercase tracking-widest text-brand-red block mb-1">
-                  0{i + 1} / PILLAR
+              <div className="relative z-10 space-y-3">
+                <span className="text-[11px] font-black uppercase tracking-[0.25em] text-brand-red block">
+                  {pillar.num}
                 </span>
-                <h4 className="text-sm sm:text-base font-extrabold text-white leading-tight">
-                  {img.title}
+                <h4 className="text-xl sm:text-2xl font-extrabold text-white leading-tight">
+                  {pillar.title}
                 </h4>
+              </div>
+
+              <div className="relative z-10 pt-4 border-t border-white/10">
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+                  {pillar.desc}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -154,3 +149,4 @@ export default function AboutHero({ onContactClick }) {
     </section>
   );
 }
+
