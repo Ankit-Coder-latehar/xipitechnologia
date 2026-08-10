@@ -136,7 +136,7 @@ export default function PortfolioSlider({ onNavigate }) {
               Drive Real Business Growth.
             </h2>
             <p className="text-sm sm:text-base text-black/70 leading-relaxed font-normal">
-              We combine strategy, creativity, and technology to help businesses attract the right audience, generate qualified leads, and achieve measurable growth.
+              We combine strategy, creativity, and technology to deliver data-driven digital marketing services that help businesses attract the right audience, generate qualified leads, and achieve measurable growth.
             </p>
           </div>
 

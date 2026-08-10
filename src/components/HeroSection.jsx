@@ -69,10 +69,10 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
 
   return (
     <section className="relative min-h-[92vh] bg-white flex flex-col justify-center items-center overflow-hidden pt-28 pb-16">
-      
+
       {/* 1. FINE GRAPHICS AND GRID BACKGROUND SYSTEM */}
       {/* Structural Grid lines overlay */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none opacity-25 -z-10"
         style={{
           backgroundImage: `
@@ -129,7 +129,7 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
 
       <div className="mx-auto max-w-none px-6 sm:px-10 md:px-16 lg:px-20 xl:px-28 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-16 items-center">
-          
+
           {/* Left Column: Heading Copy */}
           <motion.div
             variants={containerVariants}
@@ -138,13 +138,21 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
             className="lg:col-span-7 flex flex-col space-y-8 text-left"
           >
             {/* Minimal pill badge list */}
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2.5">
-              <span className="rounded-full border border-brand-border bg-brand-gray px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-black flex items-center gap-2 select-none">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+              <span className="rounded-full border border-brand-border bg-brand-gray px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-black flex items-center gap-2 select-none hover:border-black/30 transition-colors">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red opacity-75"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-red"></span>
                 </span>
-                🚀 Performance Marketing Agency | SEO | Web Development
+                Performance Marketing
+              </span>
+              <span className="rounded-full border border-brand-border bg-brand-gray px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-black flex items-center gap-2 select-none hover:border-black/30 transition-colors">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-red"></span>
+                SEO
+              </span>
+              <span className="rounded-full border border-brand-border bg-brand-gray px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-black flex items-center gap-2 select-none hover:border-black/30 transition-colors">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-red"></span>
+                Web Development
               </span>
             </motion.div>
 
@@ -163,7 +171,8 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
               className="max-w-xl text-base sm:text-lg text-black/70 leading-relaxed font-normal"
             >
               <strong className="font-semibold text-black block mb-1">Performance Marketing That Delivers Results.</strong>
-              We help startups, SMEs, and enterprises attract the right audience, generate quality leads, and scale faster with data-driven digital marketing.
+              We help startups, SMEs, and enterprises across Tricity and India attract the right audience, generate qualified leads, and scale faster with data-driven digital marketing strategies.
+
             </motion.p>
 
             {/* CTA Actions */}
@@ -201,13 +210,13 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
 
           {/* 2. RIGHT COLUMN: PREMIUM HIGH-FIDELITY SLIDESHOW */}
           <div className="lg:col-span-5 flex flex-col justify-center items-center lg:items-end relative w-full h-[400px] sm:h-[500px] md:h-[540px] lg:h-[600px]">
-            
+
             <div className="relative w-full max-w-[360px] sm:max-w-[440px] md:max-w-[480px] lg:max-w-[520px] xl:max-w-[560px]">
               {/* Structural backdrop framing line */}
               <div className="absolute -inset-4 rounded-[28px] border border-dashed border-brand-border pointer-events-none -z-10" />
 
               <div className="relative w-full h-[360px] sm:h-[440px] md:h-[480px] lg:h-[540px] xl:h-[560px] rounded-3xl border border-brand-border bg-brand-gray p-5 flex flex-col justify-between shadow-lg overflow-hidden group">
-                
+
                 {/* Slideshow image container */}
                 <div className="relative w-full h-[65%] rounded-2xl overflow-hidden bg-zinc-150">
                   <AnimatePresence mode="wait">
@@ -219,14 +228,14 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
                       transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
                       className="absolute inset-0 w-full h-full"
                     >
-                      <img 
-                        src={slides[slideIndex].image} 
-                        alt={slides[slideIndex].title} 
+                      <img
+                        src={slides[slideIndex].image}
+                        alt={slides[slideIndex].title}
                         className="w-full h-full object-cover"
                       />
                       {/* Shadow overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                      
+
                       {/* Floating slide overlay tag */}
                       <span className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm border border-brand-border px-3 py-1 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-black">
                         {slides[slideIndex].tag}
@@ -256,9 +265,8 @@ export default function HeroSection({ onContactClick, onViewWorkClick }) {
                         <button
                           key={idx}
                           onClick={() => setSlideIndex(idx)}
-                          className={`h-2 rounded-full transition-all duration-300 ${
-                            slideIndex === idx ? 'w-5 bg-brand-red' : 'w-2 bg-black/20 hover:bg-black/40'
-                          }`}
+                          className={`h-2 rounded-full transition-all duration-300 ${slideIndex === idx ? 'w-5 bg-brand-red' : 'w-2 bg-black/20 hover:bg-black/40'
+                            }`}
                           aria-label={`Go to slide ${idx + 1}`}
                         />
                       ))}

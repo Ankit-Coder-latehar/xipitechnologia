@@ -68,11 +68,14 @@ const metrics = [
 ];
 
 const comparisons = [
-  { feature: 'Campaign Strategy', traditional: 'Generic templates & guesswork', xipi: 'Custom predictive intent modeling' },
-  { feature: 'Reporting & Data', traditional: '30-day delayed PDF reports with vanity clicks', xipi: '24/7 Live client revenue & CAC attribution dashboard' },
-  { feature: 'Creative Asset Turnaround', traditional: '2-3 weeks for simple ad variations', xipi: 'Rapid AI-assisted 48-hour video & ad iteration' },
-  { feature: 'Optimization Velocity', traditional: 'Weekly or monthly manual check-ins', xipi: 'Real-time algorithmic ROAS & bid adjustment' },
-  { feature: 'Growth Guarantee', traditional: 'No performance accountability', xipi: 'Milestone-backed performance commitments' }
+  { feature: 'Marketing Strategy', traditional: 'Generic campaigns and standard approaches', xipi: 'Customized digital marketing strategies built around your business goals' },
+  { feature: 'Reporting & Data', traditional: 'Basic reports with limited insights', xipi: 'Clear performance reports and actionable insights' },
+  { feature: 'Campaign Optimization', traditional: 'Periodic manual adjustments', xipi: 'Continuous monitoring, testing & optimization' },
+  { feature: 'Creative Execution', traditional: 'One-size-fits-all creatives', xipi: 'Creative content tailored to your audience and brand' },
+  { feature: 'Technology & AI', traditional: 'Limited use of emerging technology', xipi: 'AI-powered tools and automation for smarter marketing' },
+  { feature: 'Performance Focus', traditional: 'Focus on leads, conversions & ROI', xipi: 'Focus on qualified leads, conversions & ROI' },
+  { feature: 'Services', traditional: 'SEO, PPC, Meta Ads, SMM, Web & Design under one roof', xipi: 'SEO, PPC, Meta Ads, Social Media Marketing, Web Development & Graphic Designing under one roof' },
+  { feature: 'Communication', traditional: 'Limited updates', xipi: 'Transparent communication and regular performance updates' }
 ];
 
 export default function WhyChooseUs({ onContactClick }) {
@@ -174,7 +177,7 @@ export default function WhyChooseUs({ onContactClick }) {
                 <div className="absolute top-0 right-0 p-6 text-black/10 group-hover:text-brand-red/20 transition-colors">
                   <Icon className="h-10 w-10" />
                 </div>
-                <span className="block text-3xl sm:text-5xl font-black text-black tracking-tight group-hover:scale-105 transition-transform duration-300 origin-left">
+                <span className="block text-2xl sm:text-3xl font-black text-black tracking-tight group-hover:scale-105 transition-transform duration-300 origin-left">
                   {m.value}
                 </span>
                 <h3 className="text-sm font-extrabold text-black mt-2 tracking-tight">
@@ -621,7 +624,7 @@ export default function WhyChooseUs({ onContactClick }) {
               How we compare to traditional agencies.
             </h3>
             <p className="text-black/60 text-sm sm:text-base font-normal">
-              Most digital agencies charge high retainers for slow, manual work. We combine elite creative talent with AI automation to deliver 10x faster execution and guaranteed ROAS.
+              We combine strategy, creativity, data, and the latest marketing technology to create data-driven digital marketing strategies focused on real business outcomes—not just clicks, impressions, or traffic.
             </p>
           </div>
 
@@ -629,9 +632,9 @@ export default function WhyChooseUs({ onContactClick }) {
             <table className="w-full text-left border-collapse min-w-[640px]">
               <thead>
                 <tr className="border-b border-brand-border text-xs font-extrabold uppercase tracking-wider text-black/50">
-                  <th className="pb-4 w-1/3">Growth Dimension</th>
-                  <th className="pb-4 w-1/3 text-zinc-400">Traditional Agencies</th>
-                  <th className="pb-4 w-1/3 text-brand-red font-black">Xipitechnologia® Systems</th>
+                  <th className="pb-4 w-1/4">Growth Dimension</th>
+                  <th className="pb-4 w-1/3 text-zinc-400">Traditional Approach</th>
+                  <th className="pb-4 w-5/12 text-brand-red font-black">Xi Pi Technologia</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-brand-border text-xs sm:text-sm font-medium">
