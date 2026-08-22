@@ -110,16 +110,6 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
 
   const solutionsCategories = [
     {
-      title: 'AI Solutions',
-      items: [
-        { name: 'AI Marketing Automation', link: '#' },
-        { name: 'AI Content Systems', link: '#' },
-        { name: 'AI Workflow Setup', link: '#' },
-        { name: 'Claude AI Implementation', link: '#' },
-        { name: 'Team AI Training', link: '#' }
-      ]
-    },
-    {
       title: 'Marketing Solutions',
       items: [
         { name: 'Search Engine Optimization (SEO)', link: '#' },
@@ -193,15 +183,9 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
               e.preventDefault();
               if (onNavigate) onNavigate('home');
             }}
-            className="flex items-center gap-1.5 group select-none shrink-0"
+            className="flex items-center group select-none shrink-0"
           >
-            <span className="font-display font-extrabold text-2xl tracking-tighter text-black group-hover:text-brand-red transition-colors duration-300">
-              Xipi
-            </span>
-            <span className="text-brand-red font-display font-extrabold text-2xl tracking-tighter">
-              technologia
-            </span>
-            <span className="text-[8px] font-bold text-black/40 self-start mt-1">®</span>
+            <img src="/black-logo.png" alt="Xipi Technologia" className="h-12 sm:h-16 w-auto" />
           </a>
 
           {/* Desktop Nav Items */}
@@ -250,9 +234,9 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 15 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-1/2 top-full z-50 mt-2 w-[720px] -translate-x-1/2 rounded-2xl border border-brand-border bg-white p-6 shadow-xl"
+                        className="absolute left-1/2 top-full z-50 mt-2 w-[520px] -translate-x-1/2 rounded-2xl border border-brand-border bg-white p-6 shadow-xl"
                       >
-                        <div className="grid grid-cols-3 gap-6">
+                        <div className="grid grid-cols-2 gap-6">
                           {solutionsCategories.map((category, idx) => (
                             <div key={idx} className="space-y-4">
                               <h4 className="text-xs font-bold uppercase tracking-widest text-brand-red border-b border-brand-border pb-2 select-none">
@@ -369,15 +353,9 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                       setIsMobileMenuOpen(false);
                       if (onNavigate) onNavigate('home');
                     }}
-                    className="flex items-center gap-1 group"
+                    className="flex items-center group"
                   >
-                    <span className="font-display font-extrabold text-xl text-black">
-                      Xipi
-                    </span>
-                    <span className="text-brand-red font-display font-extrabold text-xl">
-                      technologia
-                    </span>
-                    <span className="text-[8px] font-bold text-black/40 self-start mt-1">®</span>
+                    <img src="/black-logo.png" alt="Xipi Technologia" className="h-12 w-auto" />
                   </a>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}

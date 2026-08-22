@@ -3,99 +3,87 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   TrendingUp, Video, Users, CheckCircle2, ArrowRight, Sparkles, 
   Play, Share2, Award, ShieldCheck, ChevronDown, ChevronUp, MessageSquare, 
-  ExternalLink, Zap, BarChart3, Filter, X, ArrowUpRight, Search, Target, Cpu, LineChart
+  ExternalLink, Zap, BarChart3, Filter, X, ArrowUpRight, Search, Target, Cpu, LineChart, MapPin
 } from 'lucide-react';
 
 const statsData = [
-  { value: '$2.5M+', label: 'Ad Spend Managed', detail: 'Across all client campaigns' },
-  { value: '4.2x', label: 'Average ROAS', detail: 'Blended return on ad spend' },
-  { value: '45+', label: 'Brands Scaled', detail: 'Meta, TikTok & Google Ads' },
-  { value: '3', label: 'Core Platforms', detail: 'Meta · TikTok · Google' }
+  { value: 'Multi-Platform', label: 'Advertising', detail: 'Meta Ads • Facebook Ads • Instagram Ads' },
+  { value: 'Goal-Focused', label: 'Campaigns', detail: 'Leads • Sales • Awareness • Conversions' },
+  { value: 'Data-Driven', label: 'Optimization', detail: 'Audience • Creative • Budget • Performance' },
+  { value: 'Transparent', label: 'Reporting', detail: 'Clear insights • Actionable recommendations' }
 ];
 
 const processSteps = [
   {
     step: 'Step 01',
-    title: 'Research & Mapping',
+    title: 'Research & Audience Mapping',
     color: '#38BDF8',
     icon: Search,
-    desc: 'We audit your competitors, study what creative is winning in your category right now, and map the full funnel before a single dollar is spent.'
+    desc: 'We understand your business, customers, competitors, and campaign goals to identify the audiences most likely to take action.',
+    items: ['Audience research', 'Competitor analysis', 'Customer profiling', 'Interest & behaviour targeting']
   },
   {
     step: 'Step 02',
-    title: 'UGC Creative Production',
+    title: 'Creative & Campaign Strategy',
     color: '#A78BFA',
     icon: Video,
-    desc: 'Hook-first scripts, UGC-style shoots, and platform-native editing. We make ads that feel organic — because those convert 3x better than polished brand spots.'
+    desc: 'We develop engaging ad concepts, messaging, and campaign structures designed around your target audience and business objectives.',
+    items: ['Ad copy & creative direction', 'Facebook & Instagram campaigns', 'Campaign structure', 'Audience segmentation']
   },
   {
     step: 'Step 03',
-    title: 'Launch & A/B Test',
+    title: 'Launch & A/B Testing',
     color: '#E32626',
     icon: Zap,
-    desc: 'Multi-variant launches from day one. We test audiences, hooks, visuals, and CTAs simultaneously — letting data pick winners within the first 72 hours.'
+    desc: 'We launch campaigns and test different audiences, creatives, messaging, placements, and offers to identify what performs best.',
+    items: ['Creative testing', 'Audience testing', 'Placement optimization', 'Conversion tracking']
   },
   {
     step: 'Step 04',
     title: 'Optimize & Scale',
     color: '#34D399',
     icon: TrendingUp,
-    desc: "We kill what doesn't work and pour budget into what does. Weekly reporting, ROAS-driven decisions, and continuous creative refresh to prevent ad fatigue."
+    desc: 'We continuously monitor campaign performance and optimize budgets, audiences, and creatives to improve leads, conversions, and overall campaign efficiency.',
+    items: ['Performance monitoring', 'Budget optimization', 'Retargeting', 'Continuous optimization']
   }
 ];
 
 const edgeFeatures = [
-  {
-    title: 'UGC-First Creative',
-    color: '#A78BFA',
-    icon: Users,
-    desc: 'Every campaign starts with user-generated-style content — raw, real, and impossible to scroll past. We produce it in-house or cast creators to match your brand voice.'
-  },
-  {
-    title: 'Hook Engineering',
-    color: '#FB923C',
-    icon: Sparkles,
-    desc: 'The first 2 seconds determine everything. We write, test, and iterate on hooks until we find the one that stops the scroll — then build the rest of the ad around it.'
-  },
-  {
-    title: 'Platform-Native Format',
-    color: '#00D4FF',
-    icon: Video,
-    desc: 'TikTok ads that feel like TikToks. Instagram ads that blend into the feed. We never repurpose — every creative is built specifically for how users consume that platform.'
-  },
-  {
-    title: 'Full-Funnel Strategy',
-    color: '#E32626',
-    icon: Filter,
-    desc: 'Awareness → consideration → conversion → retention. We map every ad to a funnel stage and build retargeting flows that recapture lost revenue.'
-  },
-  {
-    title: 'AI-Powered Optimization',
-    color: '#F472B6',
-    icon: Cpu,
-    desc: 'We pair human creative instinct with AI media-buying tools — automated bidding, lookalike expansion, and real-time budget allocation based on performance signals.'
-  },
-  {
-    title: 'Weekly Reporting',
-    color: '#34D399',
-    icon: BarChart3,
-    desc: 'No black boxes. Every Monday you get a clear report: spend, ROAS, CPM, CTR, and what we are testing next. You always know where your money is going.'
-  }
+  { title: 'Audience-First Targeting', icon: Target, color: '#A78BFA', desc: 'We research your ideal customers and create targeted campaigns based on demographics, interests, behaviours, and audience intent.' },
+  { title: 'Creative That Gets Attention', icon: Sparkles, color: '#FB923C', desc: 'From ad copy to visual concepts, we create engaging Facebook and Instagram ads designed to stop the scroll and encourage action.' },
+  { title: 'Platform-Native Campaigns', icon: Video, color: '#00D4FF', desc: 'We build campaigns specifically for how users interact with Facebook and Instagram, using the right formats, placements, and messaging.' },
+  { title: 'Full-Funnel Strategy', icon: Filter, color: '#E32626', desc: 'From awareness to consideration and conversion, we create campaigns that support your complete customer journey.' },
+  { title: 'Data-Driven Optimization', icon: Cpu, color: '#F472B6', desc: 'We monitor campaign performance and use real-time data to improve audiences, creatives, budgets, and conversion performance.' },
+  { title: 'Transparent Reporting', icon: BarChart3, color: '#34D399', desc: 'You get clear performance updates covering reach, clicks, leads, conversions, cost per result, and campaign insights.' }
 ];
 
-const laundryLabsMetrics = [
-  { val: '166,500', sub: '137,850 unique reached', label: 'Total Impressions', desc: 'Massive top-of-funnel reach — nearly 138K individual people saw the brand.', color: '#FBBF24' },
-  { val: '$0.19', sub: 'Industry avg: $0.50–$2.00', label: 'Cost Per Click (CPC)', desc: 'A/B tested audiences drove CPC 6–10x below Meta industry benchmarks.', color: '#34D399' },
-  { val: '3,778', sub: '2.5–3.2% CTR vs 1% avg', label: 'Total Clicks', desc: 'Click-through rate 2–3x the industry average — proof the creative stopped the scroll.', color: '#38BDF8' },
-  { val: 'Lead Gen', sub: 'High-value deliverable', label: 'Campaign Type', desc: 'Full lead generation campaigns built to capture qualified buyers, not just traffic.', color: '#A78BFA' },
-  { val: 'Shopping', sub: 'Bottom-of-funnel', label: 'Funnel Coverage', desc: 'Full-funnel execution from awareness to shopping — not just traffic, but purchase intent.', color: '#F472B6' },
-  { val: '$3.23', sub: 'Exceptionally low CPM', label: 'Cost Per 1K Impressions', desc: 'Media buying efficiency that signals expert optimization — premium reach at low cost.', color: '#FB923C' }
+const campaignMetrics = [
+  { title: 'LEAD GENERATION', desc: 'Quality enquiries generated through targeted Meta campaigns.' },
+  { title: 'AUDIENCE REACH', desc: 'Connect your brand with relevant customers across Facebook and Instagram.' },
+  { title: 'CAMPAIGN EFFICIENCY', desc: 'Continuous optimization to improve cost per result and overall performance.' },
+  { title: 'CONVERSIONS', desc: 'Focus on meaningful actions—not just impressions and clicks.' }
 ];
 
-const galleryImages = [
-  { title: 'Athletic Pods Frozen In Ice', tag: 'Product Shoot', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=800&auto=format&fit=crop' },
-  { title: '5-in-1 Eco Pod Breakdown', tag: 'Feature Ad', img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop' },
-  { title: 'My Biceps Miss The Jug Hook', tag: 'UGC Hook', img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop' }
+const adCreatives = [
+  { title: 'Lead Generation Ads', tag: 'Lead Gen', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop', desc: 'Designed to encourage users to enquire, register, or submit their details.' },
+  { title: 'Product & Service Ads', tag: 'Showcase', img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop', desc: 'Showcase your products or services with clear messaging and compelling visuals.' },
+  { title: 'UGC-Style Creatives', tag: 'Authentic', img: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop', desc: 'Authentic, relatable creative formats designed to feel native to social feeds.' },
+  { title: 'Retargeting Creatives', tag: 'Retargeting', img: 'https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=800&auto=format&fit=crop', desc: 'Reconnect with people who have already interacted with your brand and encourage them to take the next step.' }
+];
+
+const localServices = [
+  { title: 'Facebook Ads Management', desc: 'Targeted Facebook advertising campaigns focused on leads, sales, and brand growth.' },
+  { title: 'Instagram Ads Management', desc: 'Creative and performance-focused Instagram campaigns designed to reach relevant audiences.' },
+  { title: 'Meta Ads Campaign Management', desc: 'Complete campaign planning, setup, monitoring, testing, and optimization.' },
+  { title: 'Social Media Advertising', desc: 'Paid social media strategies designed to increase visibility, engagement, leads, and conversions.' }
+];
+
+const whyXiPiCards = [
+  { title: 'Experienced Digital Marketing Team', desc: 'Our team understands campaign strategy, audience targeting, creative testing, and performance optimization.' },
+  { title: 'Customized Campaign Strategy', desc: 'Every campaign is designed around your business goals, audience, industry, and budget.' },
+  { title: 'Performance-Focused Advertising', desc: 'We focus on meaningful metrics such as leads, conversions, cost per result, and return on advertising spend.' },
+  { title: 'Regular Optimization', desc: 'We continuously monitor campaigns and make data-driven improvements.' },
+  { title: 'Clear Reporting', desc: 'Understand where your budget is going and how your campaigns are performing.' }
 ];
 
 export default function MetaAds({ onContactClick }) {
@@ -107,13 +95,13 @@ export default function MetaAds({ onContactClick }) {
       {/* Radial Lighting Background */}
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-blue-600/10 via-brand-red/5 to-transparent rounded-full blur-[160px] pointer-events-none" />
 
-      {/* 1. HERO SECTION (helloupdigital exact layout) */}
+      {/* 1. HERO SECTION */}
       <section className="relative pt-24 pb-20 border-b border-white/10 overflow-hidden">
         
         {/* Big Watermark Text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-10">
           <span className="text-[14vw] font-black leading-none text-transparent border-text tracking-tighter" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.15)' }}>
-            PAID ADS
+            META ADS
           </span>
         </div>
 
@@ -137,7 +125,7 @@ export default function MetaAds({ onContactClick }) {
             </h1>
 
             <p className="text-zinc-400 text-lg sm:text-xl leading-relaxed max-w-xl font-normal pt-2">
-              Meta, TikTok & Google campaigns built on UGC-first creative, AI optimization, and full-funnel strategy. We don't just run ads — we build revenue machines.
+              Reach the right customers with strategic Meta Ads Management Services across Facebook and Instagram. We create targeted campaigns designed to generate quality leads, increase sales, and deliver measurable business growth.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -145,7 +133,7 @@ export default function MetaAds({ onContactClick }) {
                 onClick={onContactClick}
                 className="group relative inline-flex items-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white font-extrabold px-8 py-4 rounded-full text-sm uppercase tracking-wider shadow-xl shadow-brand-red/25 transition-all hover:scale-105"
               >
-                <span>Start Your Project</span>
+                <span>Start Your Meta Ads Campaign</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
@@ -153,14 +141,19 @@ export default function MetaAds({ onContactClick }) {
                 onClick={onContactClick}
                 className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white font-extrabold rounded-full text-sm uppercase tracking-wider hover:border-sky-400/50 hover:bg-white/5 transition-all"
               >
-                <span>Free Paid Ads Audit</span>
+                <span>Get Free Meta Ads Audit</span>
               </button>
             </div>
+            
+            <p className="text-[10px] text-zinc-500 pt-2 tracking-widest uppercase font-bold">
+              Facebook Ads • Instagram Ads • Lead Generation • Conversion Optimization
+            </p>
+
           </motion.div>
         </div>
       </section>
 
-      {/* 2. PERFORMANCE METRICS BANNER */}
+      {/* 2. STATS SECTION */}
       <section className="relative bg-[#0D0D0F] border-b border-white/10 py-10">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-6">
           {statsData.map((stat, i) => (
@@ -172,13 +165,13 @@ export default function MetaAds({ onContactClick }) {
               transition={{ delay: i * 0.1 }}
               className="relative p-6 rounded-2xl bg-black/40 border border-white/10 hover:border-sky-400/40 transition-all text-center group"
             >
-              <div className="text-2xl sm:text-4xl font-black text-sky-400 font-mono group-hover:scale-105 transition-transform">
+              <div className="text-xl sm:text-2xl font-black text-sky-400 font-mono group-hover:scale-105 transition-transform mb-2">
                 {stat.value}
               </div>
-              <div className="text-xs font-extrabold text-white mt-1 uppercase tracking-wider">
+              <div className="text-xs font-extrabold text-white uppercase tracking-wider">
                 {stat.label}
               </div>
-              <div className="text-[10px] text-zinc-500 font-medium mt-0.5">
+              <div className="text-[10px] text-zinc-500 font-medium mt-1">
                 {stat.detail}
               </div>
             </motion.div>
@@ -186,21 +179,24 @@ export default function MetaAds({ onContactClick }) {
         </div>
       </section>
 
-      {/* 3. THE PROCESS · 4 STEPS */}
+      {/* 3. PROCESS SECTION */}
       <section className="py-24 bg-[#FAF9F6] text-black relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 sm:px-8">
           
           <div className="mb-16 space-y-3">
             <div className="inline-flex items-center gap-2 bg-black text-white px-3.5 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase">
               <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-              THE PROCESS · 4 STEPS
+              THE PROCESS • 4 STEPS
             </div>
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.08]">
               HOW WE <br />
               <span className="font-serif italic font-light text-brand-red">
-                Run Ads.
+                RUN META ADS.
               </span>
             </h2>
+            <p className="text-sm sm:text-base text-zinc-600 max-w-2xl leading-relaxed mt-4">
+              We combine audience research, creative strategy, campaign testing, and continuous optimization to make your advertising budget work harder.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -233,10 +229,20 @@ export default function MetaAds({ onContactClick }) {
                       {step.title}
                     </h3>
 
-                    <p className="text-xs text-zinc-600 leading-relaxed font-normal">
+                    <p className="text-xs text-zinc-600 leading-relaxed font-normal mb-6">
                       {step.desc}
                     </p>
                   </div>
+                  
+                  <ul className="space-y-2.5 pt-4 border-t border-zinc-100">
+                    {step.items.map((item, itemIdx) => (
+                      <li key={itemIdx} className="flex items-center gap-2.5 text-xs font-semibold text-zinc-700">
+                        <span className="h-2 w-2 rounded-full shrink-0" style={{ backgroundColor: step.color }} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
                 </motion.div>
               );
             })}
@@ -245,7 +251,7 @@ export default function MetaAds({ onContactClick }) {
         </div>
       </section>
 
-      {/* 4. OUR EDGE · 6 FEATURE GRID */}
+      {/* 4. WHY OUR ADS CONVERT */}
       <section className="py-28 bg-[#050507] border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-16">
           
@@ -253,12 +259,17 @@ export default function MetaAds({ onContactClick }) {
             <span className="text-xs font-black tracking-[0.4em] uppercase text-sky-400">
               OUR EDGE
             </span>
-            <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-              WHY OUR ADS <br />
-              <span className="font-serif italic font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-brand-red">
-                CONVERT.
-              </span>
-            </h2>
+            <div className="flex flex-col md:flex-row gap-6 justify-between items-start">
+              <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight shrink-0">
+                WHY OUR ADS <br />
+                <span className="font-serif italic font-light text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-brand-red">
+                  CONVERT.
+                </span>
+              </h2>
+              <p className="text-zinc-400 text-sm sm:text-base max-w-lg leading-relaxed pt-2">
+                We don't simply launch advertisements. We build data-driven Meta advertising campaigns around your audience, creative, budget, and business goals.
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -294,186 +305,201 @@ export default function MetaAds({ onContactClick }) {
         </div>
       </section>
 
-      {/* 5. FULL CASE STUDY: LAUNDRY LABS */}
+      {/* 5. CASE STUDY */}
       <section className="py-28 bg-[#0A0A0F] border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-16">
           
-          <div className="space-y-4">
+          <div className="space-y-4 text-center">
             <div className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/20 text-amber-400 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.3em]">
-              FULL CASE STUDY
+              CAMPAIGN CASE STUDY
             </div>
-
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <h2 className="text-5xl sm:text-7xl font-black text-white tracking-tight">
-                  LAUNDRY <br />
-                  <span className="text-amber-400">LABS.</span>
-                </h2>
-              </div>
-
-              <div className="max-w-md space-y-2">
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  A premium eco-friendly laundry pod brand going head-to-head with Tide, Gain, and legacy detergent giants.
-                </p>
-                <span className="text-amber-400 text-xs font-black uppercase tracking-wider block">
-                  laundrylabs.shop →
-                </span>
-              </div>
-            </div>
-
-            {/* 3 Column Problem/Audience/Approach */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
-              <div className="bg-[#0D0D0F] p-6 rounded-2xl border border-red-500/20 relative">
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-red-400 rounded-t-2xl" />
-                <span className="text-[10px] font-black tracking-[0.3em] uppercase text-red-400 block mb-2">The Problem</span>
-                <p className="text-xs text-zinc-300 leading-relaxed">
-                  Legacy detergent brands dominate 80% of market share. New entrants get drowned out by massive traditional ad budgets.
-                </p>
-              </div>
-
-              <div className="bg-[#0D0D0F] p-6 rounded-2xl border border-sky-500/20 relative">
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-sky-400 rounded-t-2xl" />
-                <span className="text-[10px] font-black tracking-[0.3em] uppercase text-sky-400 block mb-2">The Audience</span>
-                <p className="text-xs text-zinc-300 leading-relaxed">
-                  Gen Z and millennials who care about sustainability & aesthetics — but won't buy unless the product looks cool.
-                </p>
-              </div>
-
-              <div className="bg-[#0D0D0F] p-6 rounded-2xl border border-amber-500/20 relative">
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-amber-400 rounded-t-2xl" />
-                <span className="text-[10px] font-black tracking-[0.3em] uppercase text-amber-400 block mb-2">Our Approach</span>
-                <p className="text-xs text-zinc-300 leading-relaxed">
-                  Build high-concept product shoots, athlete lifestyle content, and viral UGC hooks that feel nothing like traditional detergent ads.
-                </p>
-              </div>
-            </div>
+            <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
+              From Creative <br />
+              <span className="text-amber-400">To Conversion.</span>
+            </h2>
+            <p className="text-zinc-400 text-sm max-w-2xl mx-auto leading-relaxed">
+              See how strategic Meta advertising campaigns can connect the right audience with the right message and turn attention into measurable business results.
+            </p>
           </div>
 
-          {/* Benchmark Performance Bars Comparison (Prixa/Up Digital Signature Section) */}
-          <div className="bg-[#0D0D0F] p-8 sm:p-10 rounded-3xl border border-amber-400/20 space-y-6">
-            <span className="text-amber-400 text-xs font-black uppercase tracking-[0.4em] block">
-              OUR RESULTS VS INDUSTRY AVERAGE
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
+            <div className="bg-[#0D0D0F] p-6 rounded-2xl border border-red-500/20 relative">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-red-400 rounded-t-2xl" />
+              <span className="text-[10px] font-black tracking-[0.3em] uppercase text-red-400 block mb-2">The Challenge</span>
+              <p className="text-xs text-zinc-300 leading-relaxed">
+                The business needed to reach a highly relevant audience while improving campaign efficiency and generating more qualified enquiries.
+              </p>
+            </div>
+
+            <div className="bg-[#0D0D0F] p-6 rounded-2xl border border-sky-500/20 relative">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-sky-400 rounded-t-2xl" />
+              <span className="text-[10px] font-black tracking-[0.3em] uppercase text-sky-400 block mb-2">The Audience</span>
+              <p className="text-xs text-zinc-300 leading-relaxed">
+                We identified the ideal customer profile and developed audience segments based on relevant demographics, interests, behaviours, and intent.
+              </p>
+            </div>
+
+            <div className="bg-[#0D0D0F] p-6 rounded-2xl border border-amber-500/20 relative">
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-amber-400 rounded-t-2xl" />
+              <span className="text-[10px] font-black tracking-[0.3em] uppercase text-amber-400 block mb-2">Our Approach</span>
+              <p className="text-xs text-zinc-300 leading-relaxed">
+                We combined audience targeting, platform-native creatives, campaign testing, retargeting, and continuous optimization.
+              </p>
+            </div>
+          </div>
+          
+          <div className="bg-[#0D0D0F] p-8 sm:p-10 rounded-3xl border border-amber-400/20 space-y-6 text-center">
+            <span className="text-amber-400 text-xs font-black uppercase tracking-[0.4em] block mb-4">
+              THE RESULT
             </span>
-
-            <div className="space-y-6">
-              {/* Cost Per Click Comparison */}
-              <div className="space-y-2">
-                <div className="flex justify-between items-center text-xs font-bold">
-                  <span className="text-zinc-400 uppercase">Cost Per Click (CPC)</span>
-                  <div className="flex gap-4">
-                    <span className="text-amber-400 font-mono font-black">Xipi Us: $0.19</span>
-                    <span className="text-zinc-500 font-mono">Industry Avg: $0.50–$2.00</span>
-                  </div>
-                </div>
-                <div className="relative h-6 rounded-full bg-zinc-800 overflow-hidden">
-                  <div className="absolute inset-y-0 left-0 bg-amber-400 w-[15%] rounded-full flex items-center px-2">
-                    <span className="text-[9px] font-black text-black uppercase">Us ($0.19)</span>
-                  </div>
-                </div>
-                <p className="text-[10px] text-zinc-500 font-medium">90% below industry avg — more reach per dollar spent</p>
-              </div>
-
-              {/* Click-Through Rate Comparison */}
-              <div className="space-y-2">
-                <div className="flex justify-between items-center text-xs font-bold">
-                  <span className="text-zinc-400 uppercase">Click-Through Rate (CTR)</span>
-                  <div className="flex gap-4">
-                    <span className="text-emerald-400 font-mono font-black">Xipi Us: 2.5%–3.2%</span>
-                    <span className="text-zinc-500 font-mono">Industry Avg: ~1.0%</span>
-                  </div>
-                </div>
-                <div className="relative h-6 rounded-full bg-zinc-800 overflow-hidden">
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: '85%' }}
-                    transition={{ duration: 1 }}
-                    className="absolute inset-y-0 left-0 bg-emerald-400 rounded-full flex items-center px-2"
-                  >
-                    <span className="text-[9px] font-black text-black uppercase">Us (3.2% CTR)</span>
-                  </motion.div>
-                </div>
-                <p className="text-[10px] text-zinc-500 font-medium">3x the industry average CTR — proof the creative stopped the scroll</p>
-              </div>
-
-              {/* Cost Per 1K Impressions Comparison */}
-              <div className="space-y-2">
-                <div className="flex justify-between items-center text-xs font-bold">
-                  <span className="text-zinc-400 uppercase">Cost Per 1K Impressions (CPM)</span>
-                  <div className="flex gap-4">
-                    <span className="text-sky-400 font-mono font-black">Xipi Us: $3.23</span>
-                    <span className="text-zinc-500 font-mono">Industry Avg: $8.00–$12.00</span>
-                  </div>
-                </div>
-                <div className="relative h-6 rounded-full bg-zinc-800 overflow-hidden">
-                  <div className="absolute inset-y-0 left-0 bg-sky-400 w-[28%] rounded-full flex items-center px-2">
-                    <span className="text-[9px] font-black text-black uppercase">Us ($3.23)</span>
-                  </div>
-                </div>
-                <p className="text-[10px] text-zinc-500 font-medium">73% below industry avg — premium ad reach at fraction of cost</p>
-              </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+               <div>
+                  <div className="text-3xl sm:text-4xl font-black text-amber-400 font-mono mb-2">137K+</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Total Reach</div>
+               </div>
+               <div>
+                  <div className="text-3xl sm:text-4xl font-black text-emerald-400 font-mono mb-2">3.2%</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Avg. CTR</div>
+               </div>
+               <div>
+                  <div className="text-3xl sm:text-4xl font-black text-sky-400 font-mono mb-2">$0.19</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Cost Per Click</div>
+               </div>
+               <div>
+                  <div className="text-3xl sm:text-4xl font-black text-purple-400 font-mono mb-2">3,778</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Leads / Clicks</div>
+               </div>
             </div>
           </div>
-
-          {/* 6 Metric Breakdown Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {laundryLabsMetrics.map((m, idx) => (
-              <div
-                key={idx}
-                className="bg-[#0D0D0F] p-6 rounded-2xl border border-white/10 relative overflow-hidden"
-              >
-                <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ backgroundColor: m.color }} />
-                <div className="text-3xl font-black font-mono mb-1" style={{ color: m.color }}>
-                  {m.val}
-                </div>
-                <div className="text-[10px] font-extrabold uppercase tracking-widest text-zinc-500 mb-2">
-                  {m.sub}
-                </div>
-                <h4 className="text-xs font-black uppercase text-white tracking-wider mb-1">
-                  {m.label}
-                </h4>
-                <p className="text-xs text-zinc-400 font-normal leading-relaxed">
-                  {m.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Ad Creative Gallery Shoot Showcase */}
-          <div className="space-y-4">
-            <span className="text-xs font-black uppercase tracking-[0.3em] text-amber-400">
-              AD CREATIVES & SHOOT SHOWCASE
-            </span>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {galleryImages.map((imgItem, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => setActiveGalleryModal(imgItem)}
-                  className="group relative h-[320px] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 cursor-pointer shadow-xl"
-                >
-                  <img
-                    src={imgItem.img}
-                    alt={imgItem.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-75 group-hover:opacity-90"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-
-                  <div className="absolute bottom-5 left-5 right-5 space-y-1">
-                    <span className="bg-amber-400/20 text-amber-300 text-[9px] font-black uppercase px-2.5 py-1 rounded-full border border-amber-400/30">
-                      {imgItem.tag}
-                    </span>
-                    <h5 className="text-sm font-extrabold text-white pt-1">
-                      {imgItem.title}
-                    </h5>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* 6. HIGH-CONVERTING CTA BANNER */}
+      {/* 6. CAMPAIGN RESULTS / METRICS */}
+      <section className="py-24 bg-[#050507] border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {campaignMetrics.map((metric, i) => (
+              <div key={i} className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 hover:border-brand-red/30 transition-colors">
+                <CheckCircle2 className="h-6 w-6 text-brand-red mb-4" />
+                <h4 className="text-lg font-bold text-white mb-2">{metric.title}</h4>
+                <p className="text-xs text-zinc-400 leading-relaxed">{metric.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. AD CREATIVES SECTION */}
+      <section className="py-24 bg-[#0A0A0F] border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-16">
+          <div className="space-y-4 text-center">
+            <span className="text-xs font-black uppercase tracking-[0.3em] text-brand-red">
+              AD CREATIVES & CAMPAIGN SHOWCASE
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+              Creative That <br/> Stops the Scroll.
+            </h2>
+            <p className="text-zinc-400 text-sm max-w-2xl mx-auto leading-relaxed pt-2">
+              Great Meta advertising starts with great creative. We create engaging ad concepts, copy, and visuals designed for Facebook and Instagram while staying aligned with your brand and campaign objectives.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {adCreatives.map((creative, idx) => (
+              <div
+                key={idx}
+                className="group relative h-[380px] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 shadow-xl"
+              >
+                <img
+                  src={creative.img}
+                  alt={creative.title}
+                  className="w-full h-[55%] object-cover opacity-80"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="bg-brand-red text-white text-[9px] font-black uppercase px-2.5 py-1 rounded-full shadow-lg">
+                    {creative.tag}
+                  </span>
+                </div>
+                <div className="p-5 h-[45%] bg-[#111116] flex flex-col justify-center border-t border-white/10">
+                  <h5 className="text-base font-extrabold text-white mb-2">
+                    {creative.title}
+                  </h5>
+                  <p className="text-xs text-zinc-400 leading-relaxed line-clamp-3">
+                    {creative.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. LOCATION / LOCAL SERVICE SECTION */}
+      <section className="py-24 bg-[#050507] border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+             <div>
+                <span className="text-xs font-black tracking-[0.4em] uppercase text-brand-red block mb-4">
+                  LOCAL META ADS EXPERTISE
+                </span>
+                <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-6">
+                  Meta Ads Agency <br/>
+                  <span className="text-brand-red">in Chandigarh & Tricity</span>
+                </h2>
+                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-4">
+                  Looking for a Meta Ads Agency in Chandigarh to generate more leads and grow your business online?
+                </p>
+                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-4">
+                  Xi Pi Technologia provides Meta Ads Management Services in Chandigarh and Tricity, helping businesses reach relevant customers through targeted Facebook and Instagram advertising campaigns.
+                </p>
+                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                  We work with businesses across Chandigarh, Mohali, Panchkula, and Zirakpur, creating customized Meta advertising strategies based on their audience, industry, budget, and business goals.
+                </p>
+             </div>
+             
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               {localServices.map((srv, i) => (
+                 <div key={i} className="bg-[#111116] p-6 rounded-2xl border border-white/10">
+                   <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                     <MapPin className="h-4 w-4 text-brand-red shrink-0" />
+                     {srv.title}
+                   </h4>
+                   <p className="text-xs text-zinc-400 leading-relaxed">{srv.desc}</p>
+                 </div>
+               ))}
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. WHY XI PI */}
+      <section className="py-24 bg-[#0A0A0F] border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-16">
+          <div className="text-center space-y-3">
+            <span className="text-xs font-black tracking-[0.4em] uppercase text-brand-red">
+              WHY CHOOSE XI PI TECHNOLOGIA
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+              A Meta Ads Partner<br/>Focused on Results.
+            </h2>
+            <p className="text-zinc-400 text-sm max-w-2xl mx-auto leading-relaxed pt-2">
+              At Xi Pi Technologia, we combine audience research, creative strategy, performance marketing, and continuous optimization to help businesses get more from their Meta advertising budget.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {whyXiPiCards.map((card, i) => (
+              <div key={i} className="bg-[#111116] p-8 rounded-3xl border border-white/10 hover:border-brand-red/30 transition-colors">
+                <CheckCircle2 className="h-6 w-6 text-brand-red mb-4" />
+                <h4 className="text-lg font-bold text-white mb-2">{card.title}</h4>
+                <p className="text-sm text-zinc-400 leading-relaxed">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. FINAL CTA */}
       <section className="py-24 bg-[#050507] border-t border-white/10 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 sm:px-8">
           <div className="p-10 sm:p-16 rounded-3xl bg-gradient-to-r from-zinc-900 via-black to-zinc-900 border border-zinc-800 text-center space-y-6 relative overflow-hidden shadow-2xl">
@@ -481,15 +507,15 @@ export default function MetaAds({ onContactClick }) {
             <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red/10 rounded-full blur-[100px] pointer-events-none" />
 
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-red">
-              READY TO SCALE YOUR META & PAID ADS?
+              READY TO SCALE YOUR META ADS?
             </span>
 
             <h3 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              Get Your Free Paid Ad Strategy Audit.
+              Get Your Free <br className="sm:hidden" />Meta Ads Strategy Audit.
             </h3>
 
             <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
-              We'll analyze your current ad spend, CTR benchmarks, and creative hooks—completely free with zero obligation.
+              Let's review your current campaigns, audience targeting, creatives, and performance opportunities to identify where your Meta advertising can improve.
             </p>
 
             <div className="pt-4 flex flex-wrap justify-center gap-4">
@@ -497,45 +523,28 @@ export default function MetaAds({ onContactClick }) {
                 onClick={onContactClick}
                 className="group inline-flex items-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white font-extrabold px-8 py-4 rounded-full text-sm uppercase tracking-wider shadow-xl shadow-brand-red/25 transition-all hover:scale-105"
               >
-                <span>Book Paid Ads Audit</span>
+                <span>Book Your Meta Ads Audit</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </button>
+            </div>
+            
+            <p className="text-[10px] text-zinc-500 pt-2 tracking-widest uppercase font-bold">
+              Facebook Ads • Instagram Ads • Lead Generation • Conversion Optimization
+            </p>
+
+            <div className="mt-8 pt-8 border-t border-white/10 flex justify-center">
+              <div className="bg-white/5 border border-white/10 rounded-full px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors cursor-pointer" onClick={onContactClick}>
+                 <MessageSquare className="h-5 w-5 text-brand-red" />
+                 <div className="text-left">
+                   <div className="text-xs font-bold text-white uppercase tracking-wider">Talk to our team</div>
+                   <div className="text-[10px] text-zinc-400">Let's discuss your advertising goals.</div>
+                 </div>
+              </div>
             </div>
 
           </div>
         </div>
       </section>
-
-      {/* GALLERY PREVIEW MODAL */}
-      <AnimatePresence>
-        {activeGalleryModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setActiveGalleryModal(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
-          >
-            <div className="relative w-full max-w-lg bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 p-6 space-y-4 text-center">
-              <button
-                onClick={() => setActiveGalleryModal(null)}
-                className="absolute top-4 right-4 h-8 w-8 rounded-full bg-zinc-800 text-white flex items-center justify-center hover:bg-brand-red transition-colors"
-              >
-                <X className="h-4 w-4" />
-              </button>
-
-              <div className="relative w-full h-[320px] rounded-2xl overflow-hidden">
-                <img src={activeGalleryModal.img} alt={activeGalleryModal.title} className="w-full h-full object-cover" />
-              </div>
-
-              <div>
-                <h4 className="text-lg font-bold text-white">{activeGalleryModal.title}</h4>
-                <p className="text-xs text-amber-400 font-mono mt-1">{activeGalleryModal.tag}</p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
     </div>
   );

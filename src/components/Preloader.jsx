@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaGithub } from 'react-icons/fa';
 
 export default function Preloader({ onComplete }) {
   const [phase, setPhase] = useState(1);
@@ -10,15 +11,15 @@ export default function Preloader({ onComplete }) {
     document.body.classList.add('preloader-lock');
 
     const timers = [
-      setTimeout(() => setPhase(2), 800),
-      setTimeout(() => setPhase(3), 1600),
-      setTimeout(() => setPhase(4), 2400),
-      setTimeout(() => setPhase(5), 3200),
+      setTimeout(() => setPhase(2), 600),
+      setTimeout(() => setPhase(3), 1200),
+      setTimeout(() => setPhase(4), 1800),
+      setTimeout(() => setPhase(5), 2400),
       setTimeout(() => {
         setIsDone(true);
         document.body.classList.remove('preloader-lock');
         if (onComplete) onComplete();
-      }, 4000)
+      }, 3000)
     ];
 
     return () => {
@@ -53,17 +54,43 @@ export default function Preloader({ onComplete }) {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center gap-1 sm:gap-2 select-none"
+            className="relative flex items-center justify-center select-none w-64 h-64"
           >
-            <span className="font-display font-extrabold text-3xl sm:text-5xl md:text-7xl tracking-tighter">
-              Xipi
-            </span>
-            <span className="text-brand-red font-display font-extrabold text-3xl sm:text-5xl md:text-7xl tracking-tighter">
-              technologia
-            </span>
-            <span className="text-xs sm:text-sm font-semibold tracking-normal text-white/40 self-start mt-2 sm:mt-4">
-              ®
-            </span>
+            <img src="/black-logo.png" alt="Xipi Technologia" className="h-16 sm:h-24 w-auto z-10 bg-white p-2 rounded-lg" />
+            
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              {[
+                { Icon: FaFacebook, angle: 0 },
+                { Icon: FaTwitter, angle: 60 },
+                { Icon: FaInstagram, angle: 120 },
+                { Icon: FaLinkedin, angle: 180 },
+                { Icon: FaYoutube, angle: 240 },
+                { Icon: FaGithub, angle: 300 },
+              ].map((item, index) => {
+                const radius = 130;
+                const radian = (item.angle * Math.PI) / 180;
+                const x = radius * Math.cos(radian);
+                const y = radius * Math.sin(radian);
+                return (
+                  <div
+                    key={index}
+                    className="absolute text-brand-red opacity-80"
+                    style={{ transform: `translate(${x}px, ${y}px)` }}
+                  >
+                    <motion.div
+                      animate={{ rotate: -360 }}
+                      transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+                    >
+                      <item.Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </motion.div>
+                  </div>
+                );
+              })}
+            </motion.div>
           </motion.div>
 
           <div className="overflow-hidden mt-4 h-6 text-center">

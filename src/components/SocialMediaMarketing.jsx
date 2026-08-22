@@ -6,98 +6,127 @@ import {
   ExternalLink, Zap, BarChart3, Filter, X, ArrowUpRight
 } from 'lucide-react';
 
+// Data Arrays
 const statsData = [
-  { value: '4K → 427K', label: '@dr.remina followers', detail: 'Organic creator growth' },
-  { value: '1M+', label: 'Views — Quadratic AI', detail: 'TikTok & Reels viral reach' },
-  { value: '0 → 11K', label: 'Pongbot Growth', detail: 'Niche community building' },
-  { value: '$100K+', label: 'Revenue via Social', detail: 'Direct DM conversion funnels' }
+  { value: '4+', label: 'CORE PLATFORMS', detail: 'Facebook • Instagram • LinkedIn • YouTube' },
+  { value: '360°', label: 'SOCIAL MEDIA MANAGEMENT', detail: 'Strategy • Content • Publishing • Engagement' },
+  { value: 'DATA-DRIVEN', label: 'MARKETING APPROACH', detail: 'Content backed by audience & performance insights' },
+  { value: 'TRICITY', label: 'LOCAL MARKET FOCUS', detail: 'Chandigarh • Mohali • Zirakpur • Panchkula' }
 ];
 
 const pillars = [
   {
     num: '01',
-    title: 'Funnel Building',
+    title: 'SOCIAL MEDIA STRATEGY',
     color: '#E32626',
-    desc: 'We map every post to a specific funnel stage — awareness, engagement, or conversion. Content is engineered to move followers down the funnel into paying clients, not just rack up views.',
+    desc: 'We start by understanding your business, audience, competitors, and objectives before building a customized social media marketing strategy.',
     items: [
-      'Top-of-funnel viral hooks (first 2 seconds)',
-      'Mid-funnel educational carousel breakdowns',
-      'Bottom-funnel DM-to-sale scripts & keywords',
-      'Story funnels with high-converting link-in-bio CTAs'
+      'Audience & competitor research',
+      'Platform selection',
+      'Content strategy',
+      'Brand positioning',
+      'Monthly content planning'
     ]
   },
   {
     num: '02',
-    title: 'Viral Reels System',
+    title: 'CONTENT CREATION',
     color: '#F472B6',
-    desc: 'We analyze real-time algorithm trends on Instagram & TikTok weekly, engineering high-retention script structures, visual hooks, and audio pacing that trigger organic shares.',
+    desc: 'Create content that looks professional, communicates your message clearly, and gives your audience a reason to engage with your brand.',
     items: [
-      'Hook-first scriptwriting & storyboarding',
-      'Trending audio research & audio curation',
-      'A/B tested thumbnail & title cover designs',
-      'Native typography captions & sound design'
+      'Social media posts',
+      'Reels & short-form videos',
+      'Stories & Carousels',
+      'Promotional creatives',
+      'Educational & informative content'
     ]
   },
   {
     num: '03',
-    title: 'UGC Creation',
+    title: 'SOCIAL MEDIA MANAGEMENT',
     color: '#00D4FF',
-    desc: 'Authentic user-generated content consistently outperforms polished traditional ads. We produce and source UGC that feels raw, relatable, and converts cold traffic instantly.',
+    desc: 'Keep your social media profiles consistent, active, and aligned with your brand while our team manages the day-to-day execution.',
     items: [
-      'Raw-style product demo video production',
-      'Creator casting, vetting & brief management',
-      'Unboxing & unscripted reaction videos',
-      'Problem-solution testimonial format reels'
+      'Content scheduling',
+      'Regular publishing',
+      'Profile management',
+      'Audience engagement',
+      'Performance monitoring'
     ]
   },
   {
     num: '04',
-    title: 'Influencer Collabs',
+    title: 'PAID SOCIAL MEDIA ADVERTISING',
     color: '#FB923C',
-    desc: 'We connect your brand with vetted creators who actually move the needle — from micro-influencers with high engagement to macro industry authorities.',
+    desc: 'Turn social media attention into measurable business opportunities with targeted advertising campaigns.',
     items: [
-      'Niche influencer discovery & audience audit',
-      'Campaign briefing & contract negotiation',
-      'Seeding, gifting & affiliate program management',
-      'Co-authored Instagram Collab posts & co-branding'
+      'Facebook Ads & Instagram Ads',
+      'Lead Generation Campaigns',
+      'Website Traffic Campaigns',
+      'Retargeting Campaigns',
+      'Conversion-focused campaigns'
     ]
   }
 ];
 
+const approachCards = [
+  { title: 'Creative That Connects', desc: 'Content designed around your audience, industry, brand identity, and communication goals.' },
+  { title: 'Strategy Before Posting', desc: 'Every content plan starts with a clear objective instead of random posting.' },
+  { title: 'Platform-Specific Content', desc: 'We adapt content for Instagram, Facebook, LinkedIn, YouTube, and other relevant platforms.' },
+  { title: 'Data-Driven Decisions', desc: 'Performance insights help us understand what is working and where your strategy needs improvement.' },
+  { title: 'Paid + Organic Growth', desc: 'Combine organic social media management with paid social media advertising for stronger reach and lead-generation opportunities.' },
+  { title: 'Continuous Optimization', desc: 'We monitor engagement, reach, traffic, leads, and campaign performance to improve results over time.' }
+];
+
+const locationCards = [
+  { city: 'Chandigarh', desc: 'Social media marketing for businesses looking to reach and engage customers across Chandigarh.' },
+  { city: 'Mohali', desc: 'Build local visibility, generate leads, and connect with your target audience through social media.' },
+  { city: 'Zirakpur', desc: 'Customized social media marketing strategies for local businesses targeting Zirakpur and nearby areas.' },
+  { city: 'Panchkula', desc: 'Build brand awareness and generate customer engagement with targeted social media campaigns.' }
+];
+
+const servicesCards = [
+  { num: '01', title: 'Strategy & Planning', desc: 'Customized social media strategies based on your business, audience, competitors, and goals.' },
+  { num: '02', title: 'Content Creation', desc: 'Professional graphics, reels, videos, stories, carousels, and promotional content designed for your brand.' },
+  { num: '03', title: 'Social Media Management', desc: 'Complete account management including scheduling, publishing, engagement, and content planning.' },
+  { num: '04', title: 'Facebook Marketing', desc: 'Reach your target audience through strategic Facebook content and paid advertising campaigns.' },
+  { num: '05', title: 'Instagram Marketing', desc: 'Build visibility and engagement through Instagram reels, posts, stories, campaigns, and audience-focused content.' },
+  { num: '06', title: 'Paid Social Advertising', desc: 'Generate leads, website traffic, and conversions through targeted Facebook and Instagram advertising campaigns.' },
+  { num: '07', title: 'Influencer Marketing', desc: 'Connect with relevant creators and influencers to increase brand awareness and reach new audiences.' },
+  { num: '08', title: 'Analytics & Reporting', desc: 'Track reach, engagement, follower growth, traffic, leads, and campaign performance through regular reporting.' }
+];
+
+const industries = [
+  'Healthcare', 'Education', 'Real Estate', 'E-commerce', 'Retail', 'Hospitality',
+  'Finance', 'Technology', 'Manufacturing', 'Professional Services', 'Automotive', 'Local Businesses'
+];
+
+const benefitsCards = [
+  { num: '01', title: 'Brand Visibility', desc: 'Put your business in front of the right audience and increase online visibility.' },
+  { num: '02', title: 'Audience Engagement', desc: 'Build meaningful interactions and stronger relationships with your customers.' },
+  { num: '03', title: 'Website Traffic', desc: 'Drive relevant users from social platforms to your website and landing pages.' },
+  { num: '04', title: 'Quality Leads', desc: 'Use targeted content and paid campaigns to generate relevant enquiries.' },
+  { num: '05', title: 'Brand Credibility', desc: 'Maintain a professional and consistent digital presence across your social channels.' },
+  { num: '06', title: 'Business Growth', desc: 'Combine strategy, content, advertising, and optimization to support sustainable growth.' }
+];
+
 const faqs = [
-  {
-    q: 'How fast can we expect results from social media marketing?',
-    a: 'While organic audience building compounds over 3-6 months, our viral hook scripts and UGC reel frameworks typically produce viral view spikes (100K+ views) within the first 30 days of consistent posting.'
-  },
-  {
-    q: 'Do you handle the full process including video editing & scriptwriting?',
-    a: 'Yes, 100%! We provide end-to-end management: content strategy, scriptwriting, shot list creation, professional video editing, captions, thumbnail design, posting schedule, and DM funnel automation.'
-  },
-  {
-    q: 'Which platforms do you specialize in?',
-    a: 'We specialize heavily in Instagram Reels, TikTok, YouTube Shorts, and Meta Paid Social. We cross-repurpose winning short-form visual content across all major channels for maximum ROI.'
-  },
-  {
-    q: 'How do you track real business ROI and revenue from social posts?',
-    a: 'We set up custom keyword DM automation triggers (e.g. comment "GROWTH" for link), trackable link-in-bio UTM parameters, and direct consultation booking funnels so every lead is tracked to the penny.'
-  }
-];
-
-const drReminaReels = [
-  { title: 'Aesthetic Medical Routine', views: '2.4M Views', tag: 'Viral Reel', img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop' },
-  { title: 'Behind the Scenes Clinic Day', views: '1.1M Views', tag: 'Story Funnel', img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop' },
-  { title: 'Forbes PR Feature Announcement', views: '890K Views', tag: 'Authority Drop', img: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop' }
-];
-
-const quadraticTikToks = [
-  { title: 'ChatGPT vs Quadratic AI Demo', views: '450K Views', tag: 'UGC Demo', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop' },
-  { title: 'Data Analytics Trick 2026', views: '320K Views', tag: 'Tech Hook', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop' },
-  { title: 'Building SQL Queries in Seconds', views: '280K Views', tag: 'SaaS Viral', img: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop' }
+  { q: 'What is social media marketing?', a: 'Social media marketing is the process of promoting your business through platforms such as Facebook, Instagram, LinkedIn, YouTube, and other social networks to increase visibility, engagement, website traffic, leads, and sales.' },
+  { q: 'Why should I hire a social media marketing company?', a: 'A professional social media marketing company can develop your strategy, create content, manage your social profiles, run paid campaigns, engage with your audience, and track performance.' },
+  { q: 'Which social media platforms does Xi Pi Technologia manage?', a: 'We manage platforms including Facebook, Instagram, LinkedIn, and YouTube, along with other relevant platforms based on your business and target audience.' },
+  { q: 'Do you provide Facebook and Instagram marketing?', a: 'Yes. We provide Facebook and Instagram marketing services, including organic content, social media management, audience targeting, and paid advertising campaigns.' },
+  { q: 'Do you provide social media marketing in Chandigarh?', a: 'Yes. Xi Pi Technologia provides social media marketing services for businesses targeting Chandigarh, Mohali, Zirakpur, Panchkula, and the wider Tricity region.' },
+  { q: 'Can social media marketing help small businesses?', a: 'Yes. Social media can help small businesses increase brand awareness, reach potential customers, generate enquiries, and build stronger relationships with their audience.' },
+  { q: 'Do you create social media content?', a: 'Yes. Our team creates graphics, reels, videos, stories, carousels, promotional posts, and informative content based on your brand and marketing strategy.' },
+  { q: 'Do you provide paid social media advertising?', a: 'Yes. We manage paid campaigns on platforms such as Facebook and Instagram to help businesses increase reach, generate leads, drive website traffic, and improve conversions.' },
+  { q: 'How long does social media marketing take to show results?', a: 'Initial improvements in reach and engagement can appear within weeks, while stronger results in leads, conversions, and brand growth generally require consistent marketing over several months.' },
+  { q: 'Do you provide monthly social media reports?', a: 'Yes. We provide performance updates covering relevant metrics such as reach, engagement, follower growth, website traffic, leads, and advertising performance.' },
+  { q: 'How much does social media marketing cost?', a: 'The cost depends on your business goals, number of platforms, content requirements, posting frequency, advertising needs, and overall scope of work. We create customized packages based on your requirements.' },
+  { q: 'Why choose Xi Pi Technologia for social media marketing?', a: 'Xi Pi Technologia combines strategy, creative content, social media management, paid advertising, analytics, and continuous optimization to help businesses build a stronger online presence and achieve measurable growth.' }
 ];
 
 export default function SocialMediaMarketing({ onContactClick }) {
   const [openFaq, setOpenFaq] = useState(0);
-  const [activeVideoModal, setActiveVideoModal] = useState(null);
 
   return (
     <div className="min-h-screen bg-[#050507] text-white font-sans select-none overflow-x-hidden pt-20">
@@ -105,10 +134,8 @@ export default function SocialMediaMarketing({ onContactClick }) {
       {/* Background Decorative Radial Lighting */}
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-brand-red/15 via-brand-red/5 to-transparent rounded-full blur-[160px] pointer-events-none" />
 
-      {/* 1. HERO SECTION (helloupdigital exact layout & typography) */}
+      {/* 1. HERO SECTION */}
       <section className="relative pt-24 pb-20 border-b border-white/10 overflow-hidden">
-        
-        {/* Background Big Watermark Text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-10">
           <span className="text-[14vw] font-black leading-none text-transparent border-text tracking-tighter" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.15)' }}>
             SOCIAL
@@ -124,7 +151,7 @@ export default function SocialMediaMarketing({ onContactClick }) {
           >
             <div className="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 text-brand-red px-4 py-1.5 rounded-full text-xs font-black tracking-[0.3em] uppercase">
               <Sparkles className="h-3.5 w-3.5 animate-pulse" />
-              SOCIAL MEDIA MARKETING
+              SOCIAL MEDIA MARKETING • TRICITY
             </div>
 
             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white tracking-tight leading-[0.93]">
@@ -135,7 +162,8 @@ export default function SocialMediaMarketing({ onContactClick }) {
             </h1>
 
             <p className="text-zinc-400 text-lg sm:text-xl leading-relaxed max-w-2xl font-normal pt-2">
-              Viral reels, UGC, influencer collabs, and full-funnel Instagram strategy — built by an elite team that grew a creator from <strong className="text-white">4K to 427K followers</strong>.
+              Build a stronger digital presence with social media marketing services designed to increase brand visibility, engage your audience, generate quality leads, and support measurable business growth. <br/><br/>
+              From Instagram and Facebook to LinkedIn and YouTube, Xi Pi Technologia creates data-driven social media strategies for businesses across Chandigarh, Mohali, Zirakpur, Panchkula, and the Tricity region.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -143,7 +171,7 @@ export default function SocialMediaMarketing({ onContactClick }) {
                 onClick={onContactClick}
                 className="group relative inline-flex items-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white font-extrabold px-8 py-4 rounded-full text-sm uppercase tracking-wider shadow-xl shadow-brand-red/25 transition-all hover:scale-105"
               >
-                <span>Start Your Project</span>
+                <span>START YOUR PROJECT</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
@@ -151,16 +179,16 @@ export default function SocialMediaMarketing({ onContactClick }) {
                 onClick={onContactClick}
                 className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white font-extrabold rounded-full text-sm uppercase tracking-wider hover:border-brand-red/50 hover:bg-white/5 transition-all"
               >
-                <span>Free Social Audit</span>
+                <span>FREE SOCIAL MEDIA AUDIT</span>
               </button>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 2. LIVE METRICS STATS BAR */}
+      {/* 2. STATS SECTION */}
       <section className="relative bg-[#0D0D0F] border-b border-white/10 py-10">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {statsData.map((stat, i) => (
             <motion.div
               key={i}
@@ -184,21 +212,24 @@ export default function SocialMediaMarketing({ onContactClick }) {
         </div>
       </section>
 
-      {/* 3. THE SYSTEM · 4 PILLARS OF INSTAGRAM STRATEGY */}
+      {/* 3. OUR SOCIAL MEDIA STRATEGY */}
       <section className="py-24 bg-[#FAF9F6] text-black relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 sm:px-8">
           
           <div className="mb-16 space-y-3">
             <div className="inline-flex items-center gap-2 bg-black text-white px-3.5 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase">
               <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse" />
-              THE SYSTEM · 4 PILLARS
+              THE SYSTEM • 4 PILLARS
             </div>
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.08]">
-              OUR INSTAGRAM <br />
+              OUR SOCIAL MEDIA <br />
               <span className="font-serif italic font-light text-brand-red">
-                Strategy.
+                STRATEGY.
               </span>
             </h2>
+            <p className="text-sm sm:text-base text-zinc-600 max-w-2xl leading-relaxed mt-4">
+              We don't post content just to keep your social media active. Every post, reel, campaign, and creative is planned around your business goals, audience, and growth objectives.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -211,12 +242,7 @@ export default function SocialMediaMarketing({ onContactClick }) {
                 transition={{ delay: idx * 0.1 }}
                 className="group relative bg-white rounded-3xl p-8 border border-zinc-200 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Top Accent Line */}
-                <div 
-                  className="absolute top-0 left-0 right-0 h-[3px] rounded-t-3xl" 
-                  style={{ backgroundColor: p.color }} 
-                />
-
+                <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-3xl" style={{ backgroundColor: p.color }} />
                 <div>
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-xs font-black tracking-[0.4em] uppercase" style={{ color: p.color }}>
@@ -226,16 +252,9 @@ export default function SocialMediaMarketing({ onContactClick }) {
                       <ArrowUpRight className="h-4 w-4" />
                     </div>
                   </div>
-
-                  <h3 className="text-2xl font-extrabold text-black mb-3 tracking-tight">
-                    {p.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-6 font-normal">
-                    {p.desc}
-                  </p>
+                  <h3 className="text-2xl font-extrabold text-black mb-3 tracking-tight">{p.title}</h3>
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-6 font-normal">{p.desc}</p>
                 </div>
-
                 <ul className="space-y-2.5 pt-4 border-t border-zinc-100">
                   {p.items.map((item, itemIdx) => (
                     <li key={itemIdx} className="flex items-center gap-2.5 text-xs font-semibold text-zinc-700">
@@ -247,185 +266,155 @@ export default function SocialMediaMarketing({ onContactClick }) {
               </motion.div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* 4. CASE STUDY 01: @dr.remina */}
-      <section className="py-28 bg-[#0A0A0F] border-t border-white/10">
+      {/* 4. WHY OUR SOCIAL MEDIA MARKETING WORKS */}
+      <section className="py-24 bg-[#0A0A0F] border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-16">
-          
           <div className="space-y-3">
             <span className="text-xs font-black tracking-[0.4em] uppercase text-brand-red">
-              CASE STUDY 01 / CREATOR GROWTH
+              OUR APPROACH
             </span>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              <div className="lg:col-span-6 space-y-6">
-                <h2 className="text-5xl sm:text-7xl font-black text-white tracking-tight">
-                  @dr.remina
-                </h2>
-                <p className="text-zinc-400 text-base sm:text-lg leading-relaxed font-normal">
-                  A medical aesthetic creator with 4K followers and no content system. We built a full Instagram growth engine — reels strategy, hook-first scriptwriting, posting cadence, and audience funnel — that turned her profile into a <strong className="text-white">$100K+ revenue channel</strong>.
-                </p>
-
-                {/* 3 Metric Pills */}
-                <div className="grid grid-cols-3 gap-3 pt-2">
-                  <div className="bg-[#111116] p-4 rounded-2xl border border-white/10 text-center">
-                    <span className="text-xl sm:text-2xl font-black text-brand-red block font-mono">4K → 427K</span>
-                    <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Followers</span>
-                  </div>
-                  <div className="bg-[#111116] p-4 rounded-2xl border border-white/10 text-center">
-                    <span className="text-xl sm:text-2xl font-black text-emerald-400 block font-mono">$100K+</span>
-                    <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Revenue</span>
-                  </div>
-                  <div className="bg-[#111116] p-4 rounded-2xl border border-white/10 text-center">
-                    <span className="text-xl sm:text-2xl font-black text-blue-400 block font-mono">Forbes</span>
-                    <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">PR Feature</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* What We Built Box */}
-              <div className="lg:col-span-6 bg-[#111118] p-8 rounded-3xl border border-white/10 space-y-4">
-                <h4 className="text-xs font-black uppercase tracking-[0.3em] text-brand-red">
-                  WHAT WE BUILT
-                </h4>
-                <div className="space-y-3 text-xs sm:text-sm">
-                  {[
-                    'Grew from 4,000 to 427,000 organic followers in 18 months',
-                    'Built full Instagram content funnel (reels, stories, highlights)',
-                    'Converted followers into paying clients via DM automation',
-                    'Secured Forbes PR placement for brand authority',
-                    'Generated $100K+ in direct revenue from social'
-                  ].map((line, lIdx) => (
-                    <div key={lIdx} className="flex items-start gap-3 text-zinc-300">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
-                      <span>{line}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
+                WHY OUR SOCIAL <br/>
+                <span className="text-brand-red">MARKETING WORKS.</span>
+              </h2>
+              <p className="text-zinc-400 text-base leading-relaxed">
+                Effective social media marketing is more than posting attractive graphics. We combine creative content, audience research, paid advertising, analytics, and continuous optimization to build a social presence that contributes to real business growth.
+              </p>
             </div>
           </div>
-
-          {/* Content Video Showcase Cards */}
-          <div className="space-y-4">
-            <span className="text-xs font-black uppercase tracking-[0.3em] text-zinc-400">
-              CONTENT WE PRODUCED FOR @DR.REMINA
-            </span>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {drReminaReels.map((reel, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => setActiveVideoModal(reel)}
-                  className="group relative h-[380px] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 cursor-pointer shadow-xl"
-                >
-                  <img
-                    src={reel.img}
-                    alt={reel.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-75 group-hover:opacity-90"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="h-14 w-14 rounded-full bg-brand-red text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                      <Play className="h-6 w-6 fill-white ml-0.5" />
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-6 left-6 right-6 space-y-1">
-                    <span className="bg-white/20 backdrop-blur-md text-white text-[9px] font-black uppercase px-2.5 py-1 rounded-full">
-                      {reel.tag} • {reel.views}
-                    </span>
-                    <h5 className="text-base font-extrabold text-white pt-1">
-                      {reel.title}
-                    </h5>
-                  </div>
-                </div>
-              ))}
-            </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {approachCards.map((card, i) => (
+              <div key={i} className="bg-[#111116] p-8 rounded-3xl border border-white/10 hover:border-brand-red/30 transition-colors">
+                <CheckCircle2 className="h-6 w-6 text-brand-red mb-4" />
+                <h4 className="text-lg font-bold text-white mb-2">{card.title}</h4>
+                <p className="text-sm text-zinc-400 leading-relaxed">{card.desc}</p>
+              </div>
+            ))}
           </div>
-
         </div>
       </section>
 
-      {/* 5. CASE STUDY 02: QUADRATIC AI */}
-      <section className="py-28 bg-[#050507] border-t border-white/10">
+      {/* 5. TRICITY LOCATION SECTION */}
+      <section className="py-24 bg-[#050507] border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-16">
-          
-          <div className="space-y-3">
-            <span className="text-xs font-black tracking-[0.4em] uppercase text-cyan-400">
-              CASE STUDY 02 / B2B TECH & SAAS
+          <div className="text-center max-w-3xl mx-auto space-y-6">
+            <span className="text-xs font-black tracking-[0.4em] uppercase text-brand-red">
+              SOCIAL MEDIA MARKETING • TRICITY
             </span>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-6">
-                <h2 className="text-5xl sm:text-7xl font-black text-white tracking-tight">
-                  QUADRATIC AI
-                </h2>
-                <p className="text-zinc-400 text-base sm:text-lg leading-relaxed font-normal">
-                  ChatGPT meets Tableau — a next-gen AI data platform. We built a full UGC content machine: 7 TikTok videos + 3 Instagram reels driving <strong className="text-white">1M+ views and 1,000+ signups</strong> in 90 days.
-                </p>
-              </div>
-
-              <div className="lg:col-span-5 grid grid-cols-3 gap-3">
-                <div className="bg-[#0D0D0F] p-4 rounded-2xl border border-cyan-500/20 text-center">
-                  <span className="text-2xl font-black text-cyan-400 block font-mono">1M+</span>
-                  <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Views</span>
-                </div>
-                <div className="bg-[#0D0D0F] p-4 rounded-2xl border border-cyan-500/20 text-center">
-                  <span className="text-2xl font-black text-emerald-400 block font-mono">1,000+</span>
-                  <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Signups</span>
-                </div>
-                <div className="bg-[#0D0D0F] p-4 rounded-2xl border border-cyan-500/20 text-center">
-                  <span className="text-2xl font-black text-purple-400 block font-mono">90 Days</span>
-                  <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Speed</span>
-                </div>
-              </div>
-            </div>
+            <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+              YOUR LOCAL BUSINESS.<br/>
+              A STRONGER DIGITAL PRESENCE.
+            </h2>
+            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+              Looking for a social media marketing company in Chandigarh, Mohali, Zirakpur, or Panchkula? Xi Pi Technologia helps local businesses build a stronger presence across social media with customized strategies, engaging content, social media management, and paid advertising. We understand that businesses targeting the Tricity market need more than generic social media campaigns. Your strategy should reflect your local audience, competition, market, and business goals.
+            </p>
           </div>
 
-          {/* TikTok UGC Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {quadraticTikToks.map((tt, idx) => (
-              <div
-                key={idx}
-                onClick={() => setActiveVideoModal(tt)}
-                className="group relative h-[340px] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 cursor-pointer shadow-xl"
-              >
-                <img
-                  src={tt.img}
-                  alt={tt.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70 group-hover:opacity-85"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {locationCards.map((loc, i) => (
+              <div key={i} className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 hover:bg-zinc-900 transition-colors text-center">
+                <h4 className="text-xl font-bold text-white mb-3">{loc.city}</h4>
+                <p className="text-xs text-zinc-400 leading-relaxed">{loc.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center text-xs font-bold text-zinc-500 uppercase tracking-[0.2em] pt-4">
+            Chandigarh • Mohali • Zirakpur • Panchkula • Tricity
+          </div>
+        </div>
+      </section>
 
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="h-12 w-12 rounded-full bg-cyan-400 text-black flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                    <Play className="h-5 w-5 fill-black ml-0.5" />
-                  </div>
+      {/* 6. SERVICES / WHAT WE DO */}
+      <section className="py-24 bg-[#0A0A0F] border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-16">
+          <div className="space-y-3 text-center">
+            <span className="text-xs font-black tracking-[0.4em] uppercase text-brand-red">
+              FULL SOCIAL MEDIA SERVICE
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+              EVERYTHING YOUR<br/>
+              SOCIAL PRESENCE NEEDS.
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {servicesCards.map((srv, i) => (
+              <div key={i} className="group relative bg-[#111116] p-8 rounded-3xl border border-white/10 hover:border-brand-red/50 transition-all overflow-hidden">
+                <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity text-6xl font-black text-white font-mono">
+                  {srv.num}
                 </div>
-
-                <div className="absolute bottom-5 left-5 right-5 space-y-1">
-                  <span className="bg-cyan-500/20 text-cyan-300 text-[9px] font-black uppercase px-2.5 py-1 rounded-full border border-cyan-500/30">
-                    {tt.tag} • {tt.views}
-                  </span>
-                  <h5 className="text-sm font-extrabold text-white pt-1">
-                    {tt.title}
-                  </h5>
+                <div className="relative z-10">
+                  <h4 className="text-lg font-bold text-white mb-3 pr-8">{srv.title}</h4>
+                  <p className="text-sm text-zinc-400 leading-relaxed">{srv.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* 6. FAQ ACCORDION */}
+      {/* 7. INDUSTRIES SECTION */}
+      <section className="py-24 bg-[#050507] border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-12">
+          <div className="flex flex-col md:flex-row gap-8 justify-between items-start md:items-end">
+            <div className="space-y-3 max-w-2xl">
+              <span className="text-xs font-black tracking-[0.4em] uppercase text-brand-red">
+                BUILT FOR DIFFERENT BUSINESSES
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+                SOCIAL MEDIA FOR<br/>
+                YOUR INDUSTRY.
+              </h2>
+              <p className="text-zinc-400 text-base leading-relaxed">
+                We create customized social media marketing strategies for businesses across different industries. Different industries need different content, audiences, and marketing approaches. We customize our strategy according to your business and target market.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {industries.map((ind, i) => (
+              <div key={i} className="px-6 py-3 rounded-full border border-white/10 bg-white/5 text-sm font-semibold text-white hover:bg-brand-red hover:border-brand-red transition-all cursor-default">
+                {ind}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. RESULTS / BENEFITS SECTION */}
       <section className="py-24 bg-[#0A0A0F] border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-16">
+          <div className="text-center space-y-3">
+            <span className="text-xs font-black tracking-[0.4em] uppercase text-brand-red">
+              WHAT SOCIAL MEDIA DELIVERS
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+              FROM ONLINE PRESENCE<br/>
+              TO BUSINESS GROWTH.
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefitsCards.map((ben, i) => (
+              <div key={i} className="flex gap-6 p-6 rounded-2xl bg-[#111116] border border-white/5 hover:bg-[#15151A] transition-colors">
+                <div className="text-2xl font-black text-brand-red font-mono shrink-0">{ben.num}</div>
+                <div>
+                  <h4 className="text-lg font-bold text-white mb-2">{ben.title}</h4>
+                  <p className="text-xs text-zinc-400 leading-relaxed">{ben.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. FAQ ACCORDION */}
+      <section className="py-24 bg-[#050507] border-t border-white/10">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 space-y-12">
           
           <div className="text-center space-y-3">
@@ -433,7 +422,7 @@ export default function SocialMediaMarketing({ onContactClick }) {
               FREQUENTLY ASKED QUESTIONS
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-              Social Growth FAQs
+              SOCIAL MEDIA MARKETING<br/>FAQS
             </h2>
           </div>
 
@@ -468,27 +457,26 @@ export default function SocialMediaMarketing({ onContactClick }) {
               );
             })}
           </div>
-
         </div>
       </section>
 
-      {/* 7. HIGH-CONVERTING CTA BANNER */}
-      <section className="py-24 bg-[#050507] border-t border-white/10 relative overflow-hidden">
+      {/* 10. HIGH-CONVERTING CTA BANNER */}
+      <section className="py-24 bg-[#0A0A0F] border-t border-white/10 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 sm:px-8">
           <div className="p-10 sm:p-16 rounded-3xl bg-gradient-to-r from-zinc-900 via-black to-zinc-900 border border-zinc-800 text-center space-y-6 relative overflow-hidden shadow-2xl">
             
             <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red/10 rounded-full blur-[100px] pointer-events-none" />
 
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-red">
-              READY TO GO VIRAL & SCALE REVENUE?
+              READY TO GROW ON SOCIAL?
             </span>
 
             <h3 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              Book Your Free 30-Min Social Media Audit.
+              TURN YOUR <br className="sm:hidden" />SOCIAL PRESENCE INTO GROWTH.
             </h3>
 
             <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
-              We'll analyze your current Instagram profile, audit your reel hooks, and build a custom content roadmap.
+              Your audience is already spending time on social media. Let's build a strategy that gets your brand noticed, builds trust, generates leads, and moves your business forward.
             </p>
 
             <div className="pt-4 flex flex-wrap justify-center gap-4">
@@ -496,50 +484,25 @@ export default function SocialMediaMarketing({ onContactClick }) {
                 onClick={onContactClick}
                 className="group inline-flex items-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white font-extrabold px-8 py-4 rounded-full text-sm uppercase tracking-wider shadow-xl shadow-brand-red/25 transition-all hover:scale-105"
               >
-                <span>Book Growth Audit</span>
+                <span>GET YOUR FREE SOCIAL MEDIA AUDIT</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </button>
+              
+              <button
+                onClick={onContactClick}
+                className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white font-extrabold rounded-full text-sm uppercase tracking-wider hover:border-brand-red/50 hover:bg-white/5 transition-all"
+              >
+                <span>CHAT ON WHATSAPP</span>
+              </button>
             </div>
+            
+            <p className="text-[10px] text-zinc-500 pt-4 tracking-widest uppercase">
+              Social Media Strategy • Content Creation • Management • Facebook Ads • Instagram Marketing
+            </p>
 
           </div>
         </div>
       </section>
-
-      {/* VIDEO PREVIEW MODAL */}
-      <AnimatePresence>
-        {activeVideoModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setActiveVideoModal(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
-          >
-            <div className="relative w-full max-w-lg bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 p-6 space-y-4 text-center">
-              <button
-                onClick={() => setActiveVideoModal(null)}
-                className="absolute top-4 right-4 h-8 w-8 rounded-full bg-zinc-800 text-white flex items-center justify-center hover:bg-brand-red transition-colors"
-              >
-                <X className="h-4 w-4" />
-              </button>
-
-              <div className="relative w-full h-[360px] rounded-2xl overflow-hidden">
-                <img src={activeVideoModal.img} alt={activeVideoModal.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <span className="bg-brand-red text-white text-xs font-bold px-4 py-2 rounded-full">
-                    ▶ Playing {activeVideoModal.title}
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-bold text-white">{activeVideoModal.title}</h4>
-                <p className="text-xs text-zinc-400 mt-1">{activeVideoModal.views} • {activeVideoModal.tag}</p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
     </div>
   );
