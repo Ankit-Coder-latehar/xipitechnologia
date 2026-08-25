@@ -37,6 +37,9 @@ import AlumniCompanies from './components/AlumniCompanies';
 import CertificationCourses from './components/CertificationCourses';
 import BeginJourneyCTA from './components/BeginJourneyCTA';
 import WhatsAppWidget from './components/WhatsAppWidget';
+import GraphicDesign from './components/GraphicDesign';
+import VideoEditing from './components/VideoEditing';
+import ContentMarketing from './components/ContentMarketing';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -377,6 +380,45 @@ function App() {
                 transition={{ duration: 0.35 }}
               >
                 <ContactPage />
+              </motion.div>
+            )}
+
+            {/* Graphic Design View */}
+            {view === 'graphic-design' && (
+              <motion.div
+                key="graphic-design"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <GraphicDesign onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* Video Editing View */}
+            {view === 'video-editing' && (
+              <motion.div
+                key="video-editing"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <VideoEditing onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
+            {/* Content Marketing View */}
+            {view === 'content-marketing' && (
+              <motion.div
+                key="content-marketing"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <ContentMarketing onContactClick={() => handleNavigate('contact')} />
               </motion.div>
             )}
 

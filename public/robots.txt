@@ -1,5 +1,12 @@
 User-agent: *
 Allow: /
 
-# If you have a sitemap, uncomment and update the URL below
-# Sitemap: https://yourdomain.com/sitemap.xml
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/cache/
+Disallow: /wp-json/
+Disallow: /?s=
+Disallow: /search/
+
+Sitemap: https://xipitechnologia.com/sitemap_index.xml

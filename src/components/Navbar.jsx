@@ -71,6 +71,12 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
         onNavigate('meta-ads');
       } else if (solutionName === 'Search Engine Optimization (SEO)' || solutionName === 'SEO') {
         onNavigate('seo');
+      } else if (solutionName === 'Graphics Designing') {
+        onNavigate('graphic-design');
+      } else if (solutionName === 'Video Editing') {
+        onNavigate('video-editing');
+      } else if (solutionName === 'Content Marketing') {
+        onNavigate('content-marketing');
       } else {
         onNavigate('solutions');
         if (currentView === 'solutions') {
@@ -127,6 +133,14 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
         { name: 'Ecommerce Marketing', link: '#' },
         { name: 'Marketplace Listing (Amazon, Flipkart, Meesho)', link: '#' }
       ]
+    },
+    {
+      title: 'Creative & Content',
+      items: [
+        { name: 'Graphics Designing', link: '#' },
+        { name: 'Video Editing', link: '#' },
+        { name: 'Content Marketing', link: '#' }
+      ]
     }
   ];
 
@@ -165,8 +179,8 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${isScrolled
-        ? 'bg-white/90 backdrop-blur-md border-b border-brand-border shadow-sm'
-        : 'bg-white/50 border-b border-transparent'
+        ? 'bg-black/90 backdrop-blur-md border-b border-white/10 shadow-sm'
+        : 'bg-black/50 border-b border-transparent'
         }`}
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : -100 }}
@@ -185,7 +199,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
             }}
             className="flex items-center group select-none shrink-0"
           >
-            <img src="/black-logo.png" alt="Xipi Technologia" className="h-12 sm:h-16 w-auto" />
+            <img src="/white-logo.png" alt="Xipi Technologia" className="h-12 sm:h-16 w-auto" />
           </a>
 
           {/* Desktop Nav Items */}
@@ -210,7 +224,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                     (item.name === 'Solutions' && isSolutionsOpen) ||
                     (item.name === 'Resources' && isResourcesOpen)
                     ? 'text-brand-red'
-                    : 'text-black/70 hover:text-brand-red'
+                    : 'text-white/70 hover:text-brand-red'
                     }`}
                 >
                   {item.name}
@@ -234,9 +248,9 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 15 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-1/2 top-full z-50 mt-2 w-[520px] -translate-x-1/2 rounded-2xl border border-brand-border bg-white p-6 shadow-xl"
+                        className="absolute left-1/2 top-full z-50 mt-2 w-[760px] -translate-x-1/2 rounded-2xl border border-brand-border bg-white p-6 shadow-xl"
                       >
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="grid grid-cols-3 gap-6">
                           {solutionsCategories.map((category, idx) => (
                             <div key={idx} className="space-y-4">
                               <h4 className="text-xs font-bold uppercase tracking-widest text-brand-red border-b border-brand-border pb-2 select-none">
@@ -303,7 +317,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
           <div className="hidden md:flex items-center shrink-0">
             <button
               onClick={onContactClick}
-              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-black px-5.5 py-3 text-xs font-bold uppercase tracking-wider text-white hover:bg-brand-red transition-all duration-300 active:scale-95 shadow-sm leading-none whitespace-nowrap cursor-pointer"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-5.5 py-3 text-xs font-bold uppercase tracking-wider text-black hover:text-white hover:bg-brand-red transition-all duration-300 active:scale-95 shadow-sm leading-none whitespace-nowrap cursor-pointer"
             >
               <span>Book a Free Strategy Call</span>
               <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
@@ -314,7 +328,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="rounded-lg p-2 text-black hover:text-brand-red transition-colors"
+              className="rounded-lg p-2 text-white hover:text-brand-red transition-colors"
             >
               <Menu className="h-6 w-6" />
             </button>
@@ -355,7 +369,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                     }}
                     className="flex items-center group"
                   >
-                    <img src="/black-logo.png" alt="Xipi Technologia" className="h-12 w-auto" />
+                    <img src="/white-logo.png" alt="Xipi Technologia" className="h-12 w-auto" />
                   </a>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}

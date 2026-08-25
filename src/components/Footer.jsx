@@ -85,15 +85,19 @@ export default function Footer({ onNavigate }) {
             </span>
             <address className="not-italic text-sm text-white/50 space-y-2.5 font-normal">
               <p>
-                160 Varick Street, 5th Floor<br />
-                New York, NY 10013
+                Xi Pi Technologia<br />
+                SCO 40, Second floor,<br />
+                Mohali Citi Square<br />
+                Near Gopal Sweets<br />
+                Patiala road<br />
+                Zirakpur, Punjab
               </p>
               <p className="font-semibold text-white">
                 hello@xipitechnologia.com<br />
-                +1 212.380.1761
+                +91 84277 79193
               </p>
               <a 
-                href="https://wa.me/12123801761?text=Hello%20Xipitechnologia!" 
+                href="https://wa.me/918427779193?text=Hello%20Xipitechnologia!" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 font-bold text-xs text-[#25D366] hover:underline pt-1"
@@ -116,7 +120,7 @@ export default function Footer({ onNavigate }) {
           </div>
 
           <div className="flex flex-wrap gap-4 items-center">
-            <a href="https://wa.me/12123801761" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors flex items-center gap-1 text-[#25D366] font-bold">
+            <a href="https://wa.me/918427779193" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors flex items-center gap-1 text-[#25D366] font-bold">
               <WhatsAppIcon className="h-3.5 w-3.5 fill-current" /> WhatsApp <ArrowUpRight className="h-3 w-3" />
             </a>
             <a href="#" className="hover:text-white flex items-center gap-0.5">Behance <ArrowUpRight className="h-3 w-3" /></a>

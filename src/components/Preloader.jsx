@@ -56,7 +56,7 @@ export default function Preloader({ onComplete }) {
             transition={{ duration: 0.5 }}
             className="relative flex items-center justify-center select-none w-64 h-64"
           >
-            <img src="/black-logo.png" alt="Xipi Technologia" className="h-16 sm:h-24 w-auto z-10 bg-white p-2 rounded-lg" />
+            <img src="/white-logo.png" alt="Xipi Technologia" className="h-16 sm:h-24 w-auto z-10" />
             
             <motion.div
               animate={{ rotate: 360 }}
