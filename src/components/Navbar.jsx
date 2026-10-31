@@ -4,7 +4,6 @@ import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 
 export default function Navbar({ onContactClick, currentView, onNavigate }) {
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -18,8 +17,9 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     'Case Studies': 'portfolio',
     'Academy': 'academy',
     'AI Consulting': 'academy',
-    'Pricing': 'contact',
     'Blog': 'blog',
+    'Services': 'services',
+    'Pricing': 'services',
     'Contact': 'contact'
   };
 
@@ -49,7 +49,9 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     setIsSolutionsOpen(false);
     setIsMobileMenuOpen(false);
     if (onNavigate) {
-      if (solutionName === 'Academy' || solutionName === 'Academy Courses' || solutionName === 'AI Consulting' || solutionName === 'AI Workflow Setup' || solutionName === 'Claude AI Implementation' || solutionName === 'Team AI Training') {
+      if (solutionName.includes('Pricing') || solutionName.includes('Services') || solutionName === 'Services & Pricing (AUD)') {
+        onNavigate('services');
+      } else if (solutionName === 'Academy' || solutionName === 'Academy Courses' || solutionName === 'AI Consulting' || solutionName === 'AI Workflow Setup' || solutionName === 'Claude AI Implementation' || solutionName === 'Team AI Training') {
         onNavigate('academy');
       } else if (solutionName === 'AI Marketing Automation') {
         onNavigate('ai-marketing-automation');
@@ -75,6 +77,8 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
         onNavigate('graphic-design');
       } else if (solutionName === 'Video Editing') {
         onNavigate('video-editing');
+      } else if (solutionName === 'Video Shoot') {
+        onNavigate('video-shoot');
       } else if (solutionName === 'Content Marketing') {
         onNavigate('content-marketing');
       } else {
@@ -89,65 +93,63 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
     }
   };
 
-  const handleResourceItemClick = (e, resourceTitle) => {
-    e.preventDefault();
-    setIsResourcesOpen(false);
-    setIsMobileMenuOpen(false);
-    if (resourceTitle === 'Blog') {
-      if (onNavigate) onNavigate('blog');
-    } else if (resourceTitle === 'Case Studies' || resourceTitle === 'Portfolio') {
-      if (onNavigate) onNavigate('portfolio');
-    }
-  };
-
   const getActiveState = (itemName) => {
+    if (itemName === 'Solutions') {
+      const solutionViews = [
+        'solutions', 'ai-marketing-automation', 'ai-content-systems',
+        'web-design', 'branding', 'ecommerce-marketing', 'social-media',
+        'meta-ads', 'performance-marketing', 'ppc-advertising',
+        'seo', 'graphic-design', 'video-editing', 'video-shoot',
+        'content-marketing'
+      ];
+      return solutionViews.includes(currentView);
+    }
+    if (itemName === 'Blog') {
+      return currentView === 'blog' || currentView === 'blog-post';
+    }
     return currentView === viewMap[itemName];
   };
 
   const navItems = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#agency' },
-    { name: 'Solutions', href: '#services', hasDropdown: true },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Academy', href: '#academy' },
-    { name: 'Pricing', href: '#contact' },
-    { name: 'Resources', href: '#', hasDropdown: true },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Solutions', href: '/solutions', hasDropdown: true },
+    { name: 'Services', href: '/services' },
+    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Academy', href: '/academy' },
   ];
 
   const solutionsCategories = [
     {
       title: 'Marketing Solutions',
       items: [
-        { name: 'Search Engine Optimization (SEO)', link: '#' },
-        { name: 'Social Media Marketing', link: '#' },
-        { name: 'Meta Ads', link: '#' },
-        { name: 'PPC Advertising', link: '#' },
-        { name: 'Performance Marketing', link: '#' }
+        { name: '★ Pricing & Packages (AUD)', link: '/services' },
+        { name: 'Search Engine Optimization (SEO)', link: '/seo' },
+        { name: 'Social Media Marketing', link: '/social-media' },
+        { name: 'Meta Ads', link: '/meta-ads' },
+        { name: 'PPC Advertising', link: '/ppc-advertising' },
+        { name: 'Performance Marketing', link: '/performance-marketing' }
       ]
     },
     {
       title: 'Web & Ecommerce',
       items: [
-        { name: 'Website Design', link: '#' },
-        { name: 'Branding Systems', link: '#' },
-        { name: 'Ecommerce Marketing', link: '#' },
-        { name: 'Marketplace Listing (Amazon, Flipkart, Meesho)', link: '#' }
+        { name: 'Website Design', link: '/web-design' },
+        { name: 'Branding Systems', link: '/branding' },
+        { name: 'Ecommerce Marketing', link: '/ecommerce-marketing' },
+        { name: 'Marketplace Listing (Amazon, Flipkart, Meesho)', link: '/solutions' }
       ]
     },
     {
       title: 'Creative & Content',
       items: [
-        { name: 'Graphics Designing', link: '#' },
-        { name: 'Video Editing', link: '#' },
-        { name: 'Content Marketing', link: '#' }
+        { name: 'Graphics Designing', link: '/graphic-design' },
+        { name: 'Video Editing', link: '/video-editing' },
+        { name: 'Video Shoot', link: '/video-shoot' },
+        { name: 'Content Marketing', link: '/content-marketing' }
       ]
     }
-  ];
-
-  const resourceCategories = [
-    { title: 'Blog', desc: 'Read our latest articles on AI & growth.', link: '#' },
-    { title: 'Case Studies', desc: 'Detailed stories of partner success.', link: '#' },
-    { title: 'Free AI Tools (future)', desc: 'Explore our library of free AI engines.', link: '#' }
   ];
 
   useEffect(() => {
@@ -192,7 +194,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
 
           {/* Logo */}
           <a
-            href="#"
+            href="/"
             onClick={(e) => {
               e.preventDefault();
               if (onNavigate) onNavigate('home');
@@ -210,19 +212,16 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                 className="relative"
                 onMouseEnter={() => {
                   if (item.name === 'Solutions') setIsSolutionsOpen(true);
-                  if (item.name === 'Resources') setIsResourcesOpen(true);
                 }}
                 onMouseLeave={() => {
                   if (item.name === 'Solutions') setIsSolutionsOpen(false);
-                  if (item.name === 'Resources') setIsResourcesOpen(false);
                 }}
               >
                 <a
                   href={item.href}
                   onClick={(e) => handleItemClick(e, item)}
                   className={`flex items-center gap-1 py-2 text-xs lg:text-sm font-semibold tracking-wide transition-colors duration-300 whitespace-nowrap ${getActiveState(item.name) ||
-                    (item.name === 'Solutions' && isSolutionsOpen) ||
-                    (item.name === 'Resources' && isResourcesOpen)
+                    (item.name === 'Solutions' && isSolutionsOpen)
                     ? 'text-brand-red'
                     : 'text-white/70 hover:text-brand-red'
                     }`}
@@ -230,8 +229,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                   {item.name}
                   {item.hasDropdown && (
                     <ChevronDown
-                      className={`h-4 w-4 transition-transform duration-300 ${(item.name === 'Solutions' && isSolutionsOpen) ||
-                        (item.name === 'Resources' && isResourcesOpen)
+                      className={`h-4 w-4 transition-transform duration-300 ${item.name === 'Solutions' && isSolutionsOpen
                         ? 'rotate-180 text-brand-red'
                         : ''
                         }`}
@@ -276,45 +274,12 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                     )}
                   </AnimatePresence>
                 )}
-
-                {/* Resources Dropdown Menu */}
-                {item.name === 'Resources' && (
-                  <AnimatePresence>
-                    {isResourcesOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 15 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2 rounded-2xl border border-brand-border bg-white p-4 shadow-xl"
-                      >
-                        <div className="space-y-1">
-                          {resourceCategories.map((service, idx) => (
-                            <a
-                              key={idx}
-                              href={service.link}
-                              onClick={(e) => handleResourceItemClick(e, service.title)}
-                              className="block rounded-xl p-3 border border-transparent hover:border-brand-border hover:bg-brand-gray transition-all duration-200 group cursor-pointer"
-                            >
-                              <h4 className="text-sm font-bold text-black group-hover:text-brand-red transition-colors">
-                                {service.title}
-                              </h4>
-                              <p className="text-xs text-black/50 mt-0.5 leading-relaxed">
-                                {service.desc}
-                              </p>
-                            </a>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
               </div>
             ))}
           </nav>
 
-          {/* Contact Button */}
-          <div className="hidden md:flex items-center shrink-0">
+          {/* Action Buttons */}
+          <div className="hidden md:flex items-center gap-2.5 shrink-0">
             <button
               onClick={onContactClick}
               className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-5.5 py-3 text-xs font-bold uppercase tracking-wider text-black hover:text-white hover:bg-brand-red transition-all duration-300 active:scale-95 shadow-sm leading-none whitespace-nowrap cursor-pointer"
@@ -356,12 +321,12 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 z-50 w-76 bg-white border-l border-brand-border p-6 md:hidden shadow-2xl flex flex-col justify-between"
+              className="fixed right-0 top-0 bottom-0 z-50 w-76 bg-white border-l border-brand-border p-6 md:hidden shadow-2xl flex flex-col justify-between overflow-y-auto"
             >
               <div>
                 <div className="flex items-center justify-between pb-6 border-b border-brand-border mb-6">
                   <a
-                    href="#"
+                    href="/"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsMobileMenuOpen(false);
@@ -386,16 +351,13 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                         onClick={(e) => {
                           if (item.name === 'Solutions') {
                             setIsSolutionsOpen(!isSolutionsOpen);
-                          } else if (item.name === 'Resources') {
-                            setIsResourcesOpen(!isResourcesOpen);
                           } else {
                             handleItemClick(e, item);
                             setIsMobileMenuOpen(false);
                           }
                         }}
                         className={`flex w-full items-center justify-between text-base font-bold py-1.5 transition-colors ${getActiveState(item.name) ||
-                          (item.name === 'Solutions' && isSolutionsOpen) ||
-                          (item.name === 'Resources' && isResourcesOpen)
+                          (item.name === 'Solutions' && isSolutionsOpen)
                           ? 'text-brand-red'
                           : 'text-black/80 hover:text-brand-red'
                           }`}
@@ -403,8 +365,7 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                         {item.name}
                         {item.hasDropdown && (
                           <ChevronDown
-                            className={`h-5 w-5 transition-transform duration-300 ${(item.name === 'Solutions' && isSolutionsOpen) ||
-                              (item.name === 'Resources' && isResourcesOpen)
+                            className={`h-5 w-5 transition-transform duration-300 ${item.name === 'Solutions' && isSolutionsOpen
                               ? 'rotate-180 text-brand-red'
                               : ''
                               }`}
@@ -433,23 +394,6 @@ export default function Navbar({ onContactClick, currentView, onNavigate }) {
                                 ))}
                               </div>
                             </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {/* Resources dropdown items for mobile */}
-                      {item.name === 'Resources' && isResourcesOpen && (
-                        <div className="mt-2 pl-4 space-y-3 border-l-2 border-brand-border">
-                          {resourceCategories.map((service, sIdx) => (
-                            <a
-                              key={sIdx}
-                              href={service.link}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="block py-1 text-sm text-black/60 hover:text-brand-red"
-                            >
-                              <div className="font-bold">{service.title}</div>
-                              <div className="text-xs text-black/40 mt-0.5">{service.desc}</div>
-                            </a>
                           ))}
                         </div>
                       )}

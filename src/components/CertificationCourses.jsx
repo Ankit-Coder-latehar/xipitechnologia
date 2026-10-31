@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, ArrowUpRight, Sparkles, Clock, BookOpen, Award, X, Check } from 'lucide-react';
+import { CheckCircle2, ArrowUpRight, Sparkles, Clock, BookOpen, Award, X, Check, CreditCard } from 'lucide-react';
+import PaymentModal from './PaymentModal';
 
 const courses = [
   {
@@ -59,10 +60,17 @@ const courses = [
 export default function CertificationCourses({ onNavigate }) {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [isEnrolled, setIsEnrolled] = useState(false);
+  const [isPaymentOpen, setIsPaymentOpen] = useState(false);
+  const [paymentDetails, setPaymentDetails] = useState({ title: '', amount: 4999 });
 
   const handleEnrollClick = (course) => {
     setSelectedCourse(course);
     setIsEnrolled(false);
+  };
+
+  const handleStartPayment = (courseTitle, amount = 4999) => {
+    setPaymentDetails({ title: courseTitle, amount });
+    setIsPaymentOpen(true);
   };
 
   return (
@@ -211,24 +219,24 @@ export default function CertificationCourses({ onNavigate }) {
                     </ul>
                   </div>
 
-                  <div className="mt-6 flex gap-3">
+                  <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                    <button
+                      onClick={() => {
+                        const title = selectedCourse.title;
+                        setSelectedCourse(null);
+                        handleStartPayment(title, 4999);
+                      }}
+                      className="flex-1 bg-brand-red hover:bg-brand-red-dark text-white font-bold py-3.5 px-4 rounded-xl text-xs transition-all shadow-lg shadow-brand-red/30 flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <CreditCard className="w-4 h-4" />
+                      <span>Pay & Enroll Online (₹4,999) &rarr;</span>
+                    </button>
                     <button
                       onClick={() => setIsEnrolled(true)}
-                      className="flex-1 bg-brand-red hover:bg-brand-red-dark text-white font-bold py-3.5 rounded-xl text-xs transition-all shadow-lg shadow-brand-red/30"
+                      className="flex-1 bg-white/10 hover:bg-white/20 text-white font-bold py-3.5 px-4 rounded-xl text-xs transition-all cursor-pointer"
                     >
-                      Instant Enroll & Request Syllabus &rarr;
+                      Request Free Syllabus
                     </button>
-                    {onNavigate && (
-                      <button
-                        onClick={() => {
-                          setSelectedCourse(null);
-                          onNavigate('academy');
-                        }}
-                        className="px-4 bg-white/10 hover:bg-white/20 text-white font-bold py-3.5 rounded-xl text-xs transition-all"
-                      >
-                        All Academy Courses
-                      </button>
-                    )}
                   </div>
                 </>
               )}
@@ -236,6 +244,15 @@ export default function CertificationCourses({ onNavigate }) {
           </div>
         )}
       </AnimatePresence>
+
+      {/* Razorpay Payment Checkout Modal */}
+      <PaymentModal
+        isOpen={isPaymentOpen}
+        onClose={() => setIsPaymentOpen(false)}
+        initialItem={paymentDetails.title}
+        initialAmount={paymentDetails.amount}
+        category="Certification Courses"
+      />
 
     </section>
   );

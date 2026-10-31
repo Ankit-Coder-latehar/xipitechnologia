@@ -54,14 +54,22 @@ export default function Preloader({ onComplete }) {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative flex items-center justify-center select-none w-64 h-64"
+            className="relative flex items-center justify-center select-none w-72 h-72 sm:w-80 sm:h-80"
           >
-            <img src="/white-logo.png" alt="Xipi Technologia" className="h-16 sm:h-24 w-auto z-10" />
+            {/* Subtle decorative orbital ring */}
+            <div className="absolute w-[240px] h-[240px] rounded-full border border-white/10 pointer-events-none" />
+
+            {/* Reduced logo size so orbiting icons align and clear cleanly */}
+            <img 
+              src="/white-logo.png" 
+              alt="Xipi Technologia" 
+              className="h-10 sm:h-12 max-w-[155px] sm:max-w-[175px] w-auto object-contain z-10 select-none drop-shadow-md" 
+            />
             
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-              className="absolute inset-0 flex items-center justify-center"
+              className="absolute inset-0 flex items-center justify-center pointer-events-none"
             >
               {[
                 { Icon: FaFacebook, angle: 0 },
@@ -71,19 +79,24 @@ export default function Preloader({ onComplete }) {
                 { Icon: FaYoutube, angle: 240 },
                 { Icon: FaGithub, angle: 300 },
               ].map((item, index) => {
-                const radius = 130;
+                const radius = 120;
                 const radian = (item.angle * Math.PI) / 180;
-                const x = radius * Math.cos(radian);
-                const y = radius * Math.sin(radian);
+                const x = Math.round(radius * Math.cos(radian));
+                const y = Math.round(radius * Math.sin(radian));
                 return (
                   <div
                     key={index}
-                    className="absolute text-brand-red opacity-80"
-                    style={{ transform: `translate(${x}px, ${y}px)` }}
+                    className="absolute text-brand-red opacity-85 flex items-center justify-center"
+                    style={{ 
+                      left: '50%', 
+                      top: '50%',
+                      transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))` 
+                    }}
                   >
                     <motion.div
                       animate={{ rotate: -360 }}
                       transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+                      className="flex items-center justify-center"
                     >
                       <item.Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </motion.div>

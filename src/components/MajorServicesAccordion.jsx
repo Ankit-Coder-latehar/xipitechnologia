@@ -1,47 +1,51 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Video, Target, Sparkles, Search, CheckCircle, ExternalLink } from 'lucide-react';
+import { ArrowRight, Target, Sparkles, Search, Monitor, MessageSquare } from 'lucide-react';
 
 const services = [
   {
-    id: 'video-production',
-    title: 'Video Production',
-    subtitle: 'Cinema-Grade Visual Ads',
-    category: '01 / CREATIVE',
-    icon: Video,
-    desc: 'We specialize in producing high-end TV commercials, creative social ads, and product launch videos that leave a mark. Instead of just hitting record, we craft compelling stories that connect with your audience and drive real results from the very first frame to the final cut.',
-    img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop',
-    tag: 'High-Impact Media'
-  },
-  {
-    id: 'performance-marketing',
-    title: 'Performance Marketing',
-    subtitle: '10x ROAS PPC & Paid Ads',
-    category: '02 / ACQUISITION',
-    icon: Target,
-    desc: 'Turn your ad spend into actual profit. We handle everything from finding your most profitable buyers to running the exact campaigns you need to scale up across Meta, Google, and TikTok. We build a reliable system that brings in consistent sales month after month.',
-    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Algorithmic Bidding'
-  },
-  {
-    id: 'branding',
-    title: 'Brand Identity',
-    subtitle: 'Unforgettable Positioning',
-    category: '03 / IDENTITY',
-    icon: Sparkles,
-    desc: 'Build a brand people actually remember. We handle everything from finding your unique angle to creating the exact roadmap you need to scale up. We build a complete identity system that makes your business impossible to ignore and easy for your audience to trust.',
-    img: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Visual Strategy'
+    id: 'social-media',
+    title: 'Social Media Marketing Agency',
+    buttonTitle: 'Social Media Marketing',
+    subtitle: 'Strategic Social Campaigns',
+    category: '01 / SOCIAL & BRAND',
+    icon: MessageSquare,
+    desc: 'Build a stronger connection with your audience through creative content, strategic campaigns, and consistent brand communication across social platforms.',
+    img: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop',
+    tag: 'Brand Communication'
   },
   {
     id: 'seo',
-    title: 'Search Engine Optimization',
-    subtitle: 'Topical Authority & Rank #1',
-    category: '04 / ORGANIC',
+    title: 'SEO Agency',
+    buttonTitle: 'SEO Services',
+    subtitle: 'Organic Lead Generation',
+    category: '02 / SEARCH & GROWTH',
     icon: Search,
-    desc: 'Make sure people find you before they find your competitors. Instead of just chasing traffic, we focus on getting your business in front of people who are actually ready to buy. We fix your website, create great content, and build a trusted search presence.',
+    desc: 'Build long-term search visibility and attract customers actively searching for your products or services with data-driven SEO strategies.',
     img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
-    tag: 'Semantic SEO'
+    tag: 'Search Visibility'
+  },
+  {
+    id: 'web-design',
+    title: 'Website Design & Development',
+    buttonTitle: 'Web Development',
+    subtitle: 'Conversion-Optimized UI',
+    category: '03 / DIGITAL PRESENCE',
+    icon: Monitor,
+    desc: 'Create fast, responsive, user-friendly websites designed to strengthen your brand presence and convert visitors into customers.',
+    img: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
+    tag: 'User Experience'
+  },
+  {
+    id: 'performance-marketing',
+    title: 'Performance Marketing Agency',
+    buttonTitle: 'Performance Marketing',
+    subtitle: 'GOOGLE ADS • META ADS • PPC',
+    category: '04 / PERFORMANCE MARKETING',
+    icon: Target,
+    desc: 'Turn your marketing budget into measurable business growth. We create, manage, and continuously optimize campaigns focused on qualified leads, conversions, and ROI.',
+    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
+    tag: 'LEAD GENERATION'
   }
 ];
 
@@ -52,7 +56,8 @@ export default function MajorServicesAccordion({ onContactClick, onNavigate }) {
     if (onNavigate) {
       if (serviceId === 'performance-marketing') onNavigate('performance-marketing');
       else if (serviceId === 'seo') onNavigate('seo');
-      else if (serviceId === 'branding') onNavigate('branding');
+      else if (serviceId === 'social-media') onNavigate('social-media');
+      else if (serviceId === 'web-design') onNavigate('web-design');
       else onContactClick();
     } else {
       onContactClick();
@@ -69,19 +74,27 @@ export default function MajorServicesAccordion({ onContactClick, onNavigate }) {
       <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between mb-16 gap-10">
           <div className="max-w-2xl space-y-4">
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-brand-red">
               OUR CORE EXPERTISE
             </span>
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-black leading-[1.08]">
               Major Services <br />
-              <span className="text-black/40">Engineered to scale.</span>
+              <span className="text-black/40">Engineered for Growth.</span>
             </h2>
+            <p className="text-black/70 text-sm sm:text-base max-w-xl font-normal leading-relaxed pt-2">
+              We combine strategy, creativity, technology, and data to deliver data-driven digital marketing solutions that help businesses attract the right audience, generate qualified leads, and achieve sustainable growth.
+            </p>
           </div>
-          <p className="text-black/60 text-sm sm:text-base max-w-md font-normal leading-relaxed">
-            Inspired by world-class digital agency frameworks. Hover over any service to explore our specialized execution.
-          </p>
+          <div className="text-black/60 text-sm sm:text-base max-w-md font-normal leading-relaxed space-y-4 pt-4 md:pt-12">
+            <p className="font-bold text-black/80">
+              Explore our core digital marketing services.
+            </p>
+            <p>
+              Hover over each service to discover how we help businesses improve online visibility, generate qualified leads, and turn digital activity into measurable business results.
+            </p>
+          </div>
         </div>
 
         {/* Desktop View: Horizontal Expanding Flex Columns (Prixa style) */}
@@ -151,7 +164,7 @@ export default function MajorServicesAccordion({ onContactClick, onNavigate }) {
                           onClick={() => handleServiceClick(service.id)}
                           className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white text-xs font-extrabold px-6 py-3 rounded-xl shadow-lg shadow-brand-red/20 transition-all hover:scale-105"
                         >
-                          <span>Explore {service.title}</span>
+                          <span>Explore {service.buttonTitle || service.title}</span>
                           <ArrowRight className="h-4 w-4" />
                         </button>
                       </div>
@@ -226,7 +239,7 @@ export default function MajorServicesAccordion({ onContactClick, onNavigate }) {
                   onClick={() => handleServiceClick(service.id)}
                   className="w-full inline-flex items-center justify-center gap-2 bg-black text-white text-xs font-extrabold py-3.5 rounded-xl"
                 >
-                  <span>Explore Service</span>
+                  <span>Explore {service.buttonTitle || service.title}</span>
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>

@@ -12,7 +12,16 @@ export default function Footer({ onNavigate }) {
           
           {/* Logo brand message */}
           <div className="lg:col-span-5 space-y-6">
-            <a href="#" className="flex items-center gap-1 group">
+            <a 
+              href="/" 
+              onClick={(e) => {
+                if (onNavigate) {
+                  e.preventDefault();
+                  onNavigate('home');
+                }
+              }}
+              className="flex items-center gap-1 group"
+            >
               <span className="font-display font-extrabold text-3xl text-white">
                 Xipi
               </span>
@@ -34,7 +43,7 @@ export default function Footer({ onNavigate }) {
             <ul className="space-y-2.5 text-sm font-semibold text-white/70">
               <li>
                 <a 
-                  href="#work" 
+                  href="/portfolio" 
                   onClick={(e) => {
                     if (onNavigate) {
                       e.preventDefault();
@@ -48,7 +57,7 @@ export default function Footer({ onNavigate }) {
               </li>
               <li>
                 <a 
-                  href="#agency" 
+                  href="/about" 
                   onClick={(e) => {
                     if (onNavigate) {
                       e.preventDefault();
@@ -60,8 +69,48 @@ export default function Footer({ onNavigate }) {
                   About Us
                 </a>
               </li>
-              <li><a href="#services" className="hover:text-brand-red transition-colors duration-200">Capabilities</a></li>
-              <li><a href="#careers" className="hover:text-brand-red transition-colors duration-200 flex items-center gap-1.5">Careers <span className="text-[10px] rounded-full bg-brand-red px-1.5 py-0.5 text-white">Hiring</span></a></li>
+              <li>
+                <a 
+                  href="/solutions" 
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('solutions');
+                    }
+                  }}
+                  className="hover:text-brand-red transition-colors duration-200"
+                >
+                  Capabilities
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/blog" 
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('blog');
+                    }
+                  }}
+                  className="hover:text-brand-red transition-colors duration-200"
+                >
+                  Blog & Articles
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/contact" 
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('contact');
+                    }
+                  }}
+                  className="hover:text-brand-red transition-colors duration-200 flex items-center gap-1.5"
+                >
+                  Careers <span className="text-[10px] rounded-full bg-brand-red px-1.5 py-0.5 text-white">Hiring</span>
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -71,10 +120,76 @@ export default function Footer({ onNavigate }) {
               Services
             </span>
             <ul className="space-y-2.5 text-sm font-semibold text-white/70">
-              <li><a href="#services" className="hover:text-brand-red transition-colors duration-200">Web Design</a></li>
-              <li><a href="#services" className="hover:text-brand-red transition-colors duration-200">Branding Systems</a></li>
-              <li><a href="#services" className="hover:text-brand-red transition-colors duration-200">Packaging</a></li>
-              <li><a href="#services" className="hover:text-brand-red transition-colors duration-200">Digital Strategy</a></li>
+              <li>
+                <a 
+                  href="/services" 
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('services');
+                    }
+                  }}
+                  className="hover:text-brand-red text-brand-red transition-colors duration-200 flex items-center gap-1 font-bold"
+                >
+                  Services & Pricing (AUD)
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/web-design" 
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('web-design');
+                    }
+                  }}
+                  className="hover:text-brand-red transition-colors duration-200"
+                >
+                  Web Design
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/branding" 
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('branding');
+                    }
+                  }}
+                  className="hover:text-brand-red transition-colors duration-200"
+                >
+                  Branding Systems
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/graphic-design" 
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('graphic-design');
+                    }
+                  }}
+                  className="hover:text-brand-red transition-colors duration-200"
+                >
+                  Graphics Designing
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/seo" 
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('seo');
+                    }
+                  }}
+                  className="hover:text-brand-red transition-colors duration-200"
+                >
+                  Digital Strategy & SEO
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -93,7 +208,7 @@ export default function Footer({ onNavigate }) {
                 Zirakpur, Punjab
               </p>
               <p className="font-semibold text-white">
-                hello@xipitechnologia.com<br />
+                xipitechnologia@gmail.com<br />
                 +91 84277 79193
               </p>
               <a 
@@ -115,6 +230,18 @@ export default function Footer({ onNavigate }) {
           
           <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
             <span>© 2026 Xipitechnologia® Creative Agency. All rights reserved.</span>
+            <a 
+              href="/blog" 
+              onClick={(e) => {
+                if (onNavigate) {
+                  e.preventDefault();
+                  onNavigate('blog');
+                }
+              }}
+              className="hover:text-brand-red transition-colors text-white/70"
+            >
+              Blog
+            </a>
             <a href="#" className="hover:text-brand-red transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-brand-red transition-colors">Terms of Service</a>
           </div>

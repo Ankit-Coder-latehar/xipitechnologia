@@ -73,12 +73,14 @@ export default function ClientGrid() {
         {/* Section Heading */}
         <div className="max-w-3xl mb-16 space-y-4">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red select-none">
-            Our Clients
+            OUR CLIENTS
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-black leading-tight">
-            Trusted by innovators <br />
-            across industries.
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-black leading-tight mb-4">
+            Trusted by Businesses <br /> Growing Online.
           </h2>
+          <p className="text-base text-neutral-600 max-w-2xl">
+            We work with businesses that want more than visibility. Our focus is on building a stronger online presence, generating qualified leads, and creating sustainable business growth through data-driven digital marketing strategies.
+          </p>
         </div>
 
         {/* Client Logos Grid */}

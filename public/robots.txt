@@ -1,12 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /wp-content/plugins/
-Disallow: /wp-content/cache/
-Disallow: /wp-json/
-Disallow: /?s=
-Disallow: /search/
-
-Sitemap: https://xipitechnologia.com/sitemap_index.xml
+Sitemap: https://xipitechnologia.com/sitemap.xml

@@ -9,8 +9,6 @@ import AboutHero from './components/AboutHero';
 import AboutUs from './components/AboutUs';
 import WhatWeDo from './components/WhatWeDo';
 import Roadmap from './components/Roadmap';
-import Showreel from './components/Showreel';
-import ClientGrid from './components/ClientGrid';
 import AwardsAccordion from './components/AwardsAccordion';
 import ContactForm from './components/ContactForm';
 import ContactPage from './components/ContactPage';
@@ -39,12 +37,168 @@ import BeginJourneyCTA from './components/BeginJourneyCTA';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import GraphicDesign from './components/GraphicDesign';
 import VideoEditing from './components/VideoEditing';
+import VideoShoot from './components/VideoShoot';
 import ContentMarketing from './components/ContentMarketing';
+import AdminPanel from './components/AdminPanel';
+import BlogPostPage from './components/BlogPostPage';
+import HomeBlogSection from './components/HomeBlogSection';
+import ServicesPricingPage from './components/ServicesPricingPage';
+
+export const ROUTE_MAP = {
+  '/': 'home',
+  '/admin': 'admin',
+  '/admin/login': 'admin',
+  '/admin/blogs': 'admin',
+  '/about': 'about',
+  '/solutions': 'solutions',
+  '/academy': 'academy',
+  '/ai-consulting': 'academy',
+  '/ai-marketing-automation': 'ai-marketing-automation',
+  '/ai-content-systems': 'ai-content-systems',
+  '/web-design': 'web-design',
+  '/branding': 'branding',
+  '/ecommerce-marketing': 'ecommerce-marketing',
+  '/social-media': 'social-media',
+  '/meta-ads': 'meta-ads',
+  '/performance-marketing': 'performance-marketing',
+  '/performance': 'performance-marketing',
+  '/ppc-advertising': 'ppc-advertising',
+  '/ppc': 'ppc-advertising',
+  '/seo': 'seo',
+  '/blog': 'blog',
+  '/portfolio': 'portfolio',
+  '/case-studies': 'portfolio',
+  '/work': 'portfolio',
+  '/contact': 'contact',
+  '/graphic-design': 'graphic-design',
+  '/video-editing': 'video-editing',
+  '/video-shoot': 'video-shoot',
+  '/content-marketing': 'content-marketing',
+  '/services': 'services',
+  '/pricing': 'services',
+  '/services-pricing': 'services',
+  '/seo-services': 'services',
+};
+
+export const VIEW_TO_PATH = {
+  'home': '/',
+  'services': '/services',
+  'admin': '/admin',
+  'about': '/about',
+  'solutions': '/solutions',
+  'academy': '/academy',
+  'ai-consulting': '/academy',
+  'ai-marketing-automation': '/ai-marketing-automation',
+  'ai-content-systems': '/ai-content-systems',
+  'web-design': '/web-design',
+  'branding': '/branding',
+  'ecommerce-marketing': '/ecommerce-marketing',
+  'social-media': '/social-media',
+  'meta-ads': '/meta-ads',
+  'performance-marketing': '/performance-marketing',
+  'ppc-advertising': '/ppc-advertising',
+  'seo': '/seo',
+  'blog': '/blog',
+  'portfolio': '/portfolio',
+  'case-studies': '/portfolio',
+  'work': '/portfolio',
+  'contact': '/contact',
+  'graphic-design': '/graphic-design',
+  'video-editing': '/video-editing',
+  'video-shoot': '/video-shoot',
+  'content-marketing': '/content-marketing',
+  'blog-post': '/blog',
+};
+
+const VIEW_TITLES = {
+  'admin': 'Admin Editorial Control Center | Xipitechnologia®',
+  'home': 'Award-Winning Digital Design Agency | Xipitechnologia®',
+  'about': 'About Us | Xipitechnologia®',
+  'solutions': 'Solutions & Services | Xipitechnologia®',
+  'academy': 'Academy & AI Consulting | Xipitechnologia®',
+  'ai-marketing-automation': 'AI Marketing Automation | Xipitechnologia®',
+  'ai-content-systems': 'AI Content Systems | Xipitechnologia®',
+  'web-design': 'Website Design & Development | Xipitechnologia®',
+  'branding': 'Branding Systems | Xipitechnologia®',
+  'ecommerce-marketing': 'Ecommerce Marketing | Xipitechnologia®',
+  'social-media': 'Social Media Marketing | Xipitechnologia®',
+  'meta-ads': 'Meta Ads & Paid Social | Xipitechnologia®',
+  'performance-marketing': 'Performance Marketing | Xipitechnologia®',
+  'ppc-advertising': 'PPC Advertising | Xipitechnologia®',
+  'seo': 'Search Engine Optimization (SEO) | Xipitechnologia®',
+  'blog': 'Blog & Insights | Xipitechnologia®',
+  'blog-post': 'Article & Insights | Xipitechnologia®',
+  'portfolio': 'Portfolio & Case Studies | Xipitechnologia®',
+  'contact': 'Contact Us & Book Free Call | Xipitechnologia®',
+  'graphic-design': 'Graphics Designing | Xipitechnologia®',
+  'video-editing': 'Video Editing | Xipitechnologia®',
+  'video-shoot': 'Video Shoot Production | Xipitechnologia®',
+  'content-marketing': 'Content Marketing | Xipitechnologia®',
+};
+
+export const getBlogIdFromLocation = (pathname, search) => {
+  if (typeof window !== 'undefined') {
+    const currentSearch = search !== undefined ? search : window.location.search;
+    const currentPath = pathname !== undefined ? pathname : window.location.pathname;
+
+    if (currentSearch) {
+      const params = new URLSearchParams(currentSearch);
+      const queryId = params.get('id') || params.get('blog');
+      if (queryId) return decodeURIComponent(queryId.trim());
+    }
+
+    const cleanPath = currentPath.split('?')[0].split('#')[0].replace(/\/+$/, '');
+    if (cleanPath.toLowerCase().startsWith('/blog/')) {
+      const id = cleanPath.slice('/blog/'.length);
+      if (id && id.trim()) return decodeURIComponent(id.trim());
+    }
+  }
+  return null;
+};
+
+const getViewFromPath = (pathname, search) => {
+  if (!pathname) return 'home';
+  const cleanPath = pathname.split('?')[0].split('#')[0].toLowerCase().replace(/\/+$/, '') || '/';
+  const blogId = getBlogIdFromLocation(pathname, search);
+  if (blogId) {
+    return 'blog-post';
+  }
+  return ROUTE_MAP[cleanPath] || 'home';
+};
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [view, setView] = useState('home');
+  const [blogId, setBlogId] = useState(() => {
+    return getBlogIdFromLocation();
+  });
+  const [view, setView] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return getViewFromPath(window.location.pathname, window.location.search);
+    }
+    return 'home';
+  });
   const [transitioning, setTransitioning] = useState(false);
+
+  // Sync document title with current view
+  useEffect(() => {
+    if (VIEW_TITLES[view]) {
+      document.title = VIEW_TITLES[view];
+    }
+  }, [view]);
+
+  // Handle browser Back & Forward button navigation (popstate)
+  useEffect(() => {
+    const handlePopState = () => {
+      const targetView = getViewFromPath(window.location.pathname, window.location.search);
+      const targetBlogId = getBlogIdFromLocation(window.location.pathname, window.location.search);
+      setView(targetView);
+      setBlogId(targetBlogId);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Lost Focus Tab Title swap
   useEffect(() => {
@@ -52,7 +206,7 @@ function App() {
       document.title = 'Xipitechnologia® misses you!';
     };
     const handleFocus = () => {
-      document.title = 'Award-Winning Digital Design Agency | Xipitechnologia®';
+      document.title = VIEW_TITLES[view] || 'Award-Winning Digital Design Agency | Xipitechnologia®';
     };
 
     window.addEventListener('blur', handleBlur);
@@ -62,15 +216,26 @@ function App() {
       window.removeEventListener('blur', handleBlur);
       window.removeEventListener('focus', handleFocus);
     };
-  }, []);
+  }, [view]);
 
-  const handleNavigate = (targetView) => {
-    if (targetView === view) return;
+  const handleNavigate = (targetView, targetParam) => {
+    let targetPath = VIEW_TO_PATH[targetView] || '/';
+    if (targetView === 'blog-post' && targetParam) {
+      targetPath = `/blog/${targetParam}`;
+    }
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState({ view: targetView, param: targetParam }, '', targetPath);
+    }
+
+    if (targetView === view && (targetView !== 'blog-post' || targetParam === blogId)) return;
     setTransitioning(true);
 
     // Switch page views halfway through curtain sweep (~550ms)
     setTimeout(() => {
       setView(targetView);
+      if (targetView === 'blog-post') {
+        setBlogId(targetParam || getBlogIdFromLocation());
+      }
       window.scrollTo({ top: 0, behavior: 'instant' });
     }, 550);
 
@@ -120,14 +285,16 @@ function App() {
         {/* Custom pointer cursor (only active on desktop viewports) */}
         <CustomCursor />
 
-        {/* Sticky headroom header navigation */}
-        <Navbar 
-          onContactClick={() => handleNavigate('contact')} 
-          currentView={view} 
-          onNavigate={handleNavigate}
-        />
+        {/* Sticky headroom header navigation - Hidden on dedicated admin route */}
+        {view !== 'admin' && (
+          <Navbar 
+            onContactClick={() => handleNavigate('contact')} 
+            currentView={view} 
+            onNavigate={handleNavigate}
+          />
+        )}
 
-        <main className="min-h-[80vh]">
+        <main className={view === 'admin' ? 'min-h-screen bg-[#07090E]' : 'min-h-[80vh]'}>
           <AnimatePresence mode="wait">
             
             {/* Home View */}
@@ -149,9 +316,8 @@ function App() {
                 <MajorServicesAccordion onContactClick={() => handleNavigate('contact')} onNavigate={handleNavigate} />
                 <Testimonials />
                 <IndustryGrowthMarquee onContactClick={() => handleNavigate('contact')} />
-                <Showreel />
-                <ClientGrid />
                 <AwardsAccordion />
+                <HomeBlogSection onNavigate={handleNavigate} />
                 <BeginJourneyCTA onContactClick={() => handleNavigate('contact')} />
               </motion.div>
             )}
@@ -350,7 +516,43 @@ function App() {
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.35 }}
               >
-                <BlogPage onContactClick={() => handleNavigate('contact')} />
+                <BlogPage 
+                  onContactClick={() => handleNavigate('contact')} 
+                  onNavigate={handleNavigate}
+                />
+              </motion.div>
+            )}
+
+            {/* Dedicated Standalone Blog Post View */}
+            {view === 'blog-post' && (
+              <motion.div
+                key={`blog-post-${blogId || 'post'}`}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <BlogPostPage
+                  blogId={blogId}
+                  onContactClick={() => handleNavigate('contact')}
+                  onNavigate={handleNavigate}
+                />
+              </motion.div>
+            )}
+
+            {/* Services & Pricing Plans View */}
+            {view === 'services' && (
+              <motion.div
+                key="services"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <ServicesPricingPage 
+                  onContactClick={() => handleNavigate('contact')} 
+                  onNavigate={handleNavigate}
+                />
               </motion.div>
             )}
 
@@ -409,6 +611,19 @@ function App() {
               </motion.div>
             )}
 
+            {/* Video Shoot View */}
+            {view === 'video-shoot' && (
+              <motion.div
+                key="video-shoot"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <VideoShoot onContactClick={() => handleNavigate('contact')} />
+              </motion.div>
+            )}
+
             {/* Content Marketing View */}
             {view === 'content-marketing' && (
               <motion.div
@@ -422,14 +637,27 @@ function App() {
               </motion.div>
             )}
 
+            {/* Admin Panel View */}
+            {view === 'admin' && (
+              <motion.div
+                key="admin"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35 }}
+              >
+                <AdminPanel onNavigate={handleNavigate} />
+              </motion.div>
+            )}
+
           </AnimatePresence>
         </main>
 
-        {/* Site directory footer map */}
-        <Footer onNavigate={handleNavigate} />
+        {/* Site directory footer map - Hidden on dedicated admin route */}
+        {view !== 'admin' && <Footer onNavigate={handleNavigate} />}
 
-        {/* Global Floating WhatsApp Widget */}
-        <WhatsAppWidget />
+        {/* Global Floating WhatsApp Widget - Hidden on dedicated admin route */}
+        {view !== 'admin' && <WhatsAppWidget />}
       </div>
     </>
   );

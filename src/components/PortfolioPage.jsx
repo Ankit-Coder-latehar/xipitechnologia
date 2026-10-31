@@ -224,7 +224,7 @@ export default function PortfolioPage({ onContactClick, onNavigate }) {
   const featuredSpotlight = projectsData.find((p) => p.featured) || projectsData[0];
 
   return (
-    <div className="min-h-screen bg-white pt-28 pb-24 text-black">
+    <div className="min-h-screen bg-white pt-24 pb-0 text-black">
       {/* 1. HERO SECTION */}
       <section className="relative border-b border-brand-border bg-gradient-to-b from-brand-gray/40 to-white py-16 sm:py-24 select-none">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
@@ -280,7 +280,7 @@ export default function PortfolioPage({ onContactClick, onNavigate }) {
       </section>
 
       {/* 2. FILTER & SEARCH CONTROLS */}
-      <section className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border-b border-brand-border py-4">
+      <section className="border-b border-brand-border bg-white py-4 relative z-10">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
           
           {/* Category Tabs */}

@@ -54,7 +54,7 @@ export default function BeginJourneyCTA({ onContactClick }) {
             {/* Glowing Accent Ring */}
             <div className="absolute -inset-4 bg-gradient-to-r from-amber-300/30 via-lime-400/30 to-brand-red/20 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="relative z-10 max-w-md w-full">
+            <div className="relative z-10 max-w-sm mx-auto w-full">
               <img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
                 alt="Begin Your Digital Marketing Journey"
@@ -67,8 +67,8 @@ export default function BeginJourneyCTA({ onContactClick }) {
                   <PhoneCall className="h-5 w-5 animate-bounce" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest block">Direct Admissions</span>
-                  <span className="text-xs font-extrabold text-neutral-900">+1 (212) 380-1761</span>
+                  <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest block">TALK TO OUR TEAM</span>
+                  <span className="text-xs font-extrabold text-neutral-900">Let's discuss your growth goals.</span>
                 </div>
               </div>
             </div>
@@ -83,25 +83,19 @@ export default function BeginJourneyCTA({ onContactClick }) {
             className="lg:col-span-7 space-y-6 text-left"
           >
             {/* Main Headline */}
+            <span className="text-sm font-bold text-brand-red uppercase tracking-widest block mb-4">READY TO GROW ONLINE?</span>
             <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 leading-[1.08] font-display uppercase">
               BEGIN YOUR DIGITAL <br />
-              MARKETING JOURNEY
+              GROWTH JOURNEY
             </h2>
 
             {/* Subheading & Call Us Today */}
             <div className="space-y-3 pt-2">
-              <h3 className="text-2xl sm:text-3xl font-black text-neutral-900 uppercase tracking-wide flex items-center gap-3">
-                <span>CALL US TODAY AT</span>
-                <a 
-                  href="tel:+12123801761" 
-                  className="text-brand-red underline hover:text-black transition-colors"
-                >
-                  +1 212.380.1761
-                </a>
-              </h3>
-
               <p className="text-base sm:text-lg text-neutral-700 max-w-2xl font-normal leading-relaxed">
-                The longer you wait, the further behind you get in this fast-paced industry. Don't hesitate to contact us to set you on the right track.
+                Get the right digital marketing strategy to attract more customers, generate qualified leads, and grow your business online with measurable results.
+              </p>
+              <p className="text-sm font-bold text-neutral-800 pt-2 tracking-wide">
+                SEO • Performance Marketing • Meta Ads • Social Media Marketing
               </p>
             </div>
 
@@ -111,12 +105,12 @@ export default function BeginJourneyCTA({ onContactClick }) {
                 onClick={() => setIsModalOpen(true)}
                 className="inline-flex items-center justify-center gap-3 border-2 border-neutral-900 hover:bg-neutral-900 hover:text-white text-neutral-900 font-extrabold px-8 py-4 rounded-full text-base tracking-wider uppercase transition-all duration-300 shadow-sm hover:shadow-xl hover:scale-105 group"
               >
-                <span>FIND OUT MORE</span>
+                <span>Get Free Consultation</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
 
               <a
-                href="https://wa.me/12123801761?text=Hello%20Xipitechnologia!%20I'm%20ready%20to%20begin%20my%20digital%20marketing%20journey."
+                href="https://wa.me/918427779193?text=Hello%20Xipitechnologia!%20I'm%20ready%20to%20begin%20my%20digital%20marketing%20journey."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold px-8 py-4 rounded-full text-base tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-xl hover:scale-105"

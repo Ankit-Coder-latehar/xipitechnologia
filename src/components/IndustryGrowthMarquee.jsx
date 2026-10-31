@@ -4,49 +4,35 @@ import { Building2, ShoppingBag, Cpu, Sparkles, HeartPulse, Landmark, ArrowUpRig
 
 const column1 = [
   {
-    title: 'Fintech & Banking',
-    desc: 'High-converting acquisition funnels for digital banks, trading apps & crypto platforms.',
-    icon: Landmark,
+    title: '01 — Understand',
+    desc: 'We learn about your business, audience, competition, and growth objectives.',
+    icon: Sparkles,
     img: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop',
-    stat: '+340% User Growth'
+    stat: 'Discovery'
   },
   {
-    title: 'E-Commerce & Retail',
-    desc: 'Paid Meta & TikTok ad scaling with guaranteed 10x ROAS for DTC brands.',
-    icon: ShoppingBag,
-    img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop',
-    stat: '$120M DTC Sales'
-  },
-  {
-    title: 'Artificial Intelligence & SaaS',
-    desc: 'Semantic SEO and product-led growth engines for B2B tech platforms.',
+    title: '03 — Execute',
+    desc: 'Our team brings the strategy to life through SEO, PPC, Meta Ads, Social Media Marketing, Content Marketing, and Web Development.',
     icon: Cpu,
     img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
-    stat: '15.2x CAC Reduction'
+    stat: 'Implementation'
   }
 ];
 
 const column2 = [
   {
-    title: 'Luxury & Fashion',
-    desc: 'Cinema-grade video ads and brand positioning for high-end lifestyle labels.',
-    icon: Sparkles,
-    img: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop',
-    stat: '4.8M Viral Impressions'
+    title: '02 — Strategize',
+    desc: 'We build a customized digital marketing strategy based on your goals, audience, competition, and growth opportunities.',
+    icon: Landmark,
+    img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop',
+    stat: 'Planning'
   },
   {
-    title: 'Healthcare & MedTech',
-    desc: 'HIPAA-compliant digital acquisition and search authority building.',
+    title: '04 — Optimize',
+    desc: 'We monitor performance, identify opportunities, and continuously improve campaigns for better results.',
     icon: HeartPulse,
     img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop',
-    stat: '98% Lead Quality'
-  },
-  {
-    title: 'Real Estate & Hospitality',
-    desc: '3D virtual tours, lead scoring automation & luxury property launches.',
-    icon: Building2,
-    img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop',
-    stat: '$45M Property Deals'
+    stat: 'Growth'
   }
 ];
 
@@ -92,30 +78,33 @@ export default function IndustryGrowthMarquee({ onContactClick }) {
             <div className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 text-brand-red px-3.5 py-1.5 rounded-full">
               <Sparkles className="h-3.5 w-3.5 animate-pulse" />
               <span className="text-[10px] font-extrabold uppercase tracking-[0.25em]">
-                SECTOR DOMINANCE
+                OUR APPROACH
               </span>
             </div>
 
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
-              Digital Growth Across <br />
+              Strategy That Turns <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-red-400 to-white">
-                Every Sector.
+                Digital Activity Into Growth.
               </span>
             </h2>
 
             <p className="text-zinc-400 text-base leading-relaxed font-normal max-w-lg">
-              We partner with bold founders, high-growth startups, and enterprise market leaders. Our performance architecture scales across all high-demand verticals.
+              We don't believe in marketing for the sake of marketing. Every digital marketing strategy is built around your business objectives, target audience, and the actions that drive meaningful results.
             </p>
 
             <div className="pt-4 flex flex-wrap gap-3">
               <span className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-bold px-3.5 py-2 rounded-xl">
-                ✓ B2B SaaS
+                Strategy
               </span>
               <span className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-bold px-3.5 py-2 rounded-xl">
-                ✓ DTC E-Commerce
+                Execution
               </span>
               <span className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-bold px-3.5 py-2 rounded-xl">
-                ✓ Enterprise Tech
+                Optimization
+              </span>
+              <span className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-bold px-3.5 py-2 rounded-xl">
+                Growth
               </span>
             </div>
 
@@ -124,7 +113,7 @@ export default function IndustryGrowthMarquee({ onContactClick }) {
                 onClick={onContactClick}
                 className="group relative inline-flex items-center gap-3 bg-brand-red hover:bg-brand-red-dark text-white text-xs font-extrabold px-8 py-4 rounded-2xl shadow-xl shadow-brand-red/20 transition-all hover:scale-105"
               >
-                <span>Scale Your Industry Brand</span>
+                <span>Start Your Growth Journey</span>
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>

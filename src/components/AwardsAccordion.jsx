@@ -2,36 +2,42 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Award, Star, Compass } from 'lucide-react';
 
-const awardsList = [
+const expertiseList = [
   {
-    year: '2025',
-    title: 'Inc. 5000 List',
-    category: 'Fastest Growing Agency',
-    desc: 'Recognized as one of America\'s fastest-growing private creative marketing agencies by Inc. Magazine.'
+    year: '01',
+    title: 'SEO & Organic Growth',
+    category: 'Search Optimization',
+    desc: 'Technical SEO, Local SEO, Content & Search Optimization'
   },
   {
-    year: '2024',
-    title: 'Anthem Awards',
-    category: 'Gold - Best Web Portal',
-    desc: 'Awarded Gold in the Web Design category for outstanding digital experience on the NYCFC Etihad Park project.'
+    year: '02',
+    title: 'Performance Marketing',
+    category: 'Campaign Optimization',
+    desc: 'Google Ads, PPC, Lead Generation & Campaign Optimization'
   },
   {
-    year: '2024',
-    title: 'Pentawards Gold',
-    category: 'Luxury Packaging Design',
-    desc: 'Received Gold for our minimalist packaging and typography work on the Antidote Candle luxury package series.'
+    year: '03',
+    title: 'Social Media Marketing',
+    category: 'Audience Engagement',
+    desc: 'Strategy, Content, Creative & Audience Engagement'
   },
   {
-    year: '2023',
-    title: 'Dieline Awards',
-    category: 'Best in Brand Identity',
-    desc: 'Honored for our comprehensive branding system and logotype creations for emerging consumer retail products.'
+    year: '04',
+    title: 'Web Development',
+    category: 'Conversion-Focused',
+    desc: 'Responsive, User-Friendly & Conversion-Focused Websites'
   },
   {
-    year: '2023',
-    title: 'Clutch Top 40',
-    category: 'Best NYC Design Agency',
-    desc: 'Ranked in the top 40 design agencies in New York City based on client net promoter scores and verified reviews.'
+    year: '05',
+    title: 'Creative & Branding',
+    category: 'Brand Communication',
+    desc: 'Graphic Design, Social Creatives & Brand Communication'
+  },
+  {
+    year: '06',
+    title: 'AI & Marketing Technology',
+    category: 'Smarter Workflows',
+    desc: 'AI Tools, Automation & Smarter Marketing Workflows'
   }
 ];
 
@@ -48,43 +54,35 @@ export default function AwardsAccordion() {
           <div className="lg:col-span-4 space-y-8 lg:sticky lg:top-28">
             <div className="space-y-4">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red select-none">
-                Accolades
+                OUR EXPERTISE
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-black leading-tight">
-                Recognized for design <br />
-                excellence.
+                Built on Experience. <br />
+                Driven by Results.
               </h2>
             </div>
             
             <p className="text-sm text-black/60 leading-relaxed font-normal">
-              We focus on delivering high-end experiences that get noticed. Our projects are regularly cataloged in top creative magazines and industry design circles.
+              Our digital marketing experts bring together expertise across SEO, PPC, Meta Ads, social media marketing, web development, content marketing, graphic designing, analytics, and AI-powered marketing technologies.
             </p>
 
             {/* Badges row */}
-            <div className="flex flex-wrap gap-4 pt-4 border-t border-brand-border/60">
-              
-              <div className="rounded-xl border border-brand-border bg-brand-gray px-4 py-3 flex items-center gap-3">
-                <Award className="h-6 w-6 text-brand-red" />
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-black/40">MWBE Certified</span>
-                  <span className="text-xs font-bold text-black">New York State</span>
-                </div>
-              </div>
-
-              <div className="rounded-xl border border-brand-border bg-brand-gray px-4 py-3 flex items-center gap-3">
-                <Compass className="h-6 w-6 text-brand-red" />
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-black/40">Clutch Verified</span>
-                  <span className="text-xs font-bold text-black">Top 40 Design Agency</span>
-                </div>
-              </div>
-
+            <div className="flex flex-wrap gap-2 pt-4 border-t border-brand-border/60">
+              <span className="rounded-full border border-brand-border bg-brand-gray px-3 py-1.5 text-[10px] font-bold tracking-wider text-black/70">
+                DATA-DRIVEN STRATEGIES
+              </span>
+              <span className="rounded-full border border-brand-border bg-brand-gray px-3 py-1.5 text-[10px] font-bold tracking-wider text-black/70">
+                RESULTS-FOCUSED MARKETING
+              </span>
+              <span className="rounded-full border border-brand-border bg-brand-gray px-3 py-1.5 text-[10px] font-bold tracking-wider text-black/70">
+                CONTINUOUS OPTIMIZATION
+              </span>
             </div>
           </div>
 
           {/* Right Column: Interactive Awards Accordion */}
           <div className="lg:col-span-8 border-t border-brand-border/60">
-            {awardsList.map((award, index) => {
+            {expertiseList.map((award, index) => {
               const isOpen = openIndex === index;
 
               return (

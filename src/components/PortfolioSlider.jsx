@@ -129,15 +129,20 @@ export default function PortfolioSlider({ onNavigate }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-4 max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red select-none block">
-              OUR DIGITAL MARKETING SERVICES
+              OUR WORK
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-black leading-tight">
-              Digital Solutions That <br />
-              Drive Real Business Growth.
+              See Digital Marketing <br />
+              In Action.
             </h2>
-            <p className="text-sm sm:text-base text-black/70 leading-relaxed font-normal">
-              We combine strategy, creativity, and technology to deliver data-driven digital marketing services that help businesses attract the right audience, generate qualified leads, and achieve measurable growth.
-            </p>
+            <div className="space-y-4">
+              <p className="text-sm sm:text-base text-black/70 leading-relaxed font-normal">
+                Take a closer look at how we combine strategy, creativity, technology, and data-driven digital marketing to build stronger digital experiences and measurable results for businesses.
+              </p>
+              <p className="text-xs text-black/60 font-semibold tracking-wide">
+                Explore selected SEO, performance marketing, Meta Ads, social media, website development, and digital marketing projects by Xi Pi Technologia.
+              </p>
+            </div>
           </div>
 
           {/* Slider controls */}
@@ -252,7 +257,7 @@ export default function PortfolioSlider({ onNavigate }) {
             }}
             className="group flex items-center justify-center gap-2.5 rounded-full bg-black px-8 py-4 text-xs font-bold uppercase tracking-wider text-white hover:bg-brand-red transition-all duration-300 active:scale-95 shadow-md cursor-pointer"
           >
-            <span>Explore All Digital Services</span>
+            <span>Watch Our Work</span>
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
           </button>
         </div>

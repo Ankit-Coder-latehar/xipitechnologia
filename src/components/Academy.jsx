@@ -5,8 +5,9 @@ import {
   Clock, ArrowRight, Sparkles, ChevronRight, Play, Search,
   Download, Briefcase, Zap, ShieldCheck, Check, X, Calendar,
   TrendingUp, Code, Megaphone, Target, BarChart2, Globe, FileText,
-  PhoneCall, MessageSquare, Layers, Laptop
+  PhoneCall, MessageSquare, Layers, Laptop, CreditCard
 } from 'lucide-react';
+import PaymentModal from './PaymentModal';
 
 const statsData = [
   { value: '12,500+', label: 'Successful Graduates', detail: 'Working in top tech agencies & startups worldwide' },
@@ -36,9 +37,12 @@ const coursesData = [
     mode: 'Live Cohort + 1-on-1 Labs',
     color: 'from-blue-600 to-indigo-700',
     accent: '#3B82F6',
+    price: 29999,
+    originalPrice: '₹49,999',
+    emi: '₹2,500/mo',
     shortDesc: 'Master modern full-stack web engineering with React 19, Next.js 15, Node.js, TypeScript, Tailwind CSS, REST & GraphQL APIs, MongoDB, and AWS cloud deployment.',
     description: 'Transform into a job-ready full-stack developer capable of architecting scalable, high-performance web applications from scratch. Build 6 enterprise-grade live client projects with direct code reviews from senior agency leads.',
-    salaryRange: '$65,000 - $120,000 / year',
+    salaryRange: '₹6 - 15 LPA',
     tools: ['React.js', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS', 'MongoDB', 'PostgreSQL', 'Docker', 'Git & GitHub', 'Vercel'],
     skills: ['Frontend Engineering', 'Backend API Architecture', 'Database Management', 'State Management', 'Authentication', 'Performance Tuning'],
     curriculum: [
@@ -66,9 +70,12 @@ const coursesData = [
     mode: 'Live Mentorship + Agency Internships',
     color: 'from-rose-600 to-pink-600',
     accent: '#E32626',
+    price: 24999,
+    originalPrice: '₹39,999',
+    emi: '₹2,083/mo',
     shortDesc: 'A comprehensive growth program covering brand strategy, content marketing, email automation, performance analytics, funnel conversion optimization, and social growth.',
     description: 'Become a holistic growth marketer who can craft high-converting marketing campaigns across channels. Learn to construct end-to-end sales funnels, design multi-step email automations, analyze campaign data, and drive brand revenue.',
-    salaryRange: '$55,000 - $95,000 / year',
+    salaryRange: '₹5 - 12 LPA',
     tools: ['Google Analytics 4', 'HubSpot', 'Mailchimp', 'Klaviyo', 'Canva Pro', 'Zapier', 'Hotjar', 'Figma', 'Buffer'],
     skills: ['Sales Funnel Architecture', 'Copywriting & Content Strategy', 'Marketing Automation', 'Customer Acquisition', 'Retention & LTV Strategy'],
     curriculum: [
@@ -96,9 +103,12 @@ const coursesData = [
     mode: 'Live Case-Study Based',
     color: 'from-emerald-600 to-teal-700',
     accent: '#10B981',
+    price: 14999,
+    originalPrice: '₹24,999',
+    emi: '₹1,250/mo',
     shortDesc: 'Master On-Page, Technical SEO, Programmatic SEO, High-Authority Backlink Strategies, Keyword Intelligence, and AI-Driven Content Optimization.',
     description: 'Rank websites on page 1 of Google systematically. Gain deep expertise in technical crawl audits, schema markup, mobile speed optimization, programmatic SEO templates, and ethical high-DA link acquisition methods used by elite agencies.',
-    salaryRange: '$50,000 - $90,000 / year',
+    salaryRange: '₹4.5 - 10 LPA',
     tools: ['Ahrefs', 'SEMrush', 'Screaming Frog', 'Google Search Console', 'Surfer SEO', 'Yoast/RankMath', 'Google Tag Manager', 'PageSpeed Insights'],
     skills: ['Technical SEO Auditing', 'Keyword Mapping & Intent Analysis', 'Programmatic SEO Scaling', 'Authority Backlink Building', 'Local & Global Rank Tracking'],
     curriculum: [
@@ -122,19 +132,22 @@ const coursesData = [
     reviews: '1,680+',
     duration: '10 Weeks',
     level: 'All Levels',
-    mode: 'Real Budget Campaigns ($10k+ Spent)',
+    mode: 'Real Budget Campaigns (₹8 Lakhs+ Spent)',
     color: 'from-amber-600 to-orange-600',
     accent: '#F59E0B',
+    price: 19999,
+    originalPrice: '₹32,999',
+    emi: '₹1,666/mo',
     shortDesc: 'Learn to run, optimize, and scale profitable Meta Ads (Facebook & Instagram) and Google Ads (Search, Display, Shopping & YouTube) with high ROAS.',
     description: 'Master paid media advertising with real spend budgets provided during the course. Learn pixel tracking, CAPI setup, high-converting ad copy synthesis, audience segmentation, bidding strategies, and ROAS scaling frameworks.',
-    salaryRange: '$60,000 - $115,000 / year',
+    salaryRange: '₹5.5 - 14 LPA',
     tools: ['Meta Ads Manager', 'Google Ads Studio', 'Meta Pixel & CAPI', 'Triple Whale', 'Looker Studio', 'Canva Ad Creator', 'Google Tag Manager'],
     skills: ['Meta Pixel & Conversion API', 'Google Search & PMax Ads', 'Retargeting Funnels', 'Creative Strategy & Hooks', 'ROAS Optimization & Scaling'],
     curriculum: [
       { week: 'Weeks 1-2', title: 'Paid Media Fundamentals & Conversion Tracking', desc: 'Meta Business Manager setup, Meta Pixel installation, Conversions API (CAPI), GTM tracking' },
       { week: 'Weeks 3-5', title: 'Meta Ads Mastery (Facebook & Instagram)', desc: 'Ad formats, cold audience targeting, lookalike audiences, retargeting funnels, creative testing' },
       { week: 'Weeks 6-8', title: 'Google Ads Mastery (Search, PMax & Shopping)', desc: 'Keyword match types, Quality Score optimization, Performance Max campaigns, Shopping feeds' },
-      { week: 'Weeks 9-10', title: 'Budget Scaling, ROAS Analytics & Client Reporting', desc: 'Scaling winning ads to $1k+/day, Looker Studio dashboards, client reporting & pitch deck' }
+      { week: 'Weeks 9-10', title: 'Budget Scaling, ROAS Analytics & Client Reporting', desc: 'Scaling winning ads to ₹50,000+/day, Looker Studio dashboards, client reporting & pitch deck' }
     ],
     projects: [
       'Scaling an E-Commerce Brand to 4.2x ROAS with Meta & Google Ads',
@@ -225,6 +238,8 @@ export default function Academy({ onContactClick }) {
   const [enrollCourseTitle, setEnrollCourseTitle] = useState('');
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [enrollFormSubmitted, setEnrollFormSubmitted] = useState(false);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [paymentCourseData, setPaymentCourseData] = useState({ title: '', amount: 24999 });
 
   const [formData, setFormData] = useState({
     name: '',
@@ -243,7 +258,16 @@ export default function Academy({ onContactClick }) {
     return matchesCategory && matchesSearch;
   });
 
-  const handleOpenEnroll = (courseTitle) => {
+  const handleOpenEnroll = (courseTitle, amount = 24999) => {
+    setPaymentCourseData({
+      title: courseTitle || 'Academy Professional Program',
+      amount: amount
+    });
+    setIsEnrollModalOpen(false);
+    setIsPaymentModalOpen(true);
+  };
+
+  const handleOpenCounseling = (courseTitle) => {
     setEnrollCourseTitle(courseTitle || 'General Counseling');
     setFormData(prev => ({ ...prev, course: courseTitle || coursesData[0].title }));
     setEnrollFormSubmitted(false);
@@ -270,8 +294,8 @@ export default function Academy({ onContactClick }) {
         </span>
         <span>ADMISSIONS OPEN FOR NEXT COHORT • UP TO 30% EARLY BIRD SCHOLARSHIP</span>
         <button 
-          onClick={() => handleOpenEnroll('Scholarship Counseling')} 
-          className="ml-2 underline font-bold hover:text-black transition-colors"
+          onClick={() => handleOpenCounseling('Scholarship Counseling')} 
+          className="ml-2 underline font-bold hover:text-black transition-colors cursor-pointer"
         >
           Claim Now &rarr;
         </button>
@@ -334,8 +358,8 @@ export default function Academy({ onContactClick }) {
               Explore All Programs
             </a>
             <button
-              onClick={() => handleOpenEnroll('Free Career Counseling')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-base transition-all duration-300"
+              onClick={() => handleOpenCounseling('Free Career Counseling')}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 cursor-pointer"
             >
               <PhoneCall className="h-5 w-5 text-brand-red" />
               Book Free Career Counseling
@@ -492,23 +516,40 @@ export default function Academy({ onContactClick }) {
                 </div>
 
                 {/* Card Action Footer */}
-                <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div>
-                    <span className="text-[11px] font-medium text-white/40 uppercase tracking-wider block">Average Graduate Salary</span>
-                    <span className="text-sm font-bold text-white">{course.salaryRange}</span>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-2xl font-black text-white font-mono tracking-tight">
+                        ₹{course.price?.toLocaleString('en-IN')}
+                      </span>
+                      {course.originalPrice && (
+                        <span className="text-xs text-white/40 line-through">
+                          {course.originalPrice}
+                        </span>
+                      )}
+                      <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                        Special Offer
+                      </span>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 mt-1 text-[11px] text-white/50">
+                      <span>Salary: <strong className="text-white font-semibold">{course.salaryRange}</strong></span>
+                      <span>•</span>
+                      <span>EMI from <strong className="text-white/80">{course.emi}</strong></span>
+                    </div>
                   </div>
 
                   <div className="flex items-center gap-3 w-full sm:w-auto">
                     <button
                       onClick={() => setSelectedCourse(course)}
-                      className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold text-white border border-white/15 transition-colors"
+                      className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold text-white border border-white/15 transition-colors cursor-pointer"
                     >
                       View Syllabus
                     </button>
                     <button
-                      onClick={() => handleOpenEnroll(course.title)}
-                      className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-brand-red hover:bg-brand-red-dark text-xs font-bold text-white shadow-lg shadow-brand-red/30 transition-all flex items-center justify-center gap-1.5"
+                      onClick={() => handleOpenEnroll(course.title, course.price)}
+                      className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-brand-red hover:bg-brand-red-dark text-xs font-bold text-white shadow-lg shadow-brand-red/30 transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
                     >
+                      <CreditCard className="h-3.5 w-3.5" />
                       <span>Enroll Now</span>
                       <ArrowRight className="h-3.5 w-3.5" />
                     </button>
@@ -685,10 +726,10 @@ export default function Academy({ onContactClick }) {
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              onClick={() => handleOpenEnroll('Academy Fast-Track Enrollment')}
-              className="w-full sm:w-auto bg-black hover:bg-black/80 text-white font-bold px-8 py-4 rounded-xl text-base transition-all shadow-xl"
+              onClick={() => handleOpenEnroll('Academy Fast-Track Enrollment', 24999)}
+              className="w-full sm:w-auto bg-black hover:bg-black/80 text-white font-bold px-8 py-4 rounded-xl text-base transition-all shadow-xl cursor-pointer"
             >
-              Apply for Upcoming Batch &rarr;
+              Enroll via Razorpay (From ₹14,999) &rarr;
             </button>
             <button
               onClick={onContactClick}
@@ -729,7 +770,11 @@ export default function Academy({ onContactClick }) {
               </p>
 
               {/* Course Meta Info Bar */}
-              <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-white/5 border border-white/10 text-xs">
+              <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl bg-white/5 border border-white/10 text-xs">
+                <div>
+                  <span className="text-white/40 block">Course Fee</span>
+                  <span className="font-extrabold text-white text-sm font-mono">₹{selectedCourse.price?.toLocaleString('en-IN')}</span>
+                </div>
                 <div>
                   <span className="text-white/40 block">Duration</span>
                   <span className="font-bold text-white">{selectedCourse.duration}</span>
@@ -738,7 +783,7 @@ export default function Academy({ onContactClick }) {
                   <span className="text-white/40 block">Learning Mode</span>
                   <span className="font-bold text-white">{selectedCourse.mode}</span>
                 </div>
-                <div className="col-span-2 sm:col-span-1">
+                <div>
                   <span className="text-white/40 block">Target Salary</span>
                   <span className="font-bold text-emerald-400">{selectedCourse.salaryRange}</span>
                 </div>
@@ -784,12 +829,14 @@ export default function Academy({ onContactClick }) {
                 <button
                   onClick={() => {
                     const title = selectedCourse.title;
+                    const price = selectedCourse.price || 24999;
                     setSelectedCourse(null);
-                    handleOpenEnroll(title);
+                    handleOpenEnroll(title, price);
                   }}
-                  className="flex-1 bg-brand-red hover:bg-brand-red-dark text-white font-bold py-3 rounded-xl text-sm transition-colors text-center"
+                  className="flex-1 bg-brand-red hover:bg-brand-red-dark text-white font-bold py-3 rounded-xl text-sm transition-colors text-center cursor-pointer flex items-center justify-center gap-2"
                 >
-                  Apply for this Course
+                  <CreditCard className="w-4 h-4" />
+                  <span>Enroll Now (₹{selectedCourse.price?.toLocaleString('en-IN')}) via Razorpay &rarr;</span>
                 </button>
                 <button
                   onClick={() => setSelectedCourse(null)}
@@ -906,12 +953,32 @@ export default function Academy({ onContactClick }) {
                       </div>
                     </div>
 
-                    <button
-                      type="submit"
-                      className="w-full bg-brand-red hover:bg-brand-red-dark text-white font-bold py-4 rounded-xl text-sm transition-all shadow-lg shadow-brand-red/30 mt-6"
-                    >
-                      Submit Application & Request Syllabus &rarr;
-                    </button>
+                    <div className="space-y-3 mt-6">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const courseMatch = coursesData.find(c => c.title === enrollCourseTitle);
+                          const finalAmount = courseMatch ? courseMatch.price : 24999;
+                          setIsEnrollModalOpen(false);
+                          setPaymentCourseData({
+                            title: enrollCourseTitle || 'Academy Course Tuition',
+                            amount: finalAmount
+                          });
+                          setIsPaymentModalOpen(true);
+                        }}
+                        className="w-full bg-brand-red hover:bg-brand-red-dark text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-lg shadow-brand-red/30 flex items-center justify-center gap-2 cursor-pointer"
+                      >
+                        <CreditCard className="w-4 h-4" />
+                        <span>Pay & Enroll Online (₹{(coursesData.find(c => c.title === enrollCourseTitle)?.price || 24999).toLocaleString('en-IN')} Razorpay) &rarr;</span>
+                      </button>
+
+                      <button
+                        type="submit"
+                        className="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-3.5 rounded-xl text-sm transition-all cursor-pointer"
+                      >
+                        Submit Free Application & Request Syllabus
+                      </button>
+                    </div>
                   </form>
                 </>
               )}
@@ -919,6 +986,15 @@ export default function Academy({ onContactClick }) {
           </div>
         )}
       </AnimatePresence>
+
+      {/* Razorpay Online Payment Checkout */}
+      <PaymentModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+        initialItem={paymentCourseData.title}
+        initialAmount={paymentCourseData.amount}
+        category="Academy Enrollment"
+      />
 
     </div>
   );
